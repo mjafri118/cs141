@@ -1,5 +1,5 @@
 ISim log file
-Running: Z:\cs141\labs\lab1_start\testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/cs141/labs/lab1_start/testbench_isim_beh.wdb 
+Running: Z:\shared_folder\cs141\pa1\lab1_start\testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_folder/cs141/pa1/lab1_start/testbench_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,4 +11,155 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-Stopped at time : 40 ns : File "//vmware-host/Shared Folders/cs141/labs/lab1_start/testbench.v" Line 28
+switch=00000000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00000001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00000010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00000011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00000100, led=0000zz00
+switch=00000101, led=0000zz00
+switch=00000110, led=0000zz00
+switch=00000111, led=0000zz01
+switch=00001000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00001001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00001010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00001011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00001100, led=0000zz10
+switch=00001101, led=0000zz10
+switch=00001110, led=0000zz10
+switch=00001111, led=0000zz11
+switch=00010000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00010001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00010010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00010011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00010100, led=0000zz00
+switch=00010101, led=0000zz00
+switch=00010110, led=0000zz00
+switch=00010111, led=0000zz01
+switch=00011000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00011001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00011010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00011011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00011100, led=0000zz10
+switch=00011101, led=0000zz10
+switch=00011110, led=0000zz10
+switch=00011111, led=0000zz11
+switch=00100000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00100001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00100010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00100011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00100100, led=0000zz00
+switch=00100101, led=0000zz00
+switch=00100110, led=0000zz00
+switch=00100111, led=0000zz01
+switch=00101000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00101001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00101010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00101011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00101100, led=0000zz10
+switch=00101101, led=0000zz10
+switch=00101110, led=0000zz10
+switch=00101111, led=0000zz11
+switch=00110000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00110001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00110010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00110011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=00110100, led=0000zz00
+switch=00110101, led=0000zz00
+switch=00110110, led=0000zz00
+switch=00110111, led=0000zz01
+switch=00111000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00111001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00111010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00111011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=00111100, led=0000zz10
+switch=00111101, led=0000zz10
+switch=00111110, led=0000zz10
+switch=00111111, led=0000zz11
+switch=01000000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01000001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01000010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01000011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01000100, led=0000zz00
+switch=01000101, led=0000zz00
+switch=01000110, led=0000zz00
+switch=01000111, led=0000zz01
+switch=01001000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=01001001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=01001010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=01001011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=01001100, led=0000zz10
+switch=01001101, led=0000zz10
+switch=01001110, led=0000zz10
+switch=01001111, led=0000zz11
+switch=01010000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01010001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01010010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01010011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01010100, led=0000zz00
+switch=01010101, led=0000zz00
+switch=01010110, led=0000zz00
+switch=01010111, led=0000zz01
+switch=01011000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=01011001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=01011010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=01011011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=1, led[1]=1
+switch=01011100, led=0000zz10
+switch=01011101, led=0000zz10
+switch=01011110, led=0000zz10
+switch=01011111, led=0000zz11
+switch=01100000, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01100001, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01100010, led=0000zz10
+ERROR: switch[2]=0, switch[3]=0, led[1]=1
+switch=01100011, led=0000zz11
+ERROR: switch[2]=0, switch[3]=0, led[1]=1

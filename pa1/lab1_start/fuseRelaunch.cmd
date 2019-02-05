@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "Z:/cs141/labs/lab1_start/testbench_isim_beh.exe" -prj "Z:/cs141/labs/lab1_start/testbench_beh.prj" "work.testbench" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "Z:/shared_folder/cs141/pa1/lab1_start/testbench_isim_beh.exe" -prj "Z:/shared_folder/cs141/pa1/lab1_start/testbench_beh.prj" "work.testbench" "work.glbl" 
