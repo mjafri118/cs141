@@ -5,11 +5,19 @@ module main(switch, led);
 	// declare inputs and outputs
 	input wire [7:0] switch;
 	output wire [7:0] led;
-
+	
 	assign led[7:4] = 4'b0000;
 
 	// problem 1
 	assign led[0] = switch[0] & switch[1];
+	
+	// problem 2 - implication
+	assign led[1] = (~switch[2]) | (switch[2] & switch[3]);
+	
+	
+	
+	//problem 4 - internal doings
+	assign led[3] = switch[4] ? led[0] : led[1];
 
 endmodule
 
