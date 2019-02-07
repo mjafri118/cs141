@@ -12,9 +12,10 @@ module main(switch, led);
 	assign led[0] = switch[0] & switch[1];
 	
 	// problem 2 - implication
-	assign led[1] = (~switch[2]) | (switch[2] & switch[3]);
+	assign led[1] = (~switch[2]) | (switch[3]);
 	
-	
+	// problem 3 - even and odds
+	assign led[2] = ~^ switch[7:0];
 	
 	//problem 4 - internal doings
 	assign led[3] = switch[4] ? led[0] : led[1];

@@ -31,6 +31,12 @@ module testbench();
 				error = error + 1;
 			end
 			
+			// Test for part 3
+			if (((switch[0] + switch[1] + switch[2] + switch[3] + switch[4] + switch[5] + switch[6] +switch[7])%2) == led[2]) begin
+				$display("ERROR: Sum is %d, but led is %b", switch[0] + switch[1] + switch[2] + switch[3] + switch[4] + switch[5] + switch[6] +switch[7], led[2]);
+				error = error + 1;
+			end
+			
 			//Test for part 4
 			if(switch[4] && (led[3] != led[0])) begin
 				$display("ERROR: switch[4]=%b, led[3]=%b, led[0]=%b", switch[4], led[3], led[0]);
