@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-02-06T21:01:51</DateModified>
+  <DateModified>2019-02-06T23:47:26</DateModified>
   <ModuleName>main</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>Z:/shared_with_vm/141git/cs141/pa1/lab1_start/iseconfig/main.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>Z:/shared_with_vm/141git/cs141/pa1/lab1_start\</ImplementationReportsDirectory>
+  <SavedFilePath>Z:/shared_folder/cs141/pa1/lab1_start/iseconfig/main.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>Z:/shared_folder/cs141/pa1/lab1_start\</ImplementationReportsDirectory>
   <DateInitialized>2019-02-04T15:46:40</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

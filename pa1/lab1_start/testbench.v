@@ -38,15 +38,15 @@ module testbench();
 			end
 			
 			//Test for part 4
-			if(switch[4] && (led[3] != led[0])) begin
-				$display("ERROR: switch[4]=%b, led[3]=%b, led[0]=%b", switch[4], led[3], led[0]);
+			if(switch[4] ? (led[3] != led[0]) : (led[3] != led[1])) begin
+				$display("ERROR: switch[4]=%b, led[3]=%b, led[0]=%b, led[1]=%b", switch[4], led[3], led[0], led[1]);
 				error = error + 1;
 			end
 			
-			if(!switch[4] && (led[3] != led[1])) begin
-				$display("ERROR: switch[4]=%b, led[3]=%b, led[1]=%b", switch[4], led[3], led[1]);
-				error = error + 1;
-			end
+//			if(!switch[4] && (led[3] != led[1])) begin
+//				$display("ERROR: switch[4]=%b, led[3]=%b, led[1]=%b", switch[4], led[3], led[1]);
+//				error = error + 1;
+//			end
 			
 			
 		end
