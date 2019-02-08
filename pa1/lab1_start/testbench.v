@@ -9,8 +9,6 @@ module testbench();
 
 	// instantiate unit under test (uut)
 	main uut (switch, led);
-//	main2 uut2 (switch, led);
-
 	integer error = 0;
 
 	initial begin
@@ -41,14 +39,7 @@ module testbench();
 			if(switch[4] ? (led[3] != led[0]) : (led[3] != led[1])) begin
 				$display("ERROR: switch[4]=%b, led[3]=%b, led[0]=%b, led[1]=%b", switch[4], led[3], led[0], led[1]);
 				error = error + 1;
-			end
-			
-//			if(!switch[4] && (led[3] != led[1])) begin
-//				$display("ERROR: switch[4]=%b, led[3]=%b, led[1]=%b", switch[4], led[3], led[1]);
-//				error = error + 1;
-//			end
-			
-			
+			end			
 		end
 		#10
 		$display("Finished with %d errors", error);

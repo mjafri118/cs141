@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps  //sets the timescale (for simulation)
 `default_nettype none //overrides default behaviour: errors when a net type is not declired
 
+// The only module here, where we implement 1 through 4 problems. 
 module main(switch, led);
 	// declare inputs and outputs
 	input wire [7:0] switch;

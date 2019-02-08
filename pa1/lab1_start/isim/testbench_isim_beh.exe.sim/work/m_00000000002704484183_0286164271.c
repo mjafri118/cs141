@@ -21,12 +21,12 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "//vmware-host/Shared Folders/shared_folder/cs141/pa1/lab1_start/main.v";
+static const char *ng0 = "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa1/lab1_start/main.v";
 static unsigned int ng1[] = {0U, 0U};
 
 
 
-static void Cont_9_0(char *t0)
+static void Cont_10_0(char *t0)
 {
     char *t1;
     char *t2;
@@ -51,7 +51,7 @@ LAB0:    t1 = (t0 + 1352U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(9, ng0);
+LAB2:    xsi_set_current_line(10, ng0);
     t2 = ((char*)((ng1)));
     t3 = (t0 + 2192);
     t4 = (t3 + 32U);
@@ -76,7 +76,7 @@ LAB2:    xsi_set_current_line(9, ng0);
 LAB1:    return;
 }
 
-static void Cont_12_1(char *t0)
+static void Cont_13_1(char *t0)
 {
     char t4[8];
     char t14[8];
@@ -153,7 +153,7 @@ LAB0:    t1 = (t0 + 1496U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(12, ng0);
+LAB2:    xsi_set_current_line(13, ng0);
     t2 = (t0 + 600U);
     t3 = *((char **)t2);
     memset(t4, 0, 8);
@@ -249,7 +249,7 @@ LAB4:    t34 = *((unsigned int *)t22);
 
 }
 
-static void Cont_15_2(char *t0)
+static void Cont_16_2(char *t0)
 {
     char t3[8];
     char t5[8];
@@ -340,7 +340,7 @@ LAB0:    t1 = (t0 + 1640U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(15, ng0);
+LAB2:    xsi_set_current_line(16, ng0);
     t2 = (t0 + 600U);
     t4 = *((char **)t2);
     memset(t5, 0, 8);
@@ -471,7 +471,7 @@ LAB10:    t52 = *((unsigned int *)t40);
 
 }
 
-static void Cont_18_3(char *t0)
+static void Cont_19_3(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -516,7 +516,7 @@ LAB0:    t1 = (t0 + 1784U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(18, ng0);
+LAB2:    xsi_set_current_line(19, ng0);
     t2 = (t0 + 600U);
     t5 = *((char **)t2);
     memset(t4, 0, 8);
@@ -594,7 +594,7 @@ LAB11:    t14 = 0;
 
 }
 
-static void Cont_21_4(char *t0)
+static void Cont_22_4(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -666,7 +666,7 @@ LAB0:    t1 = (t0 + 1928U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(21, ng0);
+LAB2:    xsi_set_current_line(22, ng0);
     t2 = (t0 + 600U);
     t5 = *((char **)t2);
     memset(t6, 0, 8);
@@ -787,7 +787,7 @@ LAB14:    memcpy(t3, t27, 8);
 
 extern void work_m_00000000002704484183_0286164271_init()
 {
-	static char *pe[] = {(void *)Cont_9_0,(void *)Cont_12_1,(void *)Cont_15_2,(void *)Cont_18_3,(void *)Cont_21_4};
+	static char *pe[] = {(void *)Cont_10_0,(void *)Cont_13_1,(void *)Cont_16_2,(void *)Cont_19_3,(void *)Cont_22_4};
 	xsi_register_didat("work_m_00000000002704484183_0286164271", "isim/testbench_isim_beh.exe.sim/work/m_00000000002704484183_0286164271.didat");
 	xsi_register_executes(pe);
 }
