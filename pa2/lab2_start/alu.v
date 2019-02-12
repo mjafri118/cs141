@@ -25,6 +25,8 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 		//functional blocks
 	
    //YOUR CODE HERE - remember to use a separate file for each module you create
+	//going to have to program a gate level ckt of a mux - see the book for tristates or AND stuffs
+	//Could also be much shorter - very much need to check w TAs
 
 
 endmodule
