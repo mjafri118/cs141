@@ -5,14 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"Z:/cs141/labs/lab2_start/test_alu.v" Line 47: Syntax error near &quot;<arg fmt="%s" index="1">$finish</arg>&quot;.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"Z:/cs141/labs/lab2_start/test_alu.v" Line 59: &lt;<arg fmt="%s" index="1">error</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="598" delta="unknown" >"Z:/cs141/labs/lab2_start/test_alu.v" Line 11: Module &lt;<arg fmt="%s" index="1">test_alu</arg>&gt; ignored due to previous errors.
-</msg>
-
 </messages>
 

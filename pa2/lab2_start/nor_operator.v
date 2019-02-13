@@ -9,7 +9,7 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module nor_operator();
+module nor_operator(X,Y,Z);
 
 	//port definitions - customize for different bit widths
 	input  wire [31:0] X;

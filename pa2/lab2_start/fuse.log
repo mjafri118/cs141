@@ -1,11 +1,26 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/cs141/labs/lab2_start/test_alu_isim_beh.exe -prj Z:/cs141/labs/lab2_start/test_alu_beh.prj work.test_alu work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_folder/cs141/pa2/lab2_start/test_mux_16to1_isim_beh.exe -prj Z:/shared_folder/cs141/pa2/lab2_start/test_mux_16to1_beh.prj work.test_mux_16to1 work.glbl 
 ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
 Determining compilation order of HDL files
-Analyzing Verilog file "Z:/cs141/labs/lab2_start/alu.v" into library work
-Analyzing Verilog file "Z:/cs141/labs/lab2_start/test_alu.v" into library work
-ERROR:HDLCompiler:806 - "Z:/cs141/labs/lab2_start/test_alu.v" Line 47: Syntax error near "$finish".
-ERROR:HDLCompiler:69 - "Z:/cs141/labs/lab2_start/test_alu.v" Line 59: <error> is not declared.
-ERROR:HDLCompiler:598 - "Z:/cs141/labs/lab2_start/test_alu.v" Line 11: Module <test_alu> ignored due to previous errors.
-Verilog file Z:/cs141/labs/lab2_start/test_alu.v ignored due to errors
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/mux_2to1.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/mux_4to1.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/mux_8to1.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/mux_16to1.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/test_mux_16to1.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 102836 KB
+Fuse CPU Usage: 311 ms
+Compiling module mux_2to1
+Compiling module mux_4to1
+Compiling module mux_8to1
+Compiling module mux_16to1
+Compiling module test_mux_16to1
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 6 Verilog Units
+Built simulation executable Z:/shared_folder/cs141/pa2/lab2_start/test_mux_16to1_isim_beh.exe
+Fuse Memory Usage: 106404 KB
+Fuse CPU Usage: 467 ms

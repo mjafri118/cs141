@@ -3,21 +3,23 @@
 //////////////////////////////////////////////////////////////////////////////////
 // 
 // CS 141 - Fall 2015
-// Module Name:    xor_operator 
+// Module Name:    mux_2to1 
 // Author(s): VQ and MJ
-// Description: XOR submodule for ALU
+// Description: 2 to 1 mux
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module xor_operator(X,Y,Z);
+module mux_2to1(X,Y,S,Z);
+
+	//parameter definitions
+	parameter BUSSIZE = 32;	//define size of input or output buses
 
 	//port definitions - customize for different bit widths
-	input  wire [31:0] X;
-	input  wire [31:0] Y;
-	output wire [31:0] Z;
-
-	assign Z = X ^ Y;
-
+	input wire [BUSSIZE-1:0] X, Y;
+	input wire S;
+	output wire [BUSSIZE-1:0] Z;
+	
+	assign Z = S ? Y : X;
 
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire
