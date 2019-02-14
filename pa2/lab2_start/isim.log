@@ -1,5 +1,5 @@
 ISim log file
-Running: Z:\shared_folder\cs141\pa2\lab2_start\test_mux_16to1_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_folder/cs141/pa2/lab2_start/test_mux_16to1_isim_beh.wdb 
+Running: Z:\shared_with_vm\141git\cs141\pa2\lab2_start\test_mux_16to1_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_mux_16to1_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.

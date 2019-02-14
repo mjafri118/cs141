@@ -21,9 +21,9 @@ module mux_8to1(A,B,C,D,E,F,G,H,S,Z);
 	
 	wire [BUSSIZE-1:0]  W0, W1;
 	
-	mux_4to1 MUX_01_0(.A(A), .B(B), .C(C), .D(D), .S(S[1:0]), .Z(W0));
-	mux_4to1 MUX_01_1(.A(E), .B(F), .C(G), .D(H), .S(S[1:0]), .Z(W1));
-	mux_2to1 MUX_2_0(.X(W0), .Y(W1), .S(S[2]), .Z(Z));
+	mux_4to1 #(.BUSSIZE(BUSSIZE)) MUX_01_0(.A(A), .B(B), .C(C), .D(D), .S(S[1:0]), .Z(W0));
+	mux_4to1 #(.BUSSIZE(BUSSIZE)) MUX_01_1(.A(E), .B(F), .C(G), .D(H), .S(S[1:0]), .Z(W1));
+	mux_2to1 #(.BUSSIZE(BUSSIZE)) MUX_2_0(.X(W0), .Y(W1), .S(S[2]), .Z(Z));
 
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire

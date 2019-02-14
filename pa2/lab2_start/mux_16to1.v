@@ -21,9 +21,9 @@ module mux_16to1(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P, S, Z);
 	
 	wire [BUSSIZE-1:0]  W0, W1;
 	
-	mux_8to1 MUX_012_0(.A(A), .B(B), .C(C), .D(D), .E(E), .F(F), .G(G), .H(H), .S(S[2:0]), .Z(W0));
-	mux_8to1 MUX_012_1(.A(I), .B(J), .C(K), .D(L), .E(M), .F(N), .G(O), .H(P), .S(S[2:0]), .Z(W1));
-	mux_2to1 MUX_3_0(.X(W0), .Y(W1), .S(S[3]), .Z(Z));
+	mux_8to1 #(.BUSSIZE(BUSSIZE)) MUX_012_0(.A(A), .B(B), .C(C), .D(D), .E(E), .F(F), .G(G), .H(H), .S(S[2:0]), .Z(W0));
+	mux_8to1 #(.BUSSIZE(BUSSIZE)) MUX_012_1(.A(I), .B(J), .C(K), .D(L), .E(M), .F(N), .G(O), .H(P), .S(S[2:0]), .Z(W1));
+	mux_2to1 #(.BUSSIZE(BUSSIZE)) MUX_3_0(.X(W0), .Y(W1), .S(S[3]), .Z(Z));
 
 
 endmodule

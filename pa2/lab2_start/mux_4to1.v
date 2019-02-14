@@ -21,9 +21,9 @@ module mux_4to1(A,B,C,D,S,Z);
 	
 	wire [BUSSIZE-1:0]  W0, W1;
 	
-	mux_2to1 MUX_0_0(.X(A), .Y(B), .S(S[0]), .Z(W0));
-	mux_2to1 MUX_0_1(.X(C), .Y(D), .S(S[0]), .Z(W1));
-	mux_2to1 MUX_1_0(.X(W0), .Y(W1), .S(S[1]), .Z(Z));
+	mux_2to1 #(.BUSSIZE(BUSSIZE)) MUX_0_0(.X(A), .Y(B), .S(S[0]), .Z(W0));
+	mux_2to1 #(.BUSSIZE(BUSSIZE)) MUX_0_1(.X(C), .Y(D), .S(S[0]), .Z(W1));
+	mux_2to1 #(.BUSSIZE(BUSSIZE)) MUX_1_0(.X(W0), .Y(W1), .S(S[1]), .Z(Z));
 
 
 endmodule
