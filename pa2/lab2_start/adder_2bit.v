@@ -5,7 +5,7 @@
 // CS 141 - Fall 2015
 // Module Name:    adder_2bit 
 // Author(s): 
-// Description: 
+// Description: Creates a 2-bit adder out of one bit adders.
 //
 //
 //////////////////////////////////////////////////////////////////////////////////

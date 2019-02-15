@@ -5,22 +5,26 @@
 // CS 141 - Fall 2015
 // Module Name:    adder_cascaded32 
 // Author(s): 
-// Description: 
+// Description: Adds 32 bits to each other. Cascades via carry ripple adder circuit.
+// A and B are 32 bits, S is sum, and Ov is overflow. 
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
 module adder_cascaded32(A, B, S, Ov);
 
-	//parameter definitions
+	// Definitions
 	input wire [31:0] A, B;
 	
 	output wire [31:0] S;
 	output wire Ov;
 	
+	// N bits added need N+1 Cout to Cin connections.
 	wire [32:0] CotoCin;
 	
+	// No carry in for the first adder.
 	assign CotoCin[0] = 0;
 	
+	// Connects each adder via the CotoCin wire. 
 	generate
 	    genvar i;
 		 for (i = 1; i < 33; i = i + 1 ) begin
@@ -35,6 +39,7 @@ module adder_cascaded32(A, B, S, Ov);
 	
 	endgenerate
 	
+	// XORing the last two Co's yield an overflow truth. 
 	assign Ov = CotoCin[32] ^ CotoCin[31] ;
 
 

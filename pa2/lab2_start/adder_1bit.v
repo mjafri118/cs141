@@ -5,7 +5,8 @@
 // CS 141 - Fall 2015
 // Module Name:    adder_1bit 
 // Author(s): 
-// Description: 
+// Description: Adds one bit to another, taking into account Carry in, Ci, and giving a 
+// carry out value, Co with sum S.
 //
 //
 //////////////////////////////////////////////////////////////////////////////////

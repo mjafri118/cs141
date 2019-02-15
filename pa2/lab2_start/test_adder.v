@@ -2,7 +2,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer:
+// Engineer: MJ / VQ
 //
 // Create Date:   22:46:54 02/12/2019
 // Design Name:   mux_16to1
@@ -10,7 +10,7 @@
 // Project Name:  lab2_alu
 // Target Device:  
 // Tool versions:  
-// Description: 
+// Description: Tests the addition of 1 bit to each other. 
 //
 // Verilog Test Fixture created by ISE for module: mux_16to1
 //
@@ -53,7 +53,7 @@ module test_adder();
 		
 		$display("0 + 1 is %b", S);
 		
-		
+		// Iterates over A's and B's 0-1 and checks overflow/Co error. 
 		for (B = 0; B!=1'b1; B= B + 1) begin
 			for (A = 0; A!=1'b1; A = A + 1'b1) begin
 				 #10; // wait for inputs to propagate
