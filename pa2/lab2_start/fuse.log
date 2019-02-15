@@ -19,8 +19,8 @@ Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/test_alu.v" into l
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 102900 KB
-Fuse CPU Usage: 530 ms
+Fuse Memory Usage: 102836 KB
+Fuse CPU Usage: 999 ms
 Compiling module and_operator
 Compiling module or_operator
 Compiling module xor_operator
@@ -37,5 +37,5 @@ Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 13 Verilog Units
 Built simulation executable Z:/shared_folder/cs141/pa2/lab2_start/test_alu_isim_beh.exe
-Fuse Memory Usage: 106468 KB
-Fuse CPU Usage: 905 ms
+Fuse Memory Usage: 106404 KB
+Fuse CPU Usage: 1593 ms

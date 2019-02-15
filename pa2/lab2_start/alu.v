@@ -25,17 +25,15 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 		//functional blocks
 	
    //YOUR CODE HERE - remember to use a separate file for each module you create
+	//Define operations
 	and_operator AND_op(.X(X), .Y(Y), .Z(and_out));
 	or_operator OR_op(.X(X), .Y(Y), .Z(or_out));
 	xor_operator XOR_op(.X(X), .Y(Y), .Z(xor_out));
 	nor_operator NOR_op(.X(X), .Y(Y), .Z(nor_out));
 	adder_cascaded32 ADD_op(.A(X), .B(Y), .S(add_out), .Ov(overflow));
 	
+	//Define Mux
 	mux_16to1 MUX_16(.A(and_out), .B(or_out), .C(xor_out), .D(nor_out), .E(0), .F(add_out), .G(0), .H(0), .I(0), .J(0), .K(0), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(Z));
-
-	//Specials
-	//assign equal = 
-	//assing zero = 
 
 
 endmodule

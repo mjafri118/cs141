@@ -25,7 +25,7 @@
 module test_adder_cascaded32();
 
 	// Inputs
-	reg [32:0] A, B; // 33rd bit is for the for loop to increment above the 32nd bit.
+	reg [31:0] A, B;
 	
 	// Outputs
 	wire Ov;
@@ -45,18 +45,19 @@ module test_adder_cascaded32();
 		// Wait 100 ns for global reset to finish
 		#100;	
 		
-		// Tests Full 1's plus + 1.
-		A[31:0] = ~0;
+		// Tests Overflow with 1's in MSB
+		A[31:0] = 0;
 		B[31:0] = 0;
-		B[0] = 1;
-		#100;
+		B[31] = 1;
+		A[31] = 1;
+		#10;
 		$display("%b + %b is %b with carryover %b", A[31:0],B[31:0],S,Ov);
 		
 		
 		
 		// Iterates over a choice of high numbers.
-		for (B = 33'd1; B!=33'd10; B= B + 1) begin
-			for (A = 33'd1; A!= 33'd10; A = A + 1 ) begin
+		for (B = 32'd1; B!=32'd10; B= B + 1) begin
+			for (A = 32'd1; A!= 32'd10; A = A + 1 ) begin
 			    #100; // wait for inputs to propagate
 				 if (A[31:0] + B[31:0] != S) begin
 				     if (Ov != 1) begin
