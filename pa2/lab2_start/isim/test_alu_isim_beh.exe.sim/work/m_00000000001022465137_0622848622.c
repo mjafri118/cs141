@@ -26,7 +26,7 @@ static int ng1[] = {0, 0};
 
 
 
-static void Cont_22_0(char *t0)
+static void Cont_25_0(char *t0)
 {
     char *t1;
     char *t2;
@@ -51,7 +51,7 @@ LAB0:    t1 = (t0 + 1628U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(22, ng0);
+LAB2:    xsi_set_current_line(25, ng0);
     t2 = ((char*)((ng1)));
     t3 = (t0 + 2012);
     t4 = (t3 + 32U);
@@ -76,7 +76,7 @@ LAB2:    xsi_set_current_line(22, ng0);
 LAB1:    return;
 }
 
-static void Cont_38_1(char *t0)
+static void Cont_43_1(char *t0)
 {
     char t4[8];
     char t15[8];
@@ -136,7 +136,7 @@ LAB0:    t1 = (t0 + 1772U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(38, ng0);
+LAB2:    xsi_set_current_line(43, ng0);
     t2 = (t0 + 968U);
     t3 = *((char **)t2);
     memset(t4, 0, 8);
@@ -214,7 +214,7 @@ LAB4:    t35 = *((unsigned int *)t23);
 
 extern void work_m_00000000001022465137_0622848622_init()
 {
-	static char *pe[] = {(void *)Cont_22_0,(void *)Cont_38_1};
+	static char *pe[] = {(void *)Cont_25_0,(void *)Cont_43_1};
 	xsi_register_didat("work_m_00000000001022465137_0622848622", "isim/test_alu_isim_beh.exe.sim/work/m_00000000001022465137_0622848622.didat");
 	xsi_register_executes(pe);
 }

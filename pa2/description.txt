@@ -1,0 +1,15 @@
+****************************************
+Victor Qin and Mohib Jafri
+CS 141 Spring 2019
+2/15/19
+
+PA 2 Pt. 1 Description
+****************************************
+
+In this PA we designed 3 main testbenches to test the mux, adder, and ALU respectively.
+
+The mutiplexer test (test_mux_16to1) involves setting each of the 16 inputs to the Mux to the numbers 11 through 26, then iterating through every op code (0000 to 1111) to see if it outputs the correct value (corresponding to the correct input). This allows us to see if the mux is properly selecting every input.
+
+The adder test (test_adder_cascaded32) first tests for overflow by checking 
+
+The ALU test (test_alu) integrates all the logic gates along with the adder. It first tests by holding Y at 36 and counting X up from 34 to 37, while iterating through all programmed op_codes for each X/Y pair. This gives good coverage to many different logical bit comparisons and additions. The last two cases check for overflow activation by adding the largest numbers that are positive and negative.

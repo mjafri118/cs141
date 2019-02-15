@@ -1,5 +1,5 @@
 ISim log file
-Running: Z:\shared_with_vm\141git\cs141\pa2\lab2_start\test_adder_cascaded32_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_adder_cascaded32_isim_beh.wdb 
+Running: Z:\shared_folder\cs141\pa2\lab2_start\test_alu_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_folder/cs141/pa2/lab2_start/test_alu_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,4 +11,6 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-11111111111111111111111111111111 + 00000000000000000000000000000001 is 00000000000000000000000000000000 with carryover 0
+WARNING: ADD (overflow):  op_code = 0101, X = 6fffffee, Y = 6ff7fffe, Z = dff7ffec, overflow = 1
+WARNING: ADD (overflow):  op_code = 0101, X = 8fffefff, Y = 8ff7fffe, Z = 1ff7effd, overflow = 1
+Stopped at time : 300 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa2/lab2_start/test_alu.v" Line 71

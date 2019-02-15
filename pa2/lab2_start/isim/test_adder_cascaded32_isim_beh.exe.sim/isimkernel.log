@@ -2,9 +2,28 @@ Command line:
    test_adder_cascaded32_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  49168
+     -socket  49216
 
-Fri Feb 15 12:44:06 2019
+Fri Feb 15 14:03:26 2019
 
 
- Elaboration Time: 0.0625 sec
+ Elaboration Time: 0.109375 sec
+
+ Current Memory Usage: 657.236 Meg
+
+ Total Signals          : 180
+ Total Nets             : 143
+ Total Signal Drivers   : 73
+ Total Blocks           : 35
+ Total Primitive Blocks : 33
+ Total Processes        : 75
+ Total Traceable Variables  : 21
+ Total Scalar Nets and Variables : 319
+Total Line Count : 96
+
+ Total Simulation Time: 0.140625 sec
+
+ Current Memory Usage: 657.236 Meg
+
+Fri Feb 15 14:10:18 2019
+

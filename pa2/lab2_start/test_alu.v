@@ -46,16 +46,25 @@ module test_alu;
 		// this triggers the always block
 		X = 34;
 		Y = 36;
-				
+		
+		
+		//Iterate for X from 34 to 37 and run all operations on it
 		for(X = 34; X != 38; X = X + 1) begin
 			#10;
-			for(op_code = 4'b0000; op_code != 4'b0110; op_code = op_code + 1) begin
+			for(op_code = 4'b0000; op_code != 4'b0110; op_code = op_code + 1) begin	//Check all op_codesthat are currently programmed
 				#10;
 			end
 		end
 		
+		//Check positive overflow
 		X = 32'h6FFFFFEE;
 		Y = 32'h6FF7FFFE;
+		op_code = 4'b0101;
+		#10;
+		
+		//Check negative overflow
+		X = 32'h8FFFEFFF;
+		Y = 32'h8FF7FFFE;
 		op_code = 4'b0101;
 		#10;
 		
@@ -95,11 +104,11 @@ module test_alu;
 				end
 			end
 			`ALU_OP_ADD: begin
-				if( (Z !== (X + Y)) && (overflow !== 1)) begin
+				if( (Z !== (X + Y)) && (overflow !== 1)) begin	//If no overflow and addition is wrong
 					$display("ERROR: ADD (wrong number):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
 					error = error + 1;
 				end
-				if(overflow == 1) begin
+				if(overflow == 1) begin	//Warning if there is an overflow
 					$display("WARNING: ADD (overflow):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
 				end
 			end

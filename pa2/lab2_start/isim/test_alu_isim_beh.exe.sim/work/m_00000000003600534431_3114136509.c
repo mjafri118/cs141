@@ -25,7 +25,7 @@ static const char *ng0 = "//vmware-host/Shared Folders/shared_folder/cs141/pa2/l
 
 
 
-static void Cont_17_0(char *t0)
+static void Cont_18_0(char *t0)
 {
     char t5[8];
     char t20[8];
@@ -81,7 +81,7 @@ LAB0:    t1 = (t0 + 1628U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(17, ng0);
+LAB2:    xsi_set_current_line(18, ng0);
     t2 = (t0 + 600U);
     t3 = *((char **)t2);
     t2 = (t0 + 692U);
@@ -157,7 +157,7 @@ LAB7:    t31 = *((unsigned int *)t20);
 
 }
 
-static void Cont_18_1(char *t0)
+static void Cont_19_1(char *t0)
 {
     char t5[8];
     char t39[8];
@@ -286,7 +286,7 @@ LAB0:    t1 = (t0 + 1772U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(18, ng0);
+LAB2:    xsi_set_current_line(19, ng0);
     t2 = (t0 + 600U);
     t3 = *((char **)t2);
     t2 = (t0 + 692U);
@@ -463,7 +463,7 @@ LAB10:    t85 = *((unsigned int *)t74);
 
 extern void work_m_00000000003600534431_3114136509_init()
 {
-	static char *pe[] = {(void *)Cont_17_0,(void *)Cont_18_1};
+	static char *pe[] = {(void *)Cont_18_0,(void *)Cont_19_1};
 	xsi_register_didat("work_m_00000000003600534431_3114136509", "isim/test_alu_isim_beh.exe.sim/work/m_00000000003600534431_3114136509.didat");
 	xsi_register_executes(pe);
 }
