@@ -22,14 +22,20 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	output wire equal, overflow, zero;
 	
 	wire [31:0] and_out, or_out, xor_out, nor_out, add_out, sub_out, slt_out, srl_out, sll_out, sra_out;
-		//functional blocks
 	
    //YOUR CODE HERE - remember to use a separate file for each module you create
+	//Logical operators
 	and_operator AND_op(.X(X), .Y(Y), .Z(and_out));
-	
-	mux_16to1 MUX_16(.A(0), .B(0), .C(0), .D(0), .E(0), .F(0), .G(0), .H(0), .I(0), .J(0), .K(0), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(Z));
-	//going to have to program a gate level ckt of a mux - see the book for tristates or AND stuffs
-	//Could also be much shorter - very much need to check w TAs
+	or_operator OR_op(.X(X), .Y(Y), .Z(or_out));
+	xor_operator XOR_op(.X(X), .Y(Y), .Z(xor_out));
+	nor_operator NOR_op(.X(X), .Y(Y), .Z(nor_out));
+		
+	mux_16to1 MUX_16(.A(and_out), .B(or_out), .C(xor_out), .D(nor_out), .E(0), .F(0), .G(0), .H(0), .I(0), .J(0), .K(0), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(Z));
+
+	//Set up special outputs
+	assign equal = &and_out;
+	//assign overflow = ;
+	assign zero = &(~and_out);
 
 
 endmodule

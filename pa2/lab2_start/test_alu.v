@@ -33,16 +33,27 @@ module test_alu;
 	);
 
 	// HINT: 'integer' variables might be useful
+	integer error = 0;
 	
 	initial begin
 		// Initialize Inputs
 		X = 0;
 		Y = 0;
-		op_code = 0
+		op_code = 0;
+		
+
 		
 		// YOUR CODE HERE
 		// loop through all important test vectors
 		// this triggers the always block
+		
+		X = 32;
+		Y = 43;
+		#10;
+		
+		X = 25;
+		Y = 25;
+		#10;
 		
 		$finish;
 	
@@ -59,13 +70,29 @@ module test_alu;
 					$display("ERROR: AND:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
 					error = error + 1;
 				end
+//				if( (X == Y) == equal) begin
+//					$display("ERROR: equal:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+//					error = error + 1;
+//				end
 			end
 			// ADD IN YOUR OWN OP CODE CHECKERS HERE!!!
 			`ALU_OP_XOR : begin
+				if(Z !== ((X & ~Y) | (~X & Y))) begin
+					$display("ERROR: XOR:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+					error = error + 1;
+				end			
 			end
 			`ALU_OP_OR : begin
+				if(Z !== (X | Y)) begin
+					$display("ERROR: OR:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+					error = error + 1;
+				end			
 			end
 			`ALU_OP_NOR: begin
+				if(Z !== ~(X | Y)) begin
+					$display("ERROR: NOR:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+					error = error + 1;
+				end			
 			end
 			`ALU_OP_ADD: begin
 			end
