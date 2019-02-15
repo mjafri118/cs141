@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="248" delta="unknown" >"Z:/shared_with_vm/141git/cs141/pa2/lab2_start/adder_cascaded32.v" Line 26: Block identifier is required on this block
+</msg>
+
 </messages>
 

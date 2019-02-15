@@ -464,6 +464,6 @@ LAB10:    t85 = *((unsigned int *)t74);
 extern void work_m_00000000003600534431_3114136509_init()
 {
 	static char *pe[] = {(void *)Cont_17_0,(void *)Cont_18_1};
-	xsi_register_didat("work_m_00000000003600534431_3114136509", "isim/test_adder2bits_isim_beh.exe.sim/work/m_00000000003600534431_3114136509.didat");
+	xsi_register_didat("work_m_00000000003600534431_3114136509", "isim/test_adder_cascaded32_isim_beh.exe.sim/work/m_00000000003600534431_3114136509.didat");
 	xsi_register_executes(pe);
 }
