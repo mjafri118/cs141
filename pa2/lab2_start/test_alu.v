@@ -33,16 +33,31 @@ module test_alu;
 	);
 
 	// HINT: 'integer' variables might be useful
+	integer error = 0;
 	
 	initial begin
 		// Initialize Inputs
 		X = 0;
 		Y = 0;
-		op_code = 0
+		op_code = 0;
 		
 		// YOUR CODE HERE
 		// loop through all important test vectors
 		// this triggers the always block
+		X = 34;
+		Y = 36;
+				
+		for(X = 34; X != 38; X = X + 1) begin
+			#10;
+			for(op_code = 4'b0000; op_code != 4'b0110; op_code = op_code + 1) begin
+				#10;
+			end
+		end
+		
+		X = 32'h6FFFFFEE;
+		Y = 32'h6FF7FFFE;
+		op_code = 4'b0101;
+		#10;
 		
 		$finish;
 	
@@ -62,12 +77,31 @@ module test_alu;
 			end
 			// ADD IN YOUR OWN OP CODE CHECKERS HERE!!!
 			`ALU_OP_XOR : begin
+				if( Z !== (X ^ Y)) begin
+					$display("ERROR: XOR:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+					error = error + 1;
+				end
 			end
 			`ALU_OP_OR : begin
+				if( Z !== (X | Y)) begin
+					$display("ERROR: OR:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+					error = error + 1;
+				end
 			end
 			`ALU_OP_NOR: begin
+				if( Z !== ~(X | Y)) begin
+					$display("ERROR: NOR:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+					error = error + 1;
+				end
 			end
 			`ALU_OP_ADD: begin
+				if( (Z !== (X + Y)) && (overflow !== 1)) begin
+					$display("ERROR: ADD (wrong number):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
+					error = error + 1;
+				end
+				if(overflow == 1) begin
+					$display("WARNING: ADD (overflow):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
+				end
 			end
 			`ALU_OP_SUB: begin
 			end
