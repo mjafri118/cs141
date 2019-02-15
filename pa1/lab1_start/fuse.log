@@ -8,13 +8,13 @@ Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa1/lab1_start/testbench.
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 102776 KB
-Fuse CPU Usage: 280 ms
+Fuse Memory Usage: 102648 KB
+Fuse CPU Usage: 452 ms
 Compiling module main
 Compiling module testbench
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 3 Verilog Units
 Built simulation executable Z:/shared_with_vm/141git/cs141/pa1/lab1_start/testbench_isim_beh.exe
-Fuse Memory Usage: 106344 KB
-Fuse CPU Usage: 343 ms
+Fuse Memory Usage: 106216 KB
+Fuse CPU Usage: 561 ms

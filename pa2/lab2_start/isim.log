@@ -1,5 +1,5 @@
 ISim log file
-Running: Z:\shared_with_vm\141git\cs141\pa2\lab2_start\test_mux_16to1_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_mux_16to1_isim_beh.wdb 
+Running: Z:\shared_with_vm\141git\cs141\pa2\lab2_start\test_adder2bits_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_adder2bits_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,18 +11,3 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-switch value=0000, output=        11
-switch value=0001, output=        12
-switch value=0010, output=        13
-switch value=0011, output=        14
-switch value=0100, output=        15
-switch value=0101, output=        16
-switch value=0110, output=        17
-switch value=0111, output=        18
-switch value=1000, output=        19
-switch value=1001, output=        20
-switch value=1010, output=        21
-switch value=1011, output=        22
-switch value=1100, output=        23
-switch value=1101, output=        24
-switch value=1110, output=        25
