@@ -1,5 +1,5 @@
 ISim log file
-Running: Z:\shared_folder\cs141\pa2\lab2_start\test_adder_cascaded32_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_folder/cs141/pa2/lab2_start/test_adder_cascaded32_isim_beh.wdb 
+Running: Z:\shared_folder\cs141\pa2\lab2_start\test_cla_adder_32bit_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_folder/cs141/pa2/lab2_start/test_cla_adder_32bit_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,4 +11,321 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-10000000000000000000000000000000 + 10000000000000000000000000000000 is 00000000000000000000000000000000 with carryover 1
+Add: carry is 0;          0 +          0 =          0
+Add: carry is 0;          1 +          5 =          6
+Add: carry is 0;          2 +          5 =          7
+Add: carry is 0;          3 +          5 =          8
+Add: carry is 0;          4 +          5 =          9
+Add: carry is 0;          5 +          5 =         10
+Add: carry is 0;          6 +          5 =         11
+Add: carry is 0;          7 +          5 =         12
+Add: carry is 0;          8 +          5 =         13
+Add: carry is 0;          9 +          5 =         14
+Add: carry is 0;         10 +          5 =         15
+Add: carry is 0;         11 +          5 =         16
+Add: carry is 0;         12 +          5 =         17
+Add: carry is 0;         13 +          5 =         18
+Add: carry is 0;         14 +          5 =         19
+Add: carry is 0;      19837 +     639872 =     659709
+Add: carry is 0;      19838 +     639872 =     659710
+Add: carry is 0;      19839 +     639872 =     659711
+Add: carry is 0;      19840 +     639872 =     659712
+Add: carry is 0;      19841 +     639872 =     659713
+Add: carry is 0;      19842 +     639872 =     659714
+Add: carry is 0;      19843 +     639872 =     659715
+Add: carry is 0;      19844 +     639872 =     659716
+Add: carry is 0;      19845 +     639872 =     659717
+Add: carry is 0;      19846 +     639872 =     659718
+Add: carry is 0;      19847 +     639872 =     659719
+Add: carry is 0;      19848 +     639872 =     659720
+Add: carry is 0;      19849 +     639872 =     659721
+Add: carry is 0;      19850 +     639872 =     659722
+Add: carry is 0;      19851 +     639872 =     659723
+Add: carry is 0;      19852 +     639872 =     659724
+Add: carry is 0;      19853 +     639872 =     659725
+Add: carry is 0;      19854 +     639872 =     659726
+Add: carry is 0;      19855 +     639872 =     659727
+Add: carry is 0;      19856 +     639872 =     659728
+Add: carry is 0;      19857 +     639872 =     659729
+Add: carry is 0;      19858 +     639872 =     659730
+Add: carry is 0;      19859 +     639872 =     659731
+Add: carry is 0;      19860 +     639872 =     659732
+Add: carry is 0;      19861 +     639872 =     659733
+Add: carry is 0;      19862 +     639872 =     659734
+Add: carry is 0;      19863 +     639872 =     659735
+Add: carry is 0;      19864 +     639872 =     659736
+Add: carry is 0;      19865 +     639872 =     659737
+Add: carry is 0;      19866 +     639872 =     659738
+Add: carry is 0;      19867 +     639872 =     659739
+Add: carry is 0;      19868 +     639872 =     659740
+Add: carry is 0;      19869 +     639872 =     659741
+Add: carry is 0;      19870 +     639872 =     659742
+Add: carry is 0;      19871 +     639872 =     659743
+Add: carry is 0;      19872 +     639872 =     659744
+Add: carry is 0;      19873 +     639872 =     659745
+Add: carry is 0;      19874 +     639872 =     659746
+Add: carry is 0;      19875 +     639872 =     659747
+Add: carry is 0;      19876 +     639872 =     659748
+Add: carry is 0;      19877 +     639872 =     659749
+Add: carry is 0;      19878 +     639872 =     659750
+Add: carry is 0;      19879 +     639872 =     659751
+Add: carry is 0;      19880 +     639872 =     659752
+Add: carry is 0;      19881 +     639872 =     659753
+Add: carry is 0;      19882 +     639872 =     659754
+Add: carry is 0;      19883 +     639872 =     659755
+Add: carry is 0;      19884 +     639872 =     659756
+Add: carry is 0;      19885 +     639872 =     659757
+Add: carry is 0;      19886 +     639872 =     659758
+Add: carry is 0;      19887 +     639872 =     659759
+Add: carry is 0;      19888 +     639872 =     659760
+Add: carry is 0;      19889 +     639872 =     659761
+Add: carry is 0;      19890 +     639872 =     659762
+Add: carry is 0;      19891 +     639872 =     659763
+Add: carry is 0;      19892 +     639872 =     659764
+Add: carry is 0;         75 + 4294967195 = 4294967270
+Add: carry is 0;         76 + 4294967195 = 4294967271
+Add: carry is 0;         77 + 4294967195 = 4294967272
+Add: carry is 0;         78 + 4294967195 = 4294967273
+Add: carry is 0;         79 + 4294967195 = 4294967274
+Add: carry is 0;         80 + 4294967195 = 4294967275
+Add: carry is 0;         81 + 4294967195 = 4294967276
+Add: carry is 0;         82 + 4294967195 = 4294967277
+Add: carry is 0;         83 + 4294967195 = 4294967278
+Add: carry is 0;         84 + 4294967195 = 4294967279
+Add: carry is 0;         85 + 4294967195 = 4294967280
+Add: carry is 0;         86 + 4294967195 = 4294967281
+Add: carry is 0;         87 + 4294967195 = 4294967282
+Add: carry is 0;         88 + 4294967195 = 4294967283
+Add: carry is 0;         89 + 4294967195 = 4294967284
+Add: carry is 0;         90 + 4294967195 = 4294967285
+Add: carry is 0;         91 + 4294967195 = 4294967286
+Add: carry is 0;         92 + 4294967195 = 4294967287
+Add: carry is 0;         93 + 4294967195 = 4294967288
+Add: carry is 0;         94 + 4294967195 = 4294967289
+# restart
+# restart
+# run all
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Add: carry is 0;          0 +          0 =          0
+Add: carry is 0;          1 +          5 =          6
+Add: carry is 0;          2 +          5 =          7
+Add: carry is 0;          3 +          5 =          8
+Add: carry is 0;          4 +          5 =          9
+Add: carry is 0;          5 +          5 =         10
+Add: carry is 0;          6 +          5 =         11
+Add: carry is 0;          7 +          5 =         12
+Add: carry is 0;          8 +          5 =         13
+Add: carry is 0;          9 +          5 =         14
+Add: carry is 0;         10 +          5 =         15
+Add: carry is 0;         11 +          5 =         16
+Add: carry is 0;         12 +          5 =         17
+Add: carry is 0;         13 +          5 =         18
+Add: carry is 0;         14 +          5 =         19
+Add: carry is 0;      19837 +     639872 =     659709
+Add: carry is 0;      19838 +     639872 =     659710
+Add: carry is 0;      19839 +     639872 =     659711
+Add: carry is 0;      19840 +     639872 =     659712
+Add: carry is 0;      19841 +     639872 =     659713
+Add: carry is 0;      19842 +     639872 =     659714
+Add: carry is 0;      19843 +     639872 =     659715
+Add: carry is 0;      19844 +     639872 =     659716
+Add: carry is 0;      19845 +     639872 =     659717
+Add: carry is 0;      19846 +     639872 =     659718
+Add: carry is 0;      19847 +     639872 =     659719
+Add: carry is 0;      19848 +     639872 =     659720
+Add: carry is 0;      19849 +     639872 =     659721
+Add: carry is 0;      19850 +     639872 =     659722
+Add: carry is 0;      19851 +     639872 =     659723
+Add: carry is 0;      19852 +     639872 =     659724
+Add: carry is 0;      19853 +     639872 =     659725
+Add: carry is 0;      19854 +     639872 =     659726
+Add: carry is 0;      19855 +     639872 =     659727
+Add: carry is 0;      19856 +     639872 =     659728
+Add: carry is 0;      19857 +     639872 =     659729
+Add: carry is 0;      19858 +     639872 =     659730
+Add: carry is 0;      19859 +     639872 =     659731
+Add: carry is 0;      19860 +     639872 =     659732
+Add: carry is 0;      19861 +     639872 =     659733
+Add: carry is 0;      19862 +     639872 =     659734
+Add: carry is 0;      19863 +     639872 =     659735
+Add: carry is 0;      19864 +     639872 =     659736
+Add: carry is 0;      19865 +     639872 =     659737
+Add: carry is 0;      19866 +     639872 =     659738
+Add: carry is 0;      19867 +     639872 =     659739
+Add: carry is 0;      19868 +     639872 =     659740
+Add: carry is 0;      19869 +     639872 =     659741
+Add: carry is 0;      19870 +     639872 =     659742
+Add: carry is 0;      19871 +     639872 =     659743
+Add: carry is 0;      19872 +     639872 =     659744
+Add: carry is 0;      19873 +     639872 =     659745
+Add: carry is 0;      19874 +     639872 =     659746
+Add: carry is 0;      19875 +     639872 =     659747
+Add: carry is 0;      19876 +     639872 =     659748
+Add: carry is 0;      19877 +     639872 =     659749
+Add: carry is 0;      19878 +     639872 =     659750
+Add: carry is 0;      19879 +     639872 =     659751
+Add: carry is 0;      19880 +     639872 =     659752
+Add: carry is 0;      19881 +     639872 =     659753
+Add: carry is 0;      19882 +     639872 =     659754
+Add: carry is 0;      19883 +     639872 =     659755
+Add: carry is 0;      19884 +     639872 =     659756
+Add: carry is 0;      19885 +     639872 =     659757
+Add: carry is 0;      19886 +     639872 =     659758
+Add: carry is 0;      19887 +     639872 =     659759
+Add: carry is 0;      19888 +     639872 =     659760
+Add: carry is 0;      19889 +     639872 =     659761
+Add: carry is 0;      19890 +     639872 =     659762
+Add: carry is 0;      19891 +     639872 =     659763
+Add: carry is 0;      19892 +     639872 =     659764
+Add: carry is 0;         75 + 4294967195 = 4294967270
+Add: carry is 0;         76 + 4294967195 = 4294967271
+Add: carry is 0;         77 + 4294967195 = 4294967272
+Add: carry is 0;         78 + 4294967195 = 4294967273
+Add: carry is 0;         79 + 4294967195 = 4294967274
+Add: carry is 0;         80 + 4294967195 = 4294967275
+Add: carry is 0;         81 + 4294967195 = 4294967276
+Add: carry is 0;         82 + 4294967195 = 4294967277
+Add: carry is 0;         83 + 4294967195 = 4294967278
+Add: carry is 0;         84 + 4294967195 = 4294967279
+Add: carry is 0;         85 + 4294967195 = 4294967280
+Add: carry is 0;         86 + 4294967195 = 4294967281
+Add: carry is 0;         87 + 4294967195 = 4294967282
+Add: carry is 0;         88 + 4294967195 = 4294967283
+Add: carry is 0;         89 + 4294967195 = 4294967284
+Add: carry is 0;         90 + 4294967195 = 4294967285
+Add: carry is 0;         91 + 4294967195 = 4294967286
+Add: carry is 0;         92 + 4294967195 = 4294967287
+Add: carry is 0;         93 + 4294967195 = 4294967288
+Add: carry is 0;         94 + 4294967195 = 4294967289
+Add: carry is 0;         95 + 4294967195 = 4294967290
+Add: carry is 0;         96 + 4294967195 = 4294967291
+Add: carry is 0;         97 + 4294967195 = 4294967292
+Add: carry is 0;         98 + 4294967195 = 4294967293
+Add: carry is 0;         99 + 4294967195 = 4294967294
+Add: carry is 0;        100 + 4294967195 = 4294967295
+Add: carry is 0;        101 + 4294967195 =          0
+WARNING carry
+Add: carry is 0;        102 + 4294967195 =          1
+WARNING carry
+Add: carry is 0;        103 + 4294967195 =          2
+WARNING carry
+Add: carry is 0;        104 + 4294967195 =          3
+WARNING carry
+Add: carry is 0;        105 + 4294967195 =          4
+WARNING carry
+Add: carry is 0;        106 + 4294967195 =          5
+WARNING carry
+Add: carry is 0;        107 + 4294967195 =          6
+WARNING carry
+Add: carry is 0;        108 + 4294967195 =          7
+WARNING carry
+Add: carry is 0;        109 + 4294967195 =          8
+WARNING carry
+Add: carry is 0;        110 + 4294967195 =          9
+WARNING carry
+Add: carry is 0;        111 + 4294967195 =         10
+WARNING carry
+Add: carry is 0;        112 + 4294967195 =         11
+WARNING carry
+Add: carry is 0;        113 + 4294967195 =         12
+WARNING carry
+Add: carry is 0;        114 + 4294967195 =         13
+WARNING carry
+Add: carry is 0;        115 + 4294967195 =         14
+WARNING carry
+Add: carry is 0;        116 + 4294967195 =         15
+WARNING carry
+Add: carry is 0;        117 + 4294967195 =         16
+WARNING carry
+Add: carry is 0;        118 + 4294967195 =         17
+WARNING carry
+Add: carry is 0;        119 + 4294967195 =         18
+WARNING carry
+Add: carry is 0;        120 + 4294967195 =         19
+WARNING carry
+Add: carry is 0;        121 + 4294967195 =         20
+WARNING carry
+Add: carry is 0;        122 + 4294967195 =         21
+WARNING carry
+Add: carry is 0;        123 + 4294967195 =         22
+WARNING carry
+Add: carry is 0;        124 + 4294967195 =         23
+WARNING carry
+Add: carry is 1;         75 + 4294967195 = 4294967271
+Add: carry is 1;         76 + 4294967195 = 4294967272
+Add: carry is 1;         77 + 4294967195 = 4294967273
+Add: carry is 1;         78 + 4294967195 = 4294967274
+Add: carry is 1;         79 + 4294967195 = 4294967275
+Add: carry is 1;         80 + 4294967195 = 4294967276
+Add: carry is 1;         81 + 4294967195 = 4294967277
+Add: carry is 1;         82 + 4294967195 = 4294967278
+Add: carry is 1;         83 + 4294967195 = 4294967279
+Add: carry is 1;         84 + 4294967195 = 4294967280
+Add: carry is 1;         85 + 4294967195 = 4294967281
+Add: carry is 1;         86 + 4294967195 = 4294967282
+Add: carry is 1;         87 + 4294967195 = 4294967283
+Add: carry is 1;         88 + 4294967195 = 4294967284
+Add: carry is 1;         89 + 4294967195 = 4294967285
+Add: carry is 1;         90 + 4294967195 = 4294967286
+Add: carry is 1;         91 + 4294967195 = 4294967287
+Add: carry is 1;         92 + 4294967195 = 4294967288
+Add: carry is 1;         93 + 4294967195 = 4294967289
+Add: carry is 1;         94 + 4294967195 = 4294967290
+Add: carry is 1;         95 + 4294967195 = 4294967291
+Add: carry is 1;         96 + 4294967195 = 4294967292
+Add: carry is 1;         97 + 4294967195 = 4294967293
+Add: carry is 1;         98 + 4294967195 = 4294967294
+Add: carry is 1;         99 + 4294967195 = 4294967295
+Add: carry is 1;        100 + 4294967195 =          0
+WARNING carry
+Add: carry is 1;        101 + 4294967195 =          1
+WARNING carry
+Add: carry is 1;        102 + 4294967195 =          2
+WARNING carry
+Add: carry is 1;        103 + 4294967195 =          3
+WARNING carry
+Add: carry is 1;        104 + 4294967195 =          4
+WARNING carry
+Add: carry is 1;        105 + 4294967195 =          5
+WARNING carry
+Add: carry is 1;        106 + 4294967195 =          6
+WARNING carry
+Add: carry is 1;        107 + 4294967195 =          7
+WARNING carry
+Add: carry is 1;        108 + 4294967195 =          8
+WARNING carry
+Add: carry is 1;        109 + 4294967195 =          9
+WARNING carry
+Add: carry is 1;        110 + 4294967195 =         10
+WARNING carry
+Add: carry is 1;        111 + 4294967195 =         11
+WARNING carry
+Add: carry is 1;        112 + 4294967195 =         12
+WARNING carry
+Add: carry is 1;        113 + 4294967195 =         13
+WARNING carry
+Add: carry is 1;        114 + 4294967195 =         14
+WARNING carry
+Add: carry is 1;        115 + 4294967195 =         15
+WARNING carry
+Add: carry is 1;        116 + 4294967195 =         16
+WARNING carry
+Add: carry is 1;        117 + 4294967195 =         17
+WARNING carry
+Add: carry is 1;        118 + 4294967195 =         18
+WARNING carry
+Add: carry is 1;        119 + 4294967195 =         19
+WARNING carry
+Add: carry is 1;        120 + 4294967195 =         20
+WARNING carry
+Add: carry is 1;        121 + 4294967195 =         21
+WARNING carry
+Add: carry is 1;        122 + 4294967195 =         22
+WARNING carry
+Add: carry is 1;        123 + 4294967195 =         23
+WARNING carry
+Add: carry is 1;        124 + 4294967195 =         24
+WARNING carry
+Add: carry is 1;        125 + 4294967195 =         25
+WARNING carry

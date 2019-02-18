@@ -1,23 +1,29 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_folder/cs141/pa2/lab2_start/test_adder_cascaded32_isim_beh.exe -prj Z:/shared_folder/cs141/pa2/lab2_start/test_adder_cascaded32_beh.prj work.test_adder_cascaded32 work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_folder/cs141/pa2/lab2_start/test_cla_adder_32bit_isim_beh.exe -prj Z:/shared_folder/cs141/pa2/lab2_start/test_cla_adder_32bit_beh.prj work.test_cla_adder_32bit work.glbl 
 ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
 Determining compilation order of HDL files
-Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/adder_1bit.v" into library work
-Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/adder_cascaded32.v" into library work
-WARNING:HDLCompiler:248 - "Z:/shared_folder/cs141/pa2/lab2_start/adder_cascaded32.v" Line 30: Block identifier is required on this block
-Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/test_adder_cascaded32.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_propagate.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_generate.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_4bit.v" into library work
+WARNING:HDLCompiler:248 - "Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_4bit.v" Line 26: Block identifier is required on this block
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_16bit.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_32bit.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/test_cla_adder_32bit.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 102580 KB
-Fuse CPU Usage: 499 ms
-Compiling module adder_1bit
-Compiling module adder_cascaded32
-Compiling module test_adder_cascaded32
+Fuse Memory Usage: 102836 KB
+Fuse CPU Usage: 577 ms
+Compiling module cla_generate
+Compiling module cla_propagate
+Compiling module cla_adder_4bit
+Compiling module cla_adder_16bit
+Compiling module cla_adder_32bit
+Compiling module test_cla_adder_32bit
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Compiled 4 Verilog Units
-Built simulation executable Z:/shared_folder/cs141/pa2/lab2_start/test_adder_cascaded32_isim_beh.exe
-Fuse Memory Usage: 106148 KB
-Fuse CPU Usage: 749 ms
+Compiled 7 Verilog Units
+Built simulation executable Z:/shared_folder/cs141/pa2/lab2_start/test_cla_adder_32bit_isim_beh.exe
+Fuse Memory Usage: 106404 KB
+Fuse CPU Usage: 890 ms
