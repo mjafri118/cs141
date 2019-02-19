@@ -8,5 +8,11 @@
 <msg type="warning" file="HDLCompiler" num="248" delta="unknown" >"Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_4bit.v" Line 26: Block identifier is required on this block
 </msg>
 
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 35: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">C0</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 36: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">C0</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+</msg>
+
 </messages>
 

@@ -51,7 +51,7 @@ module test_alu;
 		//Iterate for X from 34 to 37 and run all operations on it
 		for(X = 34; X != 38; X = X + 1) begin
 			#10;
-			for(op_code = 4'b0000; op_code != 4'b0110; op_code = op_code + 1) begin	//Check all op_codesthat are currently programmed
+			for(op_code = 4'b0000; op_code < 4'b0111; op_code = op_code + 1) begin	//Check all op_codesthat are currently programmed
 				#10;
 			end
 		end
@@ -66,6 +66,16 @@ module test_alu;
 		X = 32'h8FFFEFFF;
 		Y = 32'h8FF7FFFE;
 		op_code = 4'b0101;
+		#10;
+		
+		//check opposite signs
+		X = 32'h8FFFEFFF;
+		Y = 32'h8FF7FFFE;
+		X[31] = 0;
+		Y[31] = 1;
+		op_code = 4'b0101;
+		#10;
+		op_code = 4'b0110;
 		#10;
 		
 		$finish;
@@ -113,6 +123,18 @@ module test_alu;
 				end
 			end
 			`ALU_OP_SUB: begin
+				if(Z[31] == 1) begin
+					if(((~Z) + 1) !== -(X - Y)) begin
+						$display("ERROR: SUB (wrong number):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, (~Z) + 1, overflow);
+						error = error + 1;
+					end
+				end
+				if(Z[31] == 0) begin
+					if(Z !== (X - Y)) begin
+						$display("ERROR: SUB (wrong number):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
+						error = error + 1;
+					end
+				end
 			end
 			`ALU_OP_SLT: begin
 			end
