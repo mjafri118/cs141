@@ -16,17 +16,17 @@
 
   <files>
     <file xil_pn:name="alu.v" xil_pn:type="FILE_VERILOG">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="14"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="15"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="11"/>
     </file>
     <file xil_pn:name="test_alu.v" xil_pn:type="FILE_VERILOG">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="15"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="16"/>
       <association xil_pn:name="PostMapSimulation" xil_pn:seqID="13"/>
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="13"/>
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="13"/>
     </file>
     <file xil_pn:name="and_operator.v" xil_pn:type="FILE_VERILOG">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="13"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="14"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="9"/>
     </file>
     <file xil_pn:name="or_operator.v" xil_pn:type="FILE_VERILOG">
@@ -119,7 +119,7 @@
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="98"/>
     </file>
     <file xil_pn:name="cla_adder_32bit.v" xil_pn:type="FILE_VERILOG">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="12"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="13"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="110"/>
     </file>
     <file xil_pn:name="test_cla_adder_32bit.v" xil_pn:type="FILE_VERILOG">
@@ -127,6 +127,10 @@
       <association xil_pn:name="PostMapSimulation" xil_pn:seqID="112"/>
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="112"/>
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="112"/>
+    </file>
+    <file xil_pn:name="equal_flag_operator.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="12"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="110"/>
     </file>
   </files>
 

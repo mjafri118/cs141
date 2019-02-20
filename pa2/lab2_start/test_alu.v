@@ -78,14 +78,22 @@ module test_alu;
 		op_code = 4'b0110;
 		#10;
 		
+		//check flags
+		X = 32'd1;
+		Y = 32'd1;
+		op_code = 4'b0101;
+		#10;
+		
 		$finish;
 	
 	end
+
 	
 	// an 'always' block is executed whenever any of the variables in the sensitivity
 	// list are changed (X, Y, or op_code in this case)
 	always @(X,Y,op_code) begin
 		#1;
+		//Op_code checks
 		case (op_code)
 			`ALU_OP_AND : begin
 				//only executes when the op code is 0000 (AND)
@@ -124,16 +132,19 @@ module test_alu;
 			end
 			`ALU_OP_SUB: begin
 				if(Z[31] == 1) begin
-					if(((~Z) + 1) !== -(X - Y)) begin
+					if((((~Z) + 1) !== -(X - Y)) && (overflow !== 1)) begin
 						$display("ERROR: SUB (wrong number):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, (~Z) + 1, overflow);
 						error = error + 1;
 					end
 				end
 				if(Z[31] == 0) begin
-					if(Z !== (X - Y)) begin
+					if((Z !== (X - Y)) && (overflow !== 1)) begin
 						$display("ERROR: SUB (wrong number):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
 						error = error + 1;
 					end
+				end
+				if(overflow == 1) begin	//Warning if there is an overflow
+					$display("WARNING: SUB (overflow):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
 				end
 			end
 			`ALU_OP_SLT: begin

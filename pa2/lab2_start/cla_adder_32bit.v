@@ -9,13 +9,13 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module cla_adder_32bit(A, B, S, C0, C32, Pg, Gg);
+module cla_adder_32bit(A, B, S, C0, C32, Pg, Gg, overflow);
 
 	//port definitions - customize for different bit widths
 	input wire [31:0] A, B;
 	input wire C0;
 	output wire [31:0] S;
-	output wire C32, Pg, Gg;
+	output wire C32, Pg, Gg, overflow;
 	
 	wire [1:0] G, P;
 	wire C16;
@@ -29,6 +29,7 @@ module cla_adder_32bit(A, B, S, C0, C32, Pg, Gg);
 	
 	assign Pg = &P[1:0];
 	assign Gg = G[1] | (P[1] & G[0]);
+	assign overflow = (~A[31] & ~B[31] & S[31]) | (A[31] & B[31] & ~S[31]);
 
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire

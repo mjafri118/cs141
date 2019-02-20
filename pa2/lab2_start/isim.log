@@ -7,11 +7,30 @@ WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for 
 This is a Lite version of ISim.
 WARNING:  For instance uut/ADD_op/, width 1 of formal port C0 is not equal to width 32 of actual constant.
 WARNING:  For instance uut/SUB_op/, width 1 of formal port C0 is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port A is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port B is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port C is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port D is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port E is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port F is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port G is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port H is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port I is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port J is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port K is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port L is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port M is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port N is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port O is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port P is not equal to width 32 of actual constant.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
+WARNING: ADD (overflow):  op_code = 0101, X = 6fffffee, Y = 6ff7fffe, Z = dff7ffec, overflow = 1
 WARNING: ADD (overflow):  op_code = 0101, X = 8fffefff, Y = 8ff7fffe, Z = 1ff7effd, overflow = 1
-Stopped at time : 360 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa2/lab2_start/test_alu.v" Line 81
+WARNING: ADD (overflow):  op_code = 0101, X = 0fffefff, Y = 8ff7fffe, Z = 9ff7effd, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 0fffefff, Y = 8ff7fffe, Z = 8007f001, overflow = 1
+Stopped at time : 370 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa2/lab2_start/test_alu.v" Line 87

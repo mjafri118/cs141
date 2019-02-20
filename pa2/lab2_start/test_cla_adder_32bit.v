@@ -34,6 +34,7 @@ module test_cla_adder_32bit;
 	wire C32;
 	wire Pg;
 	wire Gg;
+	wire overflow;
 
 	// Instantiate the Unit Under Test (UUT)
 	cla_adder_32bit uut (
@@ -43,7 +44,8 @@ module test_cla_adder_32bit;
 		.C0(C0), 
 		.C32(C32), 
 		.Pg(Pg), 
-		.Gg(Gg)
+		.Gg(Gg),
+		.overflow(overflow)
 	);
 
 	integer error = 0;
@@ -68,7 +70,7 @@ module test_cla_adder_32bit;
 			#10;
 		end
 		
-		B = 32'd4294967195;	//large values and overflow
+		B = 32'd2147483547;	//large values and overflow
 		for (A = 32'd75; A!= 32'd125; A = A + 1 ) begin
 			#10;
 		end
@@ -83,16 +85,16 @@ module test_cla_adder_32bit;
 	always@(A, B, C0) begin
 		#1;
 		$display("Add: carry is %d; %d + %d = ", C0, A, B, S);
-		if((A + B + C0 !== S) && (C32 !== 1)) begin	//adding errors
+		if((A + B + C0 !== S) && (overflow !== 1)) begin	//adding errors
 			$display("ERROR addition error ABOVE");
 			error = error + 1;
 		end
-		if((A + B > 4294967295) && (C32 !== 1)) begin	//carry errors
-			$display("ERROR no carry ABOVE");
+		if((A + B > 2147483647) && (overflow !== 1)) begin	//carry errors
+			$display("ERROR no overflow ABOVE");
 			error = error + 1;
 		end
-		if(C32 == 1) begin
-			$display("WARNING carry");
+		if(overflow == 1) begin
+			$display("WARNING overflow");
 		end
 	end
 	
