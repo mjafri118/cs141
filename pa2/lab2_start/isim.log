@@ -1,142 +1,194 @@
 ISim log file
-Running: Z:\shared_with_vm\141git\cs141\pa2\lab2_start\test_SLL_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SLL_isim_beh.wdb 
+Running: Z:\shared_folder\cs141\pa2\lab2_start\test_alu_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_folder/cs141/pa2/lab2_start/test_alu_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
+WARNING:  For instance uut/ADD_op/, width 1 of formal port C0 is not equal to width 32 of actual constant.
+WARNING:  For instance uut/SUB_op/, width 1 of formal port C0 is not equal to width 32 of actual constant.
+WARNING:  For instance SLT_op/SUB_op/, width 1 of formal port C0 is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port A is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port B is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port C is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port D is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port E is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port F is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port G is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port H is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port I is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port J is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port K is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port L is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port M is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port N is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port O is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_flags/, width 1 of formal port P is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port A is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port B is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port C is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port D is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port E is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port F is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port G is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port H is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port I is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port J is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port K is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port L is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port M is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port N is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port O is not equal to width 32 of actual constant.
+WARNING:  For instance uut/MUX_over/, width 1 of formal port P is not equal to width 32 of actual constant.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-X: 2147483658, switch value=         0, output=10000000000000000000000000001010 . Expected 10000000000000000000000000001010
-X: 2147483658, switch value=         1, output=00000000000000000000000000010100 . Expected 00000000000000000000000000010100
-X: 2147483658, switch value=         2, output=00000000000000000000000000101000 . Expected 00000000000000000000000000101000
-X: 2147483658, switch value=         3, output=00000000000000000000000001010000 . Expected 00000000000000000000000001010000
-X: 2147483658, switch value=         4, output=00000000000000000000000010100000 . Expected 00000000000000000000000010100000
-X: 2147483658, switch value=         5, output=00000000000000000000000101000000 . Expected 00000000000000000000000101000000
-X: 2147483658, switch value=         6, output=00000000000000000000001010000000 . Expected 00000000000000000000001010000000
-X: 2147483658, switch value=         7, output=00000000000000000000010100000000 . Expected 00000000000000000000010100000000
-X: 2147483658, switch value=         8, output=00000000000000000000101000000000 . Expected 00000000000000000000101000000000
-X: 2147483658, switch value=         9, output=00000000000000000001010000000000 . Expected 00000000000000000001010000000000
-X: 2147483658, switch value=        10, output=00000000000000000010100000000000 . Expected 00000000000000000010100000000000
-X: 2147483658, switch value=        11, output=00000000000000000101000000000000 . Expected 00000000000000000101000000000000
-X: 2147483658, switch value=        12, output=00000000000000001010000000000000 . Expected 00000000000000001010000000000000
-X: 2147483658, switch value=        13, output=00000000000000010100000000000000 . Expected 00000000000000010100000000000000
-X: 2147483658, switch value=        14, output=00000000000000101000000000000000 . Expected 00000000000000101000000000000000
-X: 2147483658, switch value=        15, output=00000000000001010000000000000000 . Expected 00000000000001010000000000000000
-X: 2147483658, switch value=        16, output=00000000000010100000000000000000 . Expected 00000000000010100000000000000000
-X: 2147483658, switch value=        17, output=00000000000101000000000000000000 . Expected 00000000000101000000000000000000
-X: 2147483658, switch value=        18, output=00000000001010000000000000000000 . Expected 00000000001010000000000000000000
-X: 2147483658, switch value=        19, output=00000000010100000000000000000000 . Expected 00000000010100000000000000000000
-X: 2147483658, switch value=        20, output=00000000101000000000000000000000 . Expected 00000000101000000000000000000000
-X: 2147483658, switch value=        21, output=00000001010000000000000000000000 . Expected 00000001010000000000000000000000
-X: 2147483658, switch value=        22, output=00000010100000000000000000000000 . Expected 00000010100000000000000000000000
-X: 2147483658, switch value=        23, output=00000101000000000000000000000000 . Expected 00000101000000000000000000000000
-X: 2147483658, switch value=        24, output=00001010000000000000000000000000 . Expected 00001010000000000000000000000000
-X: 2147483658, switch value=        25, output=00010100000000000000000000000000 . Expected 00010100000000000000000000000000
-X: 2147483658, switch value=        26, output=00101000000000000000000000000000 . Expected 00101000000000000000000000000000
-X: 2147483658, switch value=        27, output=01010000000000000000000000000000 . Expected 01010000000000000000000000000000
-X: 2147483658, switch value=        28, output=10100000000000000000000000000000 . Expected 10100000000000000000000000000000
-X: 2147483658, switch value=        29, output=01000000000000000000000000000000 . Expected 01000000000000000000000000000000
-X: 2147483658, switch value=        30, output=10000000000000000000000000000000 . Expected 10000000000000000000000000000000
-X: 2147483658, switch value=        31, output=00000000000000000000000000000000 . Expected 00000000000000000000000000000000
-X:     321313, switch value=         0, output=00000000000001001110011100100001 . Expected 00000000000001001110011100100001
-X:     321313, switch value=         1, output=00000000000010011100111001000010 . Expected 00000000000010011100111001000010
-X:     321313, switch value=         2, output=00000000000100111001110010000100 . Expected 00000000000100111001110010000100
-X:     321313, switch value=         3, output=00000000001001110011100100001000 . Expected 00000000001001110011100100001000
-X:     321313, switch value=         4, output=00000000010011100111001000010000 . Expected 00000000010011100111001000010000
-X:     321313, switch value=         5, output=00000000100111001110010000100000 . Expected 00000000100111001110010000100000
-X:     321313, switch value=         6, output=00000001001110011100100001000000 . Expected 00000001001110011100100001000000
-X:     321313, switch value=         7, output=00000010011100111001000010000000 . Expected 00000010011100111001000010000000
-X:     321313, switch value=         8, output=00000100111001110010000100000000 . Expected 00000100111001110010000100000000
-X:     321313, switch value=         9, output=00001001110011100100001000000000 . Expected 00001001110011100100001000000000
-X:     321313, switch value=        10, output=00010011100111001000010000000000 . Expected 00010011100111001000010000000000
-X:     321313, switch value=        11, output=00100111001110010000100000000000 . Expected 00100111001110010000100000000000
-X:     321313, switch value=        12, output=01001110011100100001000000000000 . Expected 01001110011100100001000000000000
-X:     321313, switch value=        13, output=10011100111001000010000000000000 . Expected 10011100111001000010000000000000
-X:     321313, switch value=        14, output=00111001110010000100000000000000 . Expected 00111001110010000100000000000000
-X:     321313, switch value=        15, output=01110011100100001000000000000000 . Expected 01110011100100001000000000000000
-X:     321313, switch value=        16, output=11100111001000010000000000000000 . Expected 11100111001000010000000000000000
-X:     321313, switch value=        17, output=11001110010000100000000000000000 . Expected 11001110010000100000000000000000
-X:     321313, switch value=        18, output=10011100100001000000000000000000 . Expected 10011100100001000000000000000000
-X:     321313, switch value=        19, output=00111001000010000000000000000000 . Expected 00111001000010000000000000000000
-X:     321313, switch value=        20, output=01110010000100000000000000000000 . Expected 01110010000100000000000000000000
-X:     321313, switch value=        21, output=11100100001000000000000000000000 . Expected 11100100001000000000000000000000
-X:     321313, switch value=        22, output=11001000010000000000000000000000 . Expected 11001000010000000000000000000000
-X:     321313, switch value=        23, output=10010000100000000000000000000000 . Expected 10010000100000000000000000000000
-X:     321313, switch value=        24, output=00100001000000000000000000000000 . Expected 00100001000000000000000000000000
-X:     321313, switch value=        25, output=01000010000000000000000000000000 . Expected 01000010000000000000000000000000
-X:     321313, switch value=        26, output=10000100000000000000000000000000 . Expected 10000100000000000000000000000000
-X:     321313, switch value=        27, output=00001000000000000000000000000000 . Expected 00001000000000000000000000000000
-X:     321313, switch value=        28, output=00010000000000000000000000000000 . Expected 00010000000000000000000000000000
-X:     321313, switch value=        29, output=00100000000000000000000000000000 . Expected 00100000000000000000000000000000
-X:     321313, switch value=        30, output=01000000000000000000000000000000 . Expected 01000000000000000000000000000000
-X:     321313, switch value=        31, output=10000000000000000000000000000000 . Expected 10000000000000000000000000000000
-X: 4294967295, switch value=         0, output=11111111111111111111111111111111 . Expected 11111111111111111111111111111111
-X: 4294967295, switch value=         1, output=11111111111111111111111111111110 . Expected 11111111111111111111111111111110
-X: 4294967295, switch value=         2, output=11111111111111111111111111111100 . Expected 11111111111111111111111111111100
-X: 4294967295, switch value=         3, output=11111111111111111111111111111000 . Expected 11111111111111111111111111111000
-X: 4294967295, switch value=         4, output=11111111111111111111111111110000 . Expected 11111111111111111111111111110000
-X: 4294967295, switch value=         5, output=11111111111111111111111111100000 . Expected 11111111111111111111111111100000
-X: 4294967295, switch value=         6, output=11111111111111111111111111000000 . Expected 11111111111111111111111111000000
-X: 4294967295, switch value=         7, output=11111111111111111111111110000000 . Expected 11111111111111111111111110000000
-X: 4294967295, switch value=         8, output=11111111111111111111111100000000 . Expected 11111111111111111111111100000000
-X: 4294967295, switch value=         9, output=11111111111111111111111000000000 . Expected 11111111111111111111111000000000
-X: 4294967295, switch value=        10, output=11111111111111111111110000000000 . Expected 11111111111111111111110000000000
-X: 4294967295, switch value=        11, output=11111111111111111111100000000000 . Expected 11111111111111111111100000000000
-X: 4294967295, switch value=        12, output=11111111111111111111000000000000 . Expected 11111111111111111111000000000000
-X: 4294967295, switch value=        13, output=11111111111111111110000000000000 . Expected 11111111111111111110000000000000
-X: 4294967295, switch value=        14, output=11111111111111111100000000000000 . Expected 11111111111111111100000000000000
-X: 4294967295, switch value=        15, output=11111111111111111000000000000000 . Expected 11111111111111111000000000000000
-X: 4294967295, switch value=        16, output=11111111111111110000000000000000 . Expected 11111111111111110000000000000000
-X: 4294967295, switch value=        17, output=11111111111111100000000000000000 . Expected 11111111111111100000000000000000
-X: 4294967295, switch value=        18, output=11111111111111000000000000000000 . Expected 11111111111111000000000000000000
-X: 4294967295, switch value=        19, output=11111111111110000000000000000000 . Expected 11111111111110000000000000000000
-X: 4294967295, switch value=        20, output=11111111111100000000000000000000 . Expected 11111111111100000000000000000000
-X: 4294967295, switch value=        21, output=11111111111000000000000000000000 . Expected 11111111111000000000000000000000
-X: 4294967295, switch value=        22, output=11111111110000000000000000000000 . Expected 11111111110000000000000000000000
-X: 4294967295, switch value=        23, output=11111111100000000000000000000000 . Expected 11111111100000000000000000000000
-X: 4294967295, switch value=        24, output=11111111000000000000000000000000 . Expected 11111111000000000000000000000000
-X: 4294967295, switch value=        25, output=11111110000000000000000000000000 . Expected 11111110000000000000000000000000
-X: 4294967295, switch value=        26, output=11111100000000000000000000000000 . Expected 11111100000000000000000000000000
-X: 4294967295, switch value=        27, output=11111000000000000000000000000000 . Expected 11111000000000000000000000000000
-X: 4294967295, switch value=        28, output=11110000000000000000000000000000 . Expected 11110000000000000000000000000000
-X: 4294967295, switch value=        29, output=11100000000000000000000000000000 . Expected 11100000000000000000000000000000
-X: 4294967295, switch value=        30, output=11000000000000000000000000000000 . Expected 11000000000000000000000000000000
-X: 4294967295, switch value=        31, output=10000000000000000000000000000000 . Expected 10000000000000000000000000000000
-End of test!
-X:          1, switch value=         0, output=00000000000000000000000000000001 . Expected 00000000000000000000000000000001
-X:          1, switch value=         1, output=00000000000000000000000000000010 . Expected 00000000000000000000000000000010
-X:          1, switch value=         2, output=00000000000000000000000000000100 . Expected 00000000000000000000000000000100
-X:          1, switch value=         3, output=00000000000000000000000000001000 . Expected 00000000000000000000000000001000
-X:          1, switch value=         4, output=00000000000000000000000000010000 . Expected 00000000000000000000000000010000
-X:          1, switch value=         5, output=00000000000000000000000000100000 . Expected 00000000000000000000000000100000
-X:          1, switch value=         6, output=00000000000000000000000001000000 . Expected 00000000000000000000000001000000
-X:          1, switch value=         7, output=00000000000000000000000010000000 . Expected 00000000000000000000000010000000
-X:          1, switch value=         8, output=00000000000000000000000100000000 . Expected 00000000000000000000000100000000
-X:          1, switch value=         9, output=00000000000000000000001000000000 . Expected 00000000000000000000001000000000
-X:          1, switch value=        10, output=00000000000000000000010000000000 . Expected 00000000000000000000010000000000
-X:          1, switch value=        11, output=00000000000000000000100000000000 . Expected 00000000000000000000100000000000
-X:          1, switch value=        12, output=00000000000000000001000000000000 . Expected 00000000000000000001000000000000
-X:          1, switch value=        13, output=00000000000000000010000000000000 . Expected 00000000000000000010000000000000
-X:          1, switch value=        14, output=00000000000000000100000000000000 . Expected 00000000000000000100000000000000
-X:          1, switch value=        15, output=00000000000000001000000000000000 . Expected 00000000000000001000000000000000
-X:          1, switch value=        16, output=00000000000000010000000000000000 . Expected 00000000000000010000000000000000
-X:          1, switch value=        17, output=00000000000000100000000000000000 . Expected 00000000000000100000000000000000
-X:          1, switch value=        18, output=00000000000001000000000000000000 . Expected 00000000000001000000000000000000
-X:          1, switch value=        19, output=00000000000010000000000000000000 . Expected 00000000000010000000000000000000
-X:          1, switch value=        20, output=00000000000100000000000000000000 . Expected 00000000000100000000000000000000
-X:          1, switch value=        21, output=00000000001000000000000000000000 . Expected 00000000001000000000000000000000
-X:          1, switch value=        22, output=00000000010000000000000000000000 . Expected 00000000010000000000000000000000
-X:          1, switch value=        23, output=00000000100000000000000000000000 . Expected 00000000100000000000000000000000
-X:          1, switch value=        24, output=00000001000000000000000000000000 . Expected 00000001000000000000000000000000
-X:          1, switch value=        25, output=00000010000000000000000000000000 . Expected 00000010000000000000000000000000
-X:          1, switch value=        26, output=00000100000000000000000000000000 . Expected 00000100000000000000000000000000
-X:          1, switch value=        27, output=00001000000000000000000000000000 . Expected 00001000000000000000000000000000
-X:          1, switch value=        28, output=00010000000000000000000000000000 . Expected 00010000000000000000000000000000
-X:          1, switch value=        29, output=00100000000000000000000000000000 . Expected 00100000000000000000000000000000
-X:          1, switch value=        30, output=01000000000000000000000000000000 . Expected 01000000000000000000000000000000
-X:          1, switch value=        31, output=10000000000000000000000000000000 . Expected 10000000000000000000000000000000
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6fffffee, Y = 6ff7fffe, Z = dff7ffec, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6fffffee, Y = 6ff7fffe, Z = 0007fff0, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6fffffef, Y = 6ff7fffe, Z = dff7ffed, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6fffffef, Y = 6ff7fffe, Z = 0007fff1, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff0, Y = 6ff7fffe, Z = dff7ffee, overflow = 1
+# run all
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff0, Y = 6ff7fffe, Z = 0007fff2, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff1, Y = 6ff7fffe, Z = dff7ffef, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff1, Y = 6ff7fffe, Z = 0007fff3, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff2, Y = 6ff7fffe, Z = dff7fff0, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff2, Y = 6ff7fffe, Z = 0007fff4, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff3, Y = 6ff7fffe, Z = dff7fff1, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff3, Y = 6ff7fffe, Z = 0007fff5, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff4, Y = 6ff7fffe, Z = dff7fff2, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff4, Y = 6ff7fffe, Z = 0007fff6, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff5, Y = 6ff7fffe, Z = dff7fff3, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff5, Y = 6ff7fffe, Z = 0007fff7, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff6, Y = 6ff7fffe, Z = dff7fff4, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff6, Y = 6ff7fffe, Z = 0007fff8, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff7, Y = 6ff7fffe, Z = dff7fff5, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff7, Y = 6ff7fffe, Z = 0007fff9, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff8, Y = 6ff7fffe, Z = dff7fff6, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff8, Y = 6ff7fffe, Z = 0007fffa, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff9, Y = 6ff7fffe, Z = dff7fff7, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff9, Y = 6ff7fffe, Z = 0007fffb, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffffa, Y = 6ff7fffe, Z = dff7fff8, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffffa, Y = 6ff7fffe, Z = 0007fffc, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffffb, Y = 6ff7fffe, Z = dff7fff9, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffffb, Y = 6ff7fffe, Z = 0007fffd, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffffc, Y = 6ff7fffe, Z = dff7fffa, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffffc, Y = 6ff7fffe, Z = 0007fffe, overflow = 1
+checkpoint 1
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffffd, Y = 6ff7fffe, Z = dff7fffb, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffffd, Y = 6ff7fffe, Z = 0007ffff, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6fffffee, Y = 8ff7fffe, Z = fff7ffec, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6fffffee, Y = 8ff7fffe, Z = e007fff0, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6fffffef, Y = 8ff7fffe, Z = fff7ffed, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6fffffef, Y = 8ff7fffe, Z = e007fff1, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff0, Y = 8ff7fffe, Z = fff7ffee, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff0, Y = 8ff7fffe, Z = e007fff2, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff1, Y = 8ff7fffe, Z = fff7ffef, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff1, Y = 8ff7fffe, Z = e007fff3, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff2, Y = 8ff7fffe, Z = fff7fff0, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff2, Y = 8ff7fffe, Z = e007fff4, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff3, Y = 8ff7fffe, Z = fff7fff1, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff3, Y = 8ff7fffe, Z = e007fff5, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff4, Y = 8ff7fffe, Z = fff7fff2, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff4, Y = 8ff7fffe, Z = e007fff6, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff5, Y = 8ff7fffe, Z = fff7fff3, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff5, Y = 8ff7fffe, Z = e007fff7, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff6, Y = 8ff7fffe, Z = fff7fff4, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff6, Y = 8ff7fffe, Z = e007fff8, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff7, Y = 8ff7fffe, Z = fff7fff5, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff7, Y = 8ff7fffe, Z = e007fff9, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff8, Y = 8ff7fffe, Z = fff7fff6, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff8, Y = 8ff7fffe, Z = e007fffa, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffff9, Y = 8ff7fffe, Z = fff7fff7, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffff9, Y = 8ff7fffe, Z = e007fffb, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffffa, Y = 8ff7fffe, Z = fff7fff8, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffffa, Y = 8ff7fffe, Z = e007fffc, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffffb, Y = 8ff7fffe, Z = fff7fff9, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffffb, Y = 8ff7fffe, Z = e007fffd, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffffc, Y = 8ff7fffe, Z = fff7fffa, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffffc, Y = 8ff7fffe, Z = e007fffe, overflow = 1
+checkpoint 2
+WARNING: ADD (overflow):  op_code = 0101, X = 6ffffffd, Y = 8ff7fffe, Z = fff7fffb, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 6ffffffd, Y = 8ff7fffe, Z = e007ffff, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6fffffee, Z = fff7ffec, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6fffffee, Z = 1ff80010, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6fffffef, Z = fff7ffed, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6fffffef, Z = 1ff8000f, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff0, Z = fff7ffee, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff0, Z = 1ff8000e, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff1, Z = fff7ffef, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff1, Z = 1ff8000d, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff2, Z = fff7fff0, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff2, Z = 1ff8000c, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff3, Z = fff7fff1, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff3, Z = 1ff8000b, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff4, Z = fff7fff2, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff4, Z = 1ff8000a, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff5, Z = fff7fff3, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff5, Z = 1ff80009, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff6, Z = fff7fff4, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff6, Z = 1ff80008, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff7, Z = fff7fff5, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff7, Z = 1ff80007, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff8, Z = fff7fff6, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff8, Z = 1ff80006, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffff9, Z = fff7fff7, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffff9, Z = 1ff80005, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffffa, Z = fff7fff8, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffffa, Z = 1ff80004, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffffb, Z = fff7fff9, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffffb, Z = 1ff80003, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffffc, Z = fff7fffa, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffffc, Z = 1ff80002, overflow = 1
+checkpoint 3
+WARNING: ADD (overflow):  op_code = 0101, X = 8ff7fffe, Y = 6ffffffd, Z = fff7fffb, overflow = 1
+WARNING: SUB (overflow):  op_code = 0110, X = 8ff7fffe, Y = 6ffffffd, Z = 1ff80001, overflow = 1
+Stopped at time : 7990 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa2/lab2_start/test_alu.v" Line 103

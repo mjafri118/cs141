@@ -11,12 +11,12 @@
 module test_alu;
 
 	// Inputs
-	reg [31:0] X;
-	reg [31:0] Y;
+	reg signed [31:0] X;
+	reg signed [31:0] Y;
 	reg [3:0] op_code;
 
 	// Outputs
-	wire [31:0] Z;
+	wire signed [31:0] Z;
 	wire equal;
 	wire overflow;
 	wire zero;
@@ -51,38 +51,54 @@ module test_alu;
 		//Iterate for X from 34 to 37 and run all operations on it
 		for(X = 34; X != 38; X = X + 1) begin
 			#10;
-			for(op_code = 4'b0000; op_code < 4'b0111; op_code = op_code + 1) begin	//Check all op_codesthat are currently programmed
+			for(op_code = 4'b0000; op_code != 4'b1111; op_code = op_code + 1) begin	//Check all op_codes
 				#10;
 			end
 		end
 		
-		//Check positive overflow
+		//Iterate for large values of X and Y, run all operations
+
+		
+		//Check large values of X positive overflow
 		X = 32'h6FFFFFEE;
 		Y = 32'h6FF7FFFE;
-		op_code = 4'b0101;
-		#10;
+		for(X = 32'h6FFFFFEE; X != 32'h6FFFFFFE; X = X + 1) begin
+			$display("checkpoint 1");
+			for(op_code = 4'b0000; op_code != 4'b1111; op_code = op_code + 1) begin	//Check all op_codes
+				#10;
+			end
+		end
 		
-		//Check negative overflow
-		X = 32'h8FFFEFFF;
-		Y = 32'h8FF7FFFE;
-		op_code = 4'b0101;
-		#10;
 		
 		//check opposite signs
-		X = 32'h8FFFEFFF;
+		X = 32'h6FFFFFEE;
 		Y = 32'h8FF7FFFE;
 		X[31] = 0;
 		Y[31] = 1;
-		op_code = 4'b0101;
-		#10;
-		op_code = 4'b0110;
-		#10;
+		for(X = 32'h6FFFFFEE; X != 32'h6FFFFFFE; X = X + 1) begin
+			$display("checkpoint 2");
+			for(op_code = 4'b0000; op_code != 4'b1111; op_code = op_code + 1) begin	//Check all op_codes
+				#10;
+			end
+		end
 		
-		//check flags
+		X = 32'h8FF7FFFE;
+		Y = 32'h6FFFFFEE;
+		X[31] = 1;
+		Y[31] = 0;
+		for(Y = 32'h6FFFFFEE; Y != 32'h6FFFFFFE; Y = Y + 1) begin
+			$display("checkpoint 3");
+			for(op_code = 4'b0000; op_code != 4'b1111; op_code = op_code + 1) begin	//Check all op_codes
+				#10;
+			end
+		end
+		
+		//check flags in small case
 		X = 32'd1;
 		Y = 32'd1;
-		op_code = 4'b0101;
-		#10;
+		for(op_code = 4'b0000; op_code != 4'b1111; op_code = op_code + 1) begin	//Check all op_codes
+			#10;
+		end
 		
 		$finish;
 	
@@ -93,6 +109,13 @@ module test_alu;
 	// list are changed (X, Y, or op_code in this case)
 	always @(X,Y,op_code) begin
 		#1;
+		//Check flags briefly
+		if((zero == 1) && (Z != 0)) begin
+			$display("ERROR: ZERO, output not actually zero, zero = %b, Z = %b", zero, Z);
+		end
+		if((equal == 1) && (X!= Y)) begin
+			$display("ERROR: EQUAL, inputs not actually equal, equal = %b, X = %b, Y = %b", equal, X, Y);
+		end
 		//Op_code checks
 		case (op_code)
 			`ALU_OP_AND : begin
@@ -148,6 +171,14 @@ module test_alu;
 				end
 			end
 			`ALU_OP_SLT: begin
+					if((Y > X) && (Z != 1)) begin
+						$display("ERROR: X = %d, Y = %d, out = %d", X, Y, Z);
+						error = error +1;
+					end
+					if((Y < X) && (Z == 1)) begin
+						$display("ERROR: X = %d, Y = %d, out = %d", X, Y, Z);
+						error = error +1;
+					end
 			end
 			`ALU_OP_SRL: begin
 			end
@@ -159,6 +190,12 @@ module test_alu;
 				//executes at default
 				if (Z !== 32'd0) begin
 					$display("ERROR HAPPENED! invalid op code, Z was not zero, op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+					
+				end
+				//Check flags on reserve cases
+				if((zero == 1) | (equal == 1) | (overflow == 1)) begin
+					$display("ERROR: Flag active on reserved value, op_code = %b, zero = %b, equal = %b, overflow = %b", op_code, zero, equal, overflow);
+					error = error + 1;
 				end
 			end
 		endcase

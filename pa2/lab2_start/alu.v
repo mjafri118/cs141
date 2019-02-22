@@ -25,7 +25,7 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	output wire equal, overflow, zero;
 	
 	wire [31:0] and_out, or_out, xor_out, nor_out, add_out, sub_out, slt_out, srl_out, sll_out, sra_out;
-	wire flags, overflow_sub_out, overflow_add_out, equal_out;
+	wire flags, overflow_sub_out, overflow_add_out, over;
 	
 	//functional blocks
 	
@@ -41,16 +41,19 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	cla_adder_32bit ADD_op(.A(X), .B(Y), .S(add_out), .C0(0), .C32(), .Pg(), .Gg(), .overflow(overflow_add_out));	//overflow is def broken rn - need to check how signed overflow works for cla
 	cla_adder_32bit SUB_op(.A(X), .B(~Y), .S(sub_out), .C0(1), .C32(), .Pg(), .Gg(), .overflow(overflow_sub_out));
 	
-	equal_flag_operator EQUAL_op(.X(X), .Y(Y), .equal(equal_out));
+	//Other operations
+	slt_operator SLT_op(.X(X), .Y(Y), .Z(slt_out));
+	
 	
 	//Define Main Output Mux
-	mux_16to1 MUX_16(.A(and_out), .B(or_out), .C(xor_out), .D(nor_out), .E(0), .F(add_out), .G(sub_out), .H(0), .I(0), .J(0), .K(0), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(Z));
+	mux_16to1 MUX_16(.A(and_out), .B(or_out), .C(xor_out), .D(nor_out), .E(0), .F(add_out), .G(sub_out), .H(slt_out), .I(0), .J(0), .K(0), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(Z));
 
 	//Define flag mux and output - tracks if address is reserved or not
 	mux_16to1 #(.BUSSIZE(FLAG_MUX)) MUX_flags(.A(1), .B(1), .C(1), .D(1), .E(0), .F(1), .G(1), .H(1), .I(1), .J(1), .K(1), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(flags));
-	assign equal = &(~(X^Y)) & flags; //&(~(X^Y))
+	mux_16to1 #(.BUSSIZE(FLAG_MUX)) MUX_over(.A(0), .B(0), .C(0), .D(0), .E(0), .F(1), .G(1), .H(0), .I(0), .J(0), .K(0), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(over));
+	assign equal = &(~(X^Y)) & flags; 
 	assign zero = &(~Z) & flags;	
-	assign overflow = (overflow_add_out | overflow_sub_out) & flags;
+	assign overflow = (overflow_add_out | overflow_sub_out) & over;
 	
 
 
