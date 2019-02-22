@@ -2,9 +2,28 @@ Command line:
    test_SRL_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  49242
+     -socket  49248
 
-Fri Feb 22 00:47:22 2019
+Fri Feb 22 01:28:21 2019
 
 
- Elaboration Time: 0.625 sec
+ Elaboration Time: 0.6875 sec
+
+ Current Memory Usage: 663.589 Meg
+
+ Total Signals          : 9041
+ Total Nets             : 2093
+ Total Signal Drivers   : 2023
+ Total Blocks           : 1475
+ Total Primitive Blocks : 993
+ Total Processes        : 2025
+ Total Traceable Variables  : 1589
+ Total Scalar Nets and Variables : 52445
+Total Line Count : 1080
+
+ Total Simulation Time: 0.71875 sec
+
+ Current Memory Usage: 663.589 Meg
+
+Fri Feb 22 01:28:37 2019
+

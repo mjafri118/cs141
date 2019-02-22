@@ -24,10 +24,12 @@ module test_SRL();
 		.Y(Y),
 		.Z(Z)
 	);
+	
+	integer error = 0;
 
 	initial begin
 		X = 0;
-		Y = 0;		
+		Y = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
@@ -37,13 +39,15 @@ module test_SRL();
 		// Increasing shifting amount by 1 from 0 to 31.
 		for (Y = 0; Y != 32'd32; Y = Y + 1) begin
 			#20;
-			$display("switch value=%d, output=%b", Y, Z);
+			if (X >> Y != Z) begin
+				error = error + 1;
+				$display("Error below:");
+			end
+			$display("Switch value=%d, output=%d . Expected %d", Y, Z, X >> Y);
 		
 		end
 
 	end
-
-
 
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire

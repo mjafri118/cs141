@@ -21,7 +21,7 @@ module SRL(X, Y, Z);
 		 
 		 // Creates each of 32 muxes needed for each shifted output.
 		 for (i = 0; i < 32; i = i + 1 ) begin : create_i_muxes			  
-			  mux_32to1 #(.n(32), .i(i)) mux_gen (
+			  mux_32to1 #(.n(32), .i(i), .ARITHMETIC(0)) mux_gen (
 			      .X(X),
 					.S(Y[4:0]),
 					.Z(Z[i])

@@ -1,4 +1,4 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRL_isim_beh.exe -prj Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRL_beh.prj work.test_SRL work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRA_isim_beh.exe -prj Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRA_beh.prj work.test_SRA work.glbl 
 ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
@@ -8,54 +8,54 @@ Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/mux_4to1.v
 Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/mux_8to1.v" into library work
 Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/mux_16to1.v" into library work
 Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/mux_32to1.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/SRL.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRL.v" into library work
+Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/SRA.v" into library work
+Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRA.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 102776 KB
-Fuse CPU Usage: 624 ms
+Fuse Memory Usage: 103096 KB
+Fuse CPU Usage: 671 ms
 Compiling module mux_2to1(BUSSIZE=1)
 Compiling module mux_4to1(BUSSIZE=1)
 Compiling module mux_8to1(BUSSIZE=1)
 Compiling module mux_16to1(BUSSIZE=1)
-Compiling module mux_32to1(i=0)
-Compiling module mux_32to1(i=1)
-Compiling module mux_32to1_default
-Compiling module mux_32to1(i=3)
-Compiling module mux_32to1(i=4)
-Compiling module mux_32to1(i=5)
-Compiling module mux_32to1(i=6)
-Compiling module mux_32to1(i=7)
-Compiling module mux_32to1(i=8)
-Compiling module mux_32to1(i=9)
-Compiling module mux_32to1(i=10)
-Compiling module mux_32to1(i=11)
-Compiling module mux_32to1(i=12)
-Compiling module mux_32to1(i=13)
-Compiling module mux_32to1(i=14)
-Compiling module mux_32to1(i=15)
-Compiling module mux_32to1(i=16)
-Compiling module mux_32to1(i=17)
-Compiling module mux_32to1(i=18)
-Compiling module mux_32to1(i=19)
-Compiling module mux_32to1(i=20)
-Compiling module mux_32to1(i=21)
-Compiling module mux_32to1(i=22)
-Compiling module mux_32to1(i=23)
-Compiling module mux_32to1(i=24)
-Compiling module mux_32to1(i=25)
-Compiling module mux_32to1(i=26)
-Compiling module mux_32to1(i=27)
-Compiling module mux_32to1(i=28)
-Compiling module mux_32to1(i=29)
-Compiling module mux_32to1(i=30)
-Compiling module mux_32to1(i=31)
-Compiling module SRL
-Compiling module test_SRL
+Compiling module mux_32to1(i=0,ARITHMETIC=1)
+Compiling module mux_32to1(i=1,ARITHMETIC=1)
+Compiling module mux_32to1(ARITHMETIC=1)
+Compiling module mux_32to1(i=3,ARITHMETIC=1)
+Compiling module mux_32to1(i=4,ARITHMETIC=1)
+Compiling module mux_32to1(i=5,ARITHMETIC=1)
+Compiling module mux_32to1(i=6,ARITHMETIC=1)
+Compiling module mux_32to1(i=7,ARITHMETIC=1)
+Compiling module mux_32to1(i=8,ARITHMETIC=1)
+Compiling module mux_32to1(i=9,ARITHMETIC=1)
+Compiling module mux_32to1(i=10,ARITHMETIC=1)
+Compiling module mux_32to1(i=11,ARITHMETIC=1)
+Compiling module mux_32to1(i=12,ARITHMETIC=1)
+Compiling module mux_32to1(i=13,ARITHMETIC=1)
+Compiling module mux_32to1(i=14,ARITHMETIC=1)
+Compiling module mux_32to1(i=15,ARITHMETIC=1)
+Compiling module mux_32to1(i=16,ARITHMETIC=1)
+Compiling module mux_32to1(i=17,ARITHMETIC=1)
+Compiling module mux_32to1(i=18,ARITHMETIC=1)
+Compiling module mux_32to1(i=19,ARITHMETIC=1)
+Compiling module mux_32to1(i=20,ARITHMETIC=1)
+Compiling module mux_32to1(i=21,ARITHMETIC=1)
+Compiling module mux_32to1(i=22,ARITHMETIC=1)
+Compiling module mux_32to1(i=23,ARITHMETIC=1)
+Compiling module mux_32to1(i=24,ARITHMETIC=1)
+Compiling module mux_32to1(i=25,ARITHMETIC=1)
+Compiling module mux_32to1(i=26,ARITHMETIC=1)
+Compiling module mux_32to1(i=27,ARITHMETIC=1)
+Compiling module mux_32to1(i=28,ARITHMETIC=1)
+Compiling module mux_32to1(i=29,ARITHMETIC=1)
+Compiling module mux_32to1(i=30,ARITHMETIC=1)
+Compiling module mux_32to1(i=31,ARITHMETIC=1)
+Compiling module SRA
+Compiling module test_SRA
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 39 Verilog Units
-Built simulation executable Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRL_isim_beh.exe
-Fuse Memory Usage: 106344 KB
-Fuse CPU Usage: 1593 ms
+Built simulation executable Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRA_isim_beh.exe
+Fuse Memory Usage: 106664 KB
+Fuse CPU Usage: 1577 ms

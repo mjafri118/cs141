@@ -1,5 +1,5 @@
 ISim log file
-Running: Z:\shared_with_vm\141git\cs141\pa2\lab2_start\test_SRL_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRL_isim_beh.wdb 
+Running: Z:\shared_with_vm\141git\cs141\pa2\lab2_start\test_SRA_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRA_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,35 +11,132 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-switch value=         0, output=10001010000110111100100101111010
-switch value=         1, output=01000101000011011110010010111101
-switch value=         2, output=00100010100001101111001001011110
-switch value=         3, output=00010001010000110111100100101111
-switch value=         4, output=00001000101000011011110010010111
-switch value=         5, output=00000100010100001101111001001011
-switch value=         6, output=00000010001010000110111100100101
-switch value=         7, output=00000001000101000011011110010010
-switch value=         8, output=00000000100010100001101111001001
-switch value=         9, output=00000000010001010000110111100100
-switch value=        10, output=00000000001000101000011011110010
-switch value=        11, output=00000000000100010100001101111001
-switch value=        12, output=00000000000010001010000110111100
-switch value=        13, output=00000000000001000101000011011110
-switch value=        14, output=00000000000000100010100001101111
-switch value=        15, output=00000000000000010001010000110111
-switch value=        16, output=00000000000000001000101000011011
-switch value=        17, output=00000000000000000100010100001101
-switch value=        18, output=00000000000000000010001010000110
-switch value=        19, output=00000000000000000001000101000011
-switch value=        20, output=00000000000000000000100010100001
-switch value=        21, output=00000000000000000000010001010000
-switch value=        22, output=00000000000000000000001000101000
-switch value=        23, output=00000000000000000000000100010100
-switch value=        24, output=00000000000000000000000010001010
-switch value=        25, output=00000000000000000000000001000101
-switch value=        26, output=00000000000000000000000000100010
-switch value=        27, output=00000000000000000000000000010001
-switch value=        28, output=00000000000000000000000000001000
-switch value=        29, output=00000000000000000000000000000100
-switch value=        30, output=00000000000000000000000000000010
-switch value=        31, output=00000000000000000000000000000001
+X: -2147483638, switch value=          0, output=-2147483638 . Expected -2147483638
+X: -2147483638, switch value=          1, output=-1073741819 . Expected -1073741819
+X: -2147483638, switch value=          2, output= -536870910 . Expected  -536870910
+X: -2147483638, switch value=          3, output= -268435455 . Expected  -268435455
+X: -2147483638, switch value=          4, output= -134217728 . Expected  -134217728
+X: -2147483638, switch value=          5, output=  -67108864 . Expected   -67108864
+X: -2147483638, switch value=          6, output=  -33554432 . Expected   -33554432
+X: -2147483638, switch value=          7, output=  -16777216 . Expected   -16777216
+X: -2147483638, switch value=          8, output=   -8388608 . Expected    -8388608
+X: -2147483638, switch value=          9, output=   -4194304 . Expected    -4194304
+X: -2147483638, switch value=         10, output=   -2097152 . Expected    -2097152
+X: -2147483638, switch value=         11, output=   -1048576 . Expected    -1048576
+X: -2147483638, switch value=         12, output=    -524288 . Expected     -524288
+X: -2147483638, switch value=         13, output=    -262144 . Expected     -262144
+X: -2147483638, switch value=         14, output=    -131072 . Expected     -131072
+X: -2147483638, switch value=         15, output=     -65536 . Expected      -65536
+X: -2147483638, switch value=         16, output=     -32768 . Expected      -32768
+X: -2147483638, switch value=         17, output=     -16384 . Expected      -16384
+X: -2147483638, switch value=         18, output=      -8192 . Expected       -8192
+X: -2147483638, switch value=         19, output=      -4096 . Expected       -4096
+X: -2147483638, switch value=         20, output=      -2048 . Expected       -2048
+X: -2147483638, switch value=         21, output=      -1024 . Expected       -1024
+X: -2147483638, switch value=         22, output=       -512 . Expected        -512
+X: -2147483638, switch value=         23, output=       -256 . Expected        -256
+X: -2147483638, switch value=         24, output=       -128 . Expected        -128
+X: -2147483638, switch value=         25, output=        -64 . Expected         -64
+X: -2147483638, switch value=         26, output=        -32 . Expected         -32
+X: -2147483638, switch value=         27, output=        -16 . Expected         -16
+X: -2147483638, switch value=         28, output=         -8 . Expected          -8
+X: -2147483638, switch value=         29, output=         -4 . Expected          -4
+X: -2147483638, switch value=         30, output=         -2 . Expected          -2
+X: -2147483638, switch value=         31, output=         -1 . Expected          -1
+X:      321313, switch value=          0, output=     321313 . Expected      321313
+X:      321313, switch value=          1, output=     160656 . Expected      160656
+X:      321313, switch value=          2, output=      80328 . Expected       80328
+X:      321313, switch value=          3, output=      40164 . Expected       40164
+X:      321313, switch value=          4, output=      20082 . Expected       20082
+X:      321313, switch value=          5, output=      10041 . Expected       10041
+X:      321313, switch value=          6, output=       5020 . Expected        5020
+X:      321313, switch value=          7, output=       2510 . Expected        2510
+X:      321313, switch value=          8, output=       1255 . Expected        1255
+X:      321313, switch value=          9, output=        627 . Expected         627
+X:      321313, switch value=         10, output=        313 . Expected         313
+X:      321313, switch value=         11, output=        156 . Expected         156
+X:      321313, switch value=         12, output=         78 . Expected          78
+X:      321313, switch value=         13, output=         39 . Expected          39
+X:      321313, switch value=         14, output=         19 . Expected          19
+X:      321313, switch value=         15, output=          9 . Expected           9
+X:      321313, switch value=         16, output=          4 . Expected           4
+X:      321313, switch value=         17, output=          2 . Expected           2
+X:      321313, switch value=         18, output=          1 . Expected           1
+X:      321313, switch value=         19, output=          0 . Expected           0
+X:      321313, switch value=         20, output=          0 . Expected           0
+X:      321313, switch value=         21, output=          0 . Expected           0
+X:      321313, switch value=         22, output=          0 . Expected           0
+X:      321313, switch value=         23, output=          0 . Expected           0
+X:      321313, switch value=         24, output=          0 . Expected           0
+X:      321313, switch value=         25, output=          0 . Expected           0
+X:      321313, switch value=         26, output=          0 . Expected           0
+X:      321313, switch value=         27, output=          0 . Expected           0
+X:      321313, switch value=         28, output=          0 . Expected           0
+X:      321313, switch value=         29, output=          0 . Expected           0
+X:      321313, switch value=         30, output=          0 . Expected           0
+X:      321313, switch value=         31, output=          0 . Expected           0
+X:          -1, switch value=          0, output=         -1 . Expected          -1
+X:          -1, switch value=          1, output=         -1 . Expected          -1
+X:          -1, switch value=          2, output=         -1 . Expected          -1
+X:          -1, switch value=          3, output=         -1 . Expected          -1
+X:          -1, switch value=          4, output=         -1 . Expected          -1
+X:          -1, switch value=          5, output=         -1 . Expected          -1
+X:          -1, switch value=          6, output=         -1 . Expected          -1
+X:          -1, switch value=          7, output=         -1 . Expected          -1
+X:          -1, switch value=          8, output=         -1 . Expected          -1
+X:          -1, switch value=          9, output=         -1 . Expected          -1
+X:          -1, switch value=         10, output=         -1 . Expected          -1
+X:          -1, switch value=         11, output=         -1 . Expected          -1
+X:          -1, switch value=         12, output=         -1 . Expected          -1
+X:          -1, switch value=         13, output=         -1 . Expected          -1
+X:          -1, switch value=         14, output=         -1 . Expected          -1
+X:          -1, switch value=         15, output=         -1 . Expected          -1
+X:          -1, switch value=         16, output=         -1 . Expected          -1
+X:          -1, switch value=         17, output=         -1 . Expected          -1
+X:          -1, switch value=         18, output=         -1 . Expected          -1
+X:          -1, switch value=         19, output=         -1 . Expected          -1
+X:          -1, switch value=         20, output=         -1 . Expected          -1
+X:          -1, switch value=         21, output=         -1 . Expected          -1
+X:          -1, switch value=         22, output=         -1 . Expected          -1
+X:          -1, switch value=         23, output=         -1 . Expected          -1
+X:          -1, switch value=         24, output=         -1 . Expected          -1
+X:          -1, switch value=         25, output=         -1 . Expected          -1
+X:          -1, switch value=         26, output=         -1 . Expected          -1
+X:          -1, switch value=         27, output=         -1 . Expected          -1
+X:          -1, switch value=         28, output=         -1 . Expected          -1
+X:          -1, switch value=         29, output=         -1 . Expected          -1
+X:          -1, switch value=         30, output=         -1 . Expected          -1
+X:          -1, switch value=         31, output=         -1 . Expected          -1
+End of test!
+X:           1, switch value=          0, output=          1 . Expected           1
+X:           1, switch value=          1, output=          0 . Expected           0
+X:           1, switch value=          2, output=          0 . Expected           0
+X:           1, switch value=          3, output=          0 . Expected           0
+X:           1, switch value=          4, output=          0 . Expected           0
+X:           1, switch value=          5, output=          0 . Expected           0
+X:           1, switch value=          6, output=          0 . Expected           0
+X:           1, switch value=          7, output=          0 . Expected           0
+X:           1, switch value=          8, output=          0 . Expected           0
+X:           1, switch value=          9, output=          0 . Expected           0
+X:           1, switch value=         10, output=          0 . Expected           0
+X:           1, switch value=         11, output=          0 . Expected           0
+X:           1, switch value=         12, output=          0 . Expected           0
+X:           1, switch value=         13, output=          0 . Expected           0
+X:           1, switch value=         14, output=          0 . Expected           0
+X:           1, switch value=         15, output=          0 . Expected           0
+X:           1, switch value=         16, output=          0 . Expected           0
+X:           1, switch value=         17, output=          0 . Expected           0
+X:           1, switch value=         18, output=          0 . Expected           0
+X:           1, switch value=         19, output=          0 . Expected           0
+X:           1, switch value=         20, output=          0 . Expected           0
+X:           1, switch value=         21, output=          0 . Expected           0
+X:           1, switch value=         22, output=          0 . Expected           0
+X:           1, switch value=         23, output=          0 . Expected           0
+X:           1, switch value=         24, output=          0 . Expected           0
+X:           1, switch value=         25, output=          0 . Expected           0
+X:           1, switch value=         26, output=          0 . Expected           0
+X:           1, switch value=         27, output=          0 . Expected           0
+X:           1, switch value=         28, output=          0 . Expected           0
+X:           1, switch value=         29, output=          0 . Expected           0
+X:           1, switch value=         30, output=          0 . Expected           0
+X:           1, switch value=         31, output=          0 . Expected           0

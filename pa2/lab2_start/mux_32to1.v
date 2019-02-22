@@ -15,6 +15,7 @@ module mux_32to1(X, S, Z);
 	parameter BUSSIZE = 1;	//define size of input or output buses
 	parameter n = 32;
 	parameter i = 2;
+	parameter ARITHMETIC = 0;
 
 	//port definitions - customize for different bit widths
 	input wire [31:0] X;
@@ -33,7 +34,7 @@ module mux_32to1(X, S, Z);
 		 end
 		 
 		 for (j = n - i; j < n ; j = j + 1 ) begin : assign_muxIns_ground
-		     assign MuxIn[j] = 0;
+		     assign MuxIn[j] = ARITHMETIC ? X[31]: 0;
 		 end
 	
 	mux_16to1 #(.BUSSIZE(BUSSIZE)) MUX_012_0(.A(MuxIn[0]), 
