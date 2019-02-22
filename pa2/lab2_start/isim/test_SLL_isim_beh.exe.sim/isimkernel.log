@@ -1,0 +1,10 @@
+Command line:
+   test_SLL_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49300
+
+Fri Feb 22 02:47:19 2019
+
+
+ Elaboration Time: 0.609375 sec

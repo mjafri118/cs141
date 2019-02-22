@@ -13,9 +13,9 @@ module mux_32to1(X, S, Z);
 
 	//parameter definitions
 	parameter BUSSIZE = 1;	//define size of input or output buses
-	parameter n = 32;
-	parameter i = 2;
-	parameter ARITHMETIC = 0;
+	parameter n = 32;       // number of muxes total
+	parameter i = 2;        // number mux being created, corresponding to index of output
+	parameter ARITHMETIC = 0; // active high for if we're creating an arithmetic logic shift.
 
 	//port definitions - customize for different bit widths
 	input wire [31:0] X;
@@ -74,8 +74,6 @@ module mux_32to1(X, S, Z);
 															.P(MuxIn[31]),
 															.S(S[3:0]), 
 															.Z(W1));
-	//mux_16to1 #(.BUSSIZE(BUSSIZE)) MUX_012_1(.A(I), 
-	//.B(J), .C(K), .D(L), .E(M), .F(N), .G(O), .H(P), .S(S[2:0]), .Z(W1));
 	mux_2to1 #(.BUSSIZE(BUSSIZE)) MUX_3_0(.X(W0), .Y(W1), .S(S[4]), .Z(Z));
 
 
