@@ -5,22 +5,22 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="248" delta="unknown" >"Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_4bit.v" Line 26: Block identifier is required on this block
+<msg type="warning" file="HDLCompiler" num="248" delta="unknown" >"Z:/shared_with_vm/141git/cs141/pa2/lab2_start/cla_adder_4bit.v" Line 26: Block identifier is required on this block
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 41: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">C0</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_with_vm/141git/cs141/pa2/lab2_start/alu.v" Line 41: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">C0</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 42: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">C0</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_with_vm/141git/cs141/pa2/lab2_start/alu.v" Line 42: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">C0</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_folder/cs141/pa2/lab2_start/slt_operator.v" Line 24: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">C0</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_with_vm/141git/cs141/pa2/lab2_start/slt_operator.v" Line 24: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">C0</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 55: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">A</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_with_vm/141git/cs141/pa2/lab2_start/alu.v" Line 55: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">A</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 56: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">A</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"Z:/shared_with_vm/141git/cs141/pa2/lab2_start/alu.v" Line 56: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">A</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
 </messages>

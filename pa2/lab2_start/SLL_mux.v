@@ -28,10 +28,13 @@ module SLL_mux(X, S ,Z);
 	// Assigns the right value to each mux input. 
 	
 	    genvar j;
+		 
+		 // wires input wires to mux.
 		 for (j = 0; j < i + 1; j = j + 1 ) begin : assign_muxIns_values
 		     assign MuxIn[j] = X[i - j];
 		 end
 		 
+		 // grounds remaining connections to mux.
 		 for (j = i + 1; j < n ; j = j + 1 ) begin : assign_muxIns_ground
 		     assign MuxIn[j] = 0;
 		 end
@@ -75,6 +78,7 @@ module SLL_mux(X, S ,Z);
 															.Z(W1));
 	mux_2to1 #(.BUSSIZE(BUSSIZE)) MUX_3_0(.X(W0), .Y(W1), .S(S[4]), .Z(W2));
 	
+	// checks if shift is greater than 2^5. If so, 0, else W2. 
 	assign Z = |S[31:5] ? 0 : W2;
 	
 
