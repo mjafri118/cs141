@@ -1,40 +1,40 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_alu_isim_beh.exe -prj Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_alu_beh.prj work.test_alu work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_folder/cs141/pa2/lab2_start/test_alu_isim_beh.exe -prj Z:/shared_folder/cs141/pa2/lab2_start/test_alu_beh.prj work.test_alu work.glbl 
 ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
 Determining compilation order of HDL files
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/mux_2to1.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/mux_4to1.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/cla_propagate.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/cla_generate.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/mux_8to1.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/cla_adder_4bit.v" into library work
-WARNING:HDLCompiler:248 - "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/cla_adder_4bit.v" Line 26: Block identifier is required on this block
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/mux_16to1.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/cla_adder_16bit.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/SLL_mux.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/mux_32to1.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/cla_adder_32bit.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/xor_operator.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/SRL.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/SRA.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/slt_operator.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/SLL.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/or_operator.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/nor_operator.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/and_operator.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/alu.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_alu.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/mux_2to1.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/mux_4to1.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_propagate.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_generate.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/mux_8to1.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_4bit.v" into library work
+WARNING:HDLCompiler:248 - "Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_4bit.v" Line 26: Block identifier is required on this block
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/mux_16to1.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_16bit.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/SLL_mux.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/mux_32to1.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/cla_adder_32bit.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/xor_operator.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/SRL.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/SRA.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/slt_operator.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/SLL.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/or_operator.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/nor_operator.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/and_operator.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/alu.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa2/lab2_start/test_alu.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:189 - "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/alu.v" Line 41: Size mismatch in connection of port <C0>. Formal port size is 1-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/alu.v" Line 42: Size mismatch in connection of port <C0>. Formal port size is 1-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/slt_operator.v" Line 24: Size mismatch in connection of port <C0>. Formal port size is 1-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/alu.v" Line 55: Size mismatch in connection of port <A>. Formal port size is 1-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "Z:/shared_with_vm/141git/cs141/pa2/lab2_start/alu.v" Line 56: Size mismatch in connection of port <A>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 41: Size mismatch in connection of port <C0>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 42: Size mismatch in connection of port <C0>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "Z:/shared_folder/cs141/pa2/lab2_start/slt_operator.v" Line 24: Size mismatch in connection of port <C0>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 55: Size mismatch in connection of port <A>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "Z:/shared_folder/cs141/pa2/lab2_start/alu.v" Line 56: Size mismatch in connection of port <A>. Formal port size is 1-bit while actual signal size is 32-bit.
 Completed static elaboration
-Fuse Memory Usage: 104824 KB
-Fuse CPU Usage: 1796 ms
+Fuse Memory Usage: 104372 KB
+Fuse CPU Usage: 1265 ms
 Compiling module and_operator
 Compiling module or_operator
 Compiling module xor_operator
@@ -161,6 +161,6 @@ Compiling module test_alu
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 124 Verilog Units
-Built simulation executable Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_alu_isim_beh.exe
-Fuse Memory Usage: 108392 KB
-Fuse CPU Usage: 5014 ms
+Built simulation executable Z:/shared_folder/cs141/pa2/lab2_start/test_alu_isim_beh.exe
+Fuse Memory Usage: 108964 KB
+Fuse CPU Usage: 4655 ms

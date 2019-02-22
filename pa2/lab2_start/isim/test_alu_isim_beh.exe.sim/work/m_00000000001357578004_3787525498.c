@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa2/lab2_start/mux_2to1.v";
+static const char *ng0 = "//vmware-host/Shared Folders/shared_folder/cs141/pa2/lab2_start/mux_2to1.v";
 
 
 

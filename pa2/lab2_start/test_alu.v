@@ -152,6 +152,10 @@ module test_alu;
 				if(overflow == 1) begin	//Warning if there is an overflow
 					$display("WARNING: ADD (overflow):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
 				end
+				if(((X + Y) > 2147483647) && (overflow !== 1)) begin
+					$display("ERROR: ADD (no overflow): op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
+					error = error + 1;
+				end
 			end
 			
 			`ALU_OP_SUB: begin
@@ -169,6 +173,10 @@ module test_alu;
 				end
 				if(overflow == 1) begin	//Warning if there is an overflow
 					$display("WARNING: SUB (overflow):  op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
+				end
+				if(((X + ~Y + 1) > 2147483647) && (overflow !== 1)) begin
+					$display("ERROR: ADD (no overflow): op_code = %b, X = %h, Y = %h, Z = %h, overflow = %b", op_code, X, Y, Z, overflow);
+					error = error + 1;
 				end
 			end
 			

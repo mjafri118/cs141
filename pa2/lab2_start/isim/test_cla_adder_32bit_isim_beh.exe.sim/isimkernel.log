@@ -1,0 +1,30 @@
+Command line:
+   test_cla_adder_32bit_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49243
+
+Fri Feb 22 13:14:00 2019
+
+
+ Elaboration Time: 0.09375 sec
+
+ Current Memory Usage: 657.58 Meg
+
+ Total Signals          : 341
+ Total Nets             : 239
+ Total Signal Drivers   : 169
+ Total Blocks           : 77
+ Total Primitive Blocks : 65
+ Total Processes        : 172
+ Total Traceable Variables  : 22
+ Total Scalar Nets and Variables : 416
+Total Line Count : 206
+Total Line Count : 206
+
+ Total Simulation Time: 0.15625 sec
+
+ Current Memory Usage: 657.58 Meg
+
+Fri Feb 22 13:17:37 2019
+

@@ -25,12 +25,12 @@
 module test_cla_adder_32bit;
 
 	// Inputs
-	reg [31:0] A;
-	reg [31:0] B;
+	reg signed [31:0] A;
+	reg signed [31:0] B;
 	reg C0;
 
 	// Outputs
-	wire [31:0] S;
+	wire signed [31:0] S;
 	wire C32;
 	wire Pg;
 	wire Gg;
@@ -71,6 +71,11 @@ module test_cla_adder_32bit;
 		end
 		
 		B = 32'd2147483547;	//large values and overflow
+		for (A = 32'd75; A!= 32'd125; A = A + 1 ) begin
+			#10;
+		end
+
+		B = -32'd2147483547;
 		for (A = 32'd75; A!= 32'd125; A = A + 1 ) begin
 			#10;
 		end

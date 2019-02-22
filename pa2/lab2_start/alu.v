@@ -53,10 +53,10 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 
 	//Define flag mux and output - tracks if address is reserved or not
 	mux_16to1 #(.BUSSIZE(FLAG_MUX)) MUX_flags(.A(1), .B(1), .C(1), .D(1), .E(0), .F(1), .G(1), .H(1), .I(1), .J(1), .K(1), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(flags));
-	mux_16to1 #(.BUSSIZE(FLAG_MUX)) MUX_over(.A(0), .B(0), .C(0), .D(0), .E(0), .F(1), .G(1), .H(0), .I(0), .J(0), .K(0), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(over));
+	mux_16to1 #(.BUSSIZE(FLAG_MUX)) MUX_over(.A(0), .B(0), .C(0), .D(0), .E(0), .F(overflow_add_out), .G(overflow_sub_out), .H(0), .I(0), .J(0), .K(0), .L(0), .M(0), .N(0), .O(0), .P(0), .S(op_code), .Z(overflow));
 	assign equal = &(~(X^Y)) & flags; 
 	assign zero = &(~Z) & flags;	
-	assign overflow = (overflow_add_out | overflow_sub_out) & over;
+//	assign overflow = (overflow_add_out | overflow_sub_out) & over;
 	
 
 
