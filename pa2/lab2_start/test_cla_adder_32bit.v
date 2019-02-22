@@ -65,7 +65,7 @@ module test_cla_adder_32bit;
 
 		end
 
-		B = 32'd639872;	//basic low value adding
+		B = 32'd639872;	//basic multi-unit adding
 		for (A = 32'd19837; A!= 32'd19893; A = A + 1 ) begin
 			#10;
 		end
@@ -75,12 +75,12 @@ module test_cla_adder_32bit;
 			#10;
 		end
 
-		B = -32'd2147483547;
+		B = -32'd2147483547;	//negative values
 		for (A = 32'd75; A!= 32'd125; A = A + 1 ) begin
 			#10;
 		end
 
-		C0 = 1;
+		C0 = 1;	//with carry
 		for (A = 32'd75; A!= 32'd125; A = A + 1 ) begin
 			#10;
 		end

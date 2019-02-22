@@ -1,15 +1,19 @@
 ****************************************
 Victor Qin and Mohib Jafri
 CS 141 Spring 2019
-2/15/19
+2/22/19
 
-PA 2 Pt. 1 Description
+PA 2 Pt. 2 Description
 ****************************************
 
-In this PA we designed 3 main testbenches to test the mux, adder, and ALU respectively.
+In this PA we designed testbenches to test the mux, carry-lookahead adder, SLT, shifters and ALU functionality respectively.
 
 The mutiplexer test (test_mux_16to1) involves setting each of the 16 inputs to the Mux to the numbers 11 through 26, then iterating through every op code (0000 to 1111) to see if it outputs the correct value (corresponding to the correct input). This allows us to see if the mux is properly selecting every input.
 
-The adder test (test_adder_cascaded32) first tests for overflow by adding two numbers with 1's in the MSB. It then iterates through adding 1-10 to 1-10 (the two for loops) and checks to make sure that there are no incorrect addition operations.
+The adder test (test_cla_adder_32bit) tests the carry-lookahead adder by running through a battery of single-unit, then multi-unit adder tests. It tests for overflow by setting B to the limit of the adder and using A to overflow the test. There is also a check for negative values, and a verification of the input-carry for the subtractor.
 
-The ALU test (test_alu) integrates all the logic gates along with the adder. It first tests by holding Y at 36 and counting X up from 34 to 37, while iterating through all programmed op_codes for each X/Y pair. This gives good coverage to many different logical bit comparisons and additions. The last two cases check for overflow activation by adding the largest numbers that are positive and negative.
+The SLT test (test_slt) sets up some values of X and Y, and checks for cases where positive X is less and greater than Y, then where the signs are opposite and both negative respectively.
+
+The shifter tests (test_SLL, test_SRA, test_SRL) pick edge cases for X and iterates through all possible values of Y in the always block. We can then use Verilog's built in functions for bit shifting to verify the correctness of those tests
+
+The ALU test (test_alu) integrates all the functions together and tests for flags. It first tests by holding Y at 36 and counting X up from 34 to 37, while iterating through all op_codes for each X/Y pair. This gives good coverage to many different logical bit comparisons and additions. This is followed by several tests of large X and Y values, including differently-signed inputs and outputs. Each op_code has a test (in the case statement) that verifies the output. The zero and equal flags are tested outside the case function to see if they are turning on at the right inputs/outputs, while the overflow flag is tested inside the ADD and SUB case statements.
