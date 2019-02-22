@@ -1,36 +1,45 @@
 ISim log file
-Running: Z:\shared_folder\cs141\pa2\lab2_start\test_alu_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_folder/cs141/pa2/lab2_start/test_alu_isim_beh.wdb 
+Running: Z:\shared_with_vm\141git\cs141\pa2\lab2_start\test_SRL_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa2/lab2_start/test_SRL_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING:  For instance uut/ADD_op/, width 1 of formal port C0 is not equal to width 32 of actual constant.
-WARNING:  For instance uut/SUB_op/, width 1 of formal port C0 is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port A is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port B is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port C is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port D is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port E is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port F is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port G is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port H is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port I is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port J is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port K is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port L is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port M is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port N is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port O is not equal to width 32 of actual constant.
-WARNING:  For instance uut/MUX_flags/, width 1 of formal port P is not equal to width 32 of actual constant.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-WARNING: ADD (overflow):  op_code = 0101, X = 6fffffee, Y = 6ff7fffe, Z = dff7ffec, overflow = 1
-WARNING: ADD (overflow):  op_code = 0101, X = 8fffefff, Y = 8ff7fffe, Z = 1ff7effd, overflow = 1
-WARNING: ADD (overflow):  op_code = 0101, X = 0fffefff, Y = 8ff7fffe, Z = 9ff7effd, overflow = 1
-WARNING: SUB (overflow):  op_code = 0110, X = 0fffefff, Y = 8ff7fffe, Z = 8007f001, overflow = 1
-Stopped at time : 370 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa2/lab2_start/test_alu.v" Line 87
+switch value=         0, output=10001010000110111100100101111010
+switch value=         1, output=01000101000011011110010010111101
+switch value=         2, output=00100010100001101111001001011110
+switch value=         3, output=00010001010000110111100100101111
+switch value=         4, output=00001000101000011011110010010111
+switch value=         5, output=00000100010100001101111001001011
+switch value=         6, output=00000010001010000110111100100101
+switch value=         7, output=00000001000101000011011110010010
+switch value=         8, output=00000000100010100001101111001001
+switch value=         9, output=00000000010001010000110111100100
+switch value=        10, output=00000000001000101000011011110010
+switch value=        11, output=00000000000100010100001101111001
+switch value=        12, output=00000000000010001010000110111100
+switch value=        13, output=00000000000001000101000011011110
+switch value=        14, output=00000000000000100010100001101111
+switch value=        15, output=00000000000000010001010000110111
+switch value=        16, output=00000000000000001000101000011011
+switch value=        17, output=00000000000000000100010100001101
+switch value=        18, output=00000000000000000010001010000110
+switch value=        19, output=00000000000000000001000101000011
+switch value=        20, output=00000000000000000000100010100001
+switch value=        21, output=00000000000000000000010001010000
+switch value=        22, output=00000000000000000000001000101000
+switch value=        23, output=00000000000000000000000100010100
+switch value=        24, output=00000000000000000000000010001010
+switch value=        25, output=00000000000000000000000001000101
+switch value=        26, output=00000000000000000000000000100010
+switch value=        27, output=00000000000000000000000000010001
+switch value=        28, output=00000000000000000000000000001000
+switch value=        29, output=00000000000000000000000000000100
+switch value=        30, output=00000000000000000000000000000010
+switch value=        31, output=00000000000000000000000000000001
