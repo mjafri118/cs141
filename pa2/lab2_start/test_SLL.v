@@ -54,8 +54,8 @@ module test_SLL();
 		#1;
 		case(X)
 			default: begin
-				// Increasing shifting amount by 1 from 0 to 31.
-				for (Y = 0; Y != 32'd32; Y = Y + 1) begin
+				// Increasing shifting amount by 1 from 0 to 38.
+				for (Y = 0; Y != 32'd38; Y = Y + 1) begin
 					#2;
 					
 					// Creates error increment. 

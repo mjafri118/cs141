@@ -57,8 +57,8 @@ module test_SRA();
 		#1;
 		case(X)
 			default: begin
-				// Increasing shifting amount by 1 from 0 to 31.
-				for (Y = 0; Y != 32'd32; Y = Y + 1) begin
+				// Increasing shifting amount by 1 from 0 to 38.
+				for (Y = 0; Y != 32'd39; Y = Y + 1) begin
 					#1;
 					
 					// Creates error increment. 
@@ -66,7 +66,7 @@ module test_SRA();
 						error = error + 1;
 						$display("Error below when x is %b", X);
 					end
-					$display("X: %d, switch value=%d, output=%d . Expected %d",X, Y, $signed(Z), X >>> Y);
+					$display("X: %b, switch value=%b, output=%b . Expected %d",X, Y, $signed(Z), X >>> Y);
 		
 				end
 			end

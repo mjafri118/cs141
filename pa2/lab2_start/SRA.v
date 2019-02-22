@@ -22,7 +22,7 @@ module SRA(X, Y, Z);
 		 for (i = 0; i < 32; i = i + 1 ) begin : create_i_muxes			  
 			  mux_32to1 #(.n(32), .i(i),  .ARITHMETIC(1)) mux_gen (
 			      .X(X),
-					.S(Y[4:0]),
+					.S(Y),
 					.Z(Z[i])
 			  ); 
 		 end

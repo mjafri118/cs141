@@ -19,12 +19,12 @@ module mux_32to1(X, S, Z);
 
 	//port definitions - customize for different bit widths
 	input wire [31:0] X;
-	input wire [4:0] S;
+	input wire [31:0] S;
 	output wire Z;
 	
 	wire [31:0] MuxIn; // wires that actually get hooked up to the mux.
 	
-	wire W0, W1;
+	wire W0, W1, W2; // W2 is output of both both muxes
 	
 	// Assigns the right value to each mux input. 
 	
@@ -74,7 +74,11 @@ module mux_32to1(X, S, Z);
 															.P(MuxIn[31]),
 															.S(S[3:0]), 
 															.Z(W1));
-	mux_2to1 #(.BUSSIZE(BUSSIZE)) MUX_3_0(.X(W0), .Y(W1), .S(S[4]), .Z(Z));
+	mux_2to1 #(.BUSSIZE(BUSSIZE)) MUX_3_0(.X(W0), .Y(W1), .S(S[4]), .Z(W2));
+	
+	// if shift is greater than 32, set output to 0 if not arithmetic, X[31] if 
+	// arithmetic, W2 if shift is less than 32.
+	assign Z = |S[31:5] ? ( ARITHMETIC ? X[31]: 0) : W2; 
 
 
 endmodule

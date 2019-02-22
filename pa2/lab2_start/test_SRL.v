@@ -34,16 +34,16 @@ module test_SRL();
 		// Wait 100 ns for global reset to finish
 		#100;
 		
-		X = 32'b10001010000110111100100101111010; // arbitrary.
+		X = 34'b10001010000110111100100101111010; // arbitrary
         
 		// Increasing shifting amount by 1 from 0 to 31.
-		for (Y = 0; Y != 32'd32; Y = Y + 1) begin
+		for (Y = 0; Y != 32'd39; Y = Y + 1) begin
 			#20;
 			if (X >> Y != Z) begin
 				error = error + 1;
 				$display("Error below:");
 			end
-			$display("Switch value=%d, output=%d . Expected %d", Y, Z, X >> Y);
+			$display("Switch value=%d, output=%b . Expected %b", Y, Z, X >> Y);
 		
 		end
 

@@ -23,12 +23,14 @@ module SRL(X, Y, Z);
 		 for (i = 0; i < 32; i = i + 1 ) begin : create_i_muxes			  
 			  mux_32to1 #(.n(32), .i(i), .ARITHMETIC(0)) mux_gen (
 			      .X(X),
-					.S(Y[4:0]),
+					.S(Y),
 					.Z(Z[i])
 			  ); 
 		 end
 	
 	endgenerate
+	
+	
 
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire
