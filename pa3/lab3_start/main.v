@@ -36,6 +36,7 @@ module main(switch, led, rstb_button, button_center, button_down, unbuf_clk);
 		.clk(cclk),.rst(1'b0),.bouncy(button_down),.debounced(button_down_db));			
 	
 	assign timer_rst = button_down_db;
+	assign rst = ~rstb; 
 	
 	clock_generator CLOCK_GEN (.clk_100M_raw(unbuf_clk),.clk_100M(cclk));
 	
