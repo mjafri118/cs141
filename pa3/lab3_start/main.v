@@ -50,11 +50,14 @@ module main(switch, led, rstb_button, button_center, button_down, unbuf_clk);
 	
 	//Part 1 I/O
 	//comment out for part 2
-	assign led[7:4] = 3'b0; 
+	assign led[6:4] = 3'b0; 
 	assign led[3:0] = out; 
 	assign init = switch[3:0];
 	assign load = button_center_db; 
 	assign en = 1'b1;
+	
+	// TEST: last led shows clock
+	//assign led[7] = clk_1hz;
 	 
 	
 	//Part 2 I/O

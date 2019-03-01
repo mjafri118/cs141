@@ -11,7 +11,9 @@ module univ_binary_counter_tb();
 	// port in the module
 	// since every port here has the same name as the wires/regs we
 	// want to pass in, we can use .* for all port assignments
-	univ_bin_counter uut (.*);
+	
+	
+	//COMMENTED OUTuniv_bin_counter uut (.*);
 
 	//****************************************************************
 	// reset for the first half cycle

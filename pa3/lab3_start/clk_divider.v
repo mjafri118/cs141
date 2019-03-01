@@ -29,13 +29,13 @@ module clk_divider(clk_in, rst, clk_out);
 		end
 		else if(r_count == 32'd49999999) begin	//count up to 500 ms
 			if(clk_out == 1) 	//switch clock direction
-				clk_out = 0;
+				clk_out <= 0;
 			else
-				clk_out = 1;
+				clk_out <= 1;
 			r_count <= 0;
 		end
 		else begin		//count up internal counter
-			r_count = r_count + 1;
+			r_count <= r_count + 1;
 		end
 	end
 	

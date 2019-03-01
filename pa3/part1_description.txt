@@ -1,0 +1,16 @@
+****************************************
+Victor Qin and Mohib Jafri
+CS 141 Spring 2019
+3/1/19
+
+PA 3 Pt. 1 Description
+****************************************
+
+In this PA we created a 1Hz clock and a timer along with their constituent testbenches.
+
+Timer: 
+The timer is very similar in spirit to the universal binary counter. We implemented an async reset to catch any presses of reset (the rest is synchronous for simplicity's sake). In where we have reset, the most important block, it is nonblocking and will be asserted directly to out_reg at the end of the clock cycle. On the other hand, any other input will be stored in out_next, and out_next will only propagate to out_reg at the very end. This design allows for very clean designs and ease of establishing hierarchy. 
+
+To test timer, there were two primary test cases necessary to sufficiently prove we met design specs. First, a normal countdown. We load a value into init and set load high, then enable high and watch 1 sec intervals count down our value. Notice it also STOPS at 0. This confirms the core functionality. Next, we test different permutations of inputs to the system: all three en, rst, and load, then just en and load, then ~en (pause). This encompasses most if not all edge cases to look for. 
+
+1 Hz Clock:
