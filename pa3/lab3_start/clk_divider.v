@@ -19,22 +19,22 @@ module clk_divider(clk_in, rst, clk_out);
 	input wire rst;
 	output reg clk_out;
 	
-	reg[N-1:0] r_count;
+	reg[N-1:0] r_count;	//internal counter
 	
-	always @(posedge clk_in, posedge rst)
+	always @(posedge clk_in, posedge rst)	//activate on reset and clk_in
 	begin
-		if(rst) begin
+		if(rst) begin	//when reset hit reset all things back
 			r_count <= 0;
 			clk_out <= 0;
 		end
-		else if(r_count == 32'd49999999) begin
-			if(clk_out == 1) 
+		else if(r_count == 32'd49999999) begin	//count up to 500 ms
+			if(clk_out == 1) 	//switch clock direction
 				clk_out = 0;
 			else
 				clk_out = 1;
 			r_count <= 0;
 		end
-		else begin
+		else begin		//count up internal counter
 			r_count = r_count + 1;
 		end
 	end

@@ -2,14 +2,14 @@ Command line:
    test_clk_divider_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  49475
+     -socket  49576
 
-Tue Feb 26 20:50:32 2019
+Thu Feb 28 23:38:57 2019
 
 
- Elaboration Time: 0.125 sec
+ Elaboration Time: 0.09375 sec
 
- Current Memory Usage: 657.302 Meg
+ Current Memory Usage: 657.564 Meg
 
  Total Signals          : 16
  Total Nets             : 16
@@ -19,11 +19,11 @@ Tue Feb 26 20:50:32 2019
  Total Processes        : 12
  Total Traceable Variables  : 24
  Total Scalar Nets and Variables : 195
-Total Line Count : 40
+Total Line Count : 37
 
- Total Simulation Time: 190.297 sec
+ Total Simulation Time: 0.125 sec
 
- Current Memory Usage: 657.302 Meg
+ Current Memory Usage: 657.564 Meg
 
-Tue Feb 26 20:56:29 2019
+Thu Feb 28 23:40:46 2019
 

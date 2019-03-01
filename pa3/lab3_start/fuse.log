@@ -8,7 +8,7 @@ Analyzing Verilog file "Z:/shared_folder/cs141/pa3/lab3_start/test_clk_divider.v
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 102068 KB
+Fuse Memory Usage: 102772 KB
 Fuse CPU Usage: 312 ms
 Compiling module clk_divider
 Compiling module test_clk_divider
@@ -16,5 +16,5 @@ Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 3 Verilog Units
 Built simulation executable Z:/shared_folder/cs141/pa3/lab3_start/test_clk_divider_isim_beh.exe
-Fuse Memory Usage: 105636 KB
-Fuse CPU Usage: 467 ms
+Fuse Memory Usage: 106340 KB
+Fuse CPU Usage: 421 ms

@@ -42,10 +42,6 @@ module test_clk_divider;
 		rst = 1'b1;
 		#(T/2);
 		rst = 1'b0;
-		#730;
-		rst = 1'b1;
-		#(T/2);
-		rst = 1'b0;
 	end
 	
 	always		//constant clock running
