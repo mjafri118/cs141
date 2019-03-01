@@ -40,7 +40,7 @@ module test_clk_divider;
 
 	initial begin	//intial reset
 		rst = 1'b1;
-		#(T/2);
+		#(T/2-10);
 		rst = 1'b0;
 	end
 	
