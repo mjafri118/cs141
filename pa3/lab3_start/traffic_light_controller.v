@@ -11,9 +11,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 //define states
 `define IDLE 4'b0000
-`define SAMPLE_STATE1 4'b0001
-`define SAMPLE_STATE2 4'b0010
-
 
 //useful macros
 `define LIGHT_RED 3'b001
@@ -29,23 +26,19 @@
 
 module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, timer_out, 
 										  car_ns, car_ew, ped, light_ns, light_ew, light_ped);
-										  
+	
+	// These are namespaces used for the states. 
 	localparam [3:0]  s0 = 4'b0000,
-					   s1 = 4'b0001,
-					   s2 = 4'b0010,
-					   s3 = 4'b0011,
-					   s4 = 4'b0100,
-					   s5 = 4'b0101,
-					   s6 = 4'b0110,
-					   s7 = 4'b0111,
-					   s8 = 4'b1000,
-					   s9 = 4'b1001,
-					  s10 = 4'b1010,
-					  s11 = 4'b1011,
-					  s12 = 4'b1100,
-					  s13 = 4'b1101,
-					  s14 = 4'b1110,
-					  s15 = 4'b1111;
+							s1 = 4'b0001,
+							s2 = 4'b0010,
+							s3 = 4'b0011,
+							s4 = 4'b0100,
+							s5 = 4'b0101,
+							s6 = 4'b0110,
+							s7 = 4'b0111,
+							s8 = 4'b1000,
+							s9 = 4'b1001,
+						  s10 = 4'b1010;
 
 	//port definitions 
 	input clk, rst, car_ns, car_ew, ped;
@@ -57,9 +50,8 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 	output reg timer_load, timer_en; 
 
 	reg [3:0] state, next_state; 
-	reg sample_reg, sample_reg_next;
 	reg last_green, last_green_next; // 0 for N/S, 1 for E/W
-	reg [1:0] next_ped, next_ped_next;
+	reg [1:0] next_ped, next_ped_next; // takes same values like PED_BOTH, etc. 
 	
 	
 	//change to next state and change value of any internal register
@@ -70,7 +62,6 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 		end
 		else begin
 			state <= next_state;
-			sample_reg <= sample_reg_next;
 			last_green <= last_green_next;
 			next_ped <= next_ped_next;
 		end
@@ -94,15 +85,6 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 					
 					next_state <= s1;
 
-					
-					//sample state transition
-					//if (ped)
-					//	next_state <= `SAMPLE_STATE1;
-					//else 
-					//	next_state <= `SAMPLE_STATE2; 
-					
-					//set next value for internal registers
-					//sample_reg_next <= 1; 
 				end
 				
 				s1 : begin // PED_INIT
@@ -120,22 +102,7 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 					next_state <= s3;
 	
 				end
-				
-				s2 : begin // PED_TIMER_BEGIN: SKIP, REDUNDANT
-				
-				   //set outputs
-					light_ns <= `LIGHT_RED;
-					light_ew <= `LIGHT_RED;
-					light_ped <= next_ped; 
-					timer_en <= 0; 
-					timer_load <= 1; 
-					timer_init <= 4'd14;
-					
-					last_green_next <= last_green ;
-					
-					next_state <= s3;
-				end
-				
+								
 				s3 : begin // PED_TIMER_EXECUTE
 				   
 					//set outputs
@@ -213,25 +180,11 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 					next_state <= s7; // go to green light timer.
 				
 				end
-				
-//				s6 : begin // GREEN_TIMER_INIT
-//					//set outputs
-//					light_ns <= last_green ? `LIGHT_RED : `LIGHT_GREEN;
-//					light_ew <= ~last_green ? `LIGHT_RED : `LIGHT_GREEN;
-//					light_ped <= last_green ? `PED_EW : `PED_NS; 
-//					timer_en <= 0; 
-//					timer_load <= 1; 
-//					timer_init <= 4'd10;
-//					
-//					last_green_next <= last_green ; // test: defining this on all states.
-//					
-//					next_state <= s7;
-//					
-//				end
-//				
+			
 				s7 : begin // GREEN_TIMER_EXECUTE
 				
 					//set outputs
+					// maintains lights.
 					light_ns <= last_green ? `LIGHT_RED : `LIGHT_GREEN;
 					light_ew <= ~last_green ? `LIGHT_RED : `LIGHT_GREEN;
 					light_ped <= last_green ? `PED_EW : `PED_NS; 
@@ -264,25 +217,9 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 				
 				end
 				
-//				s9 : begin //YELLOW_TIMER_INIT DEPCREATED
-//				
-//					//set outputs
-//					light_ns <= last_green ? `LIGHT_RED : `LIGHT_YELLOW;
-//					light_ew <= ~last_green ? `LIGHT_RED : `LIGHT_YELLOW;
-//					light_ped <= last_green ? `PED_EW : `PED_NS; 
-//					timer_en <= 0; 
-//					timer_load <= 1; 
-//					timer_init <= 4'd5;
-//					
-//					last_green_next <= last_green ; // test: defining this on all states.
-//					
-//					next_state <= s10;
-//
-//				end
-				
 				s10 : begin // YELLOW_TIMER_EXECUTE
 				
-					//set outputs
+					// set outputs
 					light_ns <= last_green ? `LIGHT_RED : `LIGHT_YELLOW;
 					light_ew <= ~last_green ? `LIGHT_RED : `LIGHT_YELLOW;
 					light_ped <= last_green ? `PED_EW : `PED_NS; 
