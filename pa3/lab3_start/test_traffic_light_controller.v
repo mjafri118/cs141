@@ -75,17 +75,14 @@ module test_traffic_light_controller;
 		// Initialize Inputs
 		clk = 0;
 		rst = 0;
-		// removed timer_out
 		car_ns = 0;
 		car_ew = 0;
 		ped = 0;
 
-		// Wait 100 ns for global reset to finish
+		//Wait a bit and reset
 		for(i = 0; i < 5; i = i + 1) begin
 			#(T);
 		end
-
-		$display("%d", 5*T);
 		rst = 1;
 		#T;
 		rst = 0;
@@ -94,18 +91,33 @@ module test_traffic_light_controller;
 			#(T);
 		end
       
-		ped = !ped;
+		ped = !ped;	//pedestrian arrives
 		
-		for(i = 0; i < 24; i = i + 1) begin
+		for(i = 0; i < 20; i = i + 1) begin
 			#(T);
 		end
 		
-		ped = !ped;
-		car_ns = !car_ns;
+		ped = !ped;	//ped leaves
+		car_ns = !car_ns;	//cars arrive on both
 		car_ew = !car_ew;
 
+		for(i = 0; i < 10; i = i + 1) begin
+			#(T);
+		end
 		
+		car_ew = !car_ew;	//cars leave ew
 		
+		for(i = 0; i < 20; i = i + 1) begin
+			#(T);
+		end
+		
+		car_ns = !car_ns;	//cars leave ns
+		
+		for(i = 0; i < 20; i = i + 1) begin
+			#(T);
+		end
+		
+		$finish;
 
 	end
 	
@@ -125,35 +137,37 @@ module test_traffic_light_controller;
 	// Test blocks checking requirements
 	always @(light_ns, light_ew, light_ped) begin
 		#2;
-//		timer = 4'd0;
-		// need to keep track of previous state to make sure transitions in right order
 		prev = cur;
-		cur = light_ns + light_ped + light_ew;
+		cur = {light_ns, light_ped, light_ew};
+	
 		
-		$display("TIME = %b", timepassed);
+		$display("TIME = %d	STATE = %b", timepassed, cur[7:0]);
 		case(prev)
-			8'b00100001 : begin
+			8'b00100001 : begin	//test for transition to ped
 				if(cur !== 8'b00111001) begin
 					$display("ERROR: Rule 2  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end
 			end
 			
-			8'b00111001 : begin
+			8'b00111001 : begin	//test for transition to green light
+				if(cur !== 8'b10010001 | cur !== 8'b00101100) begin
+					$display("Warning: Rule 4 (not lights)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
+				end
 				if(car_ns == 1 && cur !== 8'b10010001) begin
-					$display("ERROR: Rule 4 (NS)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
+					$display("Warning: Rule 4 (NS)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end
 				if(car_ew == 1 && cur !== 8'b00101100) begin
-					$display("ERROR: Rule 4 (EW)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
+					$display("Warning: Rule 4 (EW)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end
 			end
 
-			8'b10010001: begin
+			8'b10010001: begin	// test for transition to yellow
 				if(cur !== 8'b01010001) begin
 					$display("ERROR: Rule 8 (NS)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end
 			end
 			
-			8'b00101100: begin
+			8'b00101100: begin	// test for transition to yellow
 				if(cur !== 8'b00101010) begin
 					$display("ERROR: Rule 8 (NS)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end

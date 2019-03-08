@@ -1,5 +1,5 @@
 ISim log file
-Running: Z:\shared_with_vm\141git\cs141\pa3\lab3_start\test_traffic_light_controller_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa3/lab3_start/test_traffic_light_controller_isim_beh.wdb 
+Running: Z:\shared_folder\cs141\pa3\lab3_start\test_traffic_light_controller_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_folder/cs141/pa3/lab3_start/test_traffic_light_controller_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,15 +11,20 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-TIME = 00000000000000000000000000000000
-# run 80s
-TIME = 00000000000000000000000000000010
-  705032704
-TIME = 00000000000000000000000000000101
-TIME = 00000000000000000000000000000110
-TIME = 00000000000000000000000000010110
-TIME = 00000000000000000000000000100001
-TIME = 00000000000000000000000000100111
-TIME = 00000000000000000000000000110111
-TIME = 00000000000000000000000001000010
-TIME = 00000000000000000000000001001000
+TIME =           0	STATE = 00100001
+# run all
+TIME =           2	STATE = 00111001
+TIME =           5	STATE = 00100001
+TIME =           6	STATE = 00111001
+TIME =          22	STATE = 10010001
+ERROR: Rule 4 (not lights)  Cur: NS=100, EW=001, PED=10		Prev: NS=001, EW=001, PED=11		Time=00000000000000000000000000010110
+TIME =          33	STATE = 01010001
+TIME =          39	STATE = 00111001
+TIME =          55	STATE = 00101100
+ERROR: Rule 4 (not lights)  Cur: NS=001, EW=100, PED=01		Prev: NS=001, EW=001, PED=11		Time=00000000000000000000000000110111
+Warning: Rule 4 (NS)  Cur: NS=001, EW=100, PED=01		Prev: NS=001, EW=001, PED=11		Time=00000000000000000000000000110111
+TIME =          66	STATE = 00101010
+TIME =          72	STATE = 10010001
+TIME =          83	STATE = 01010001
+TIME =          89	STATE = 00101100
+Stopped at time : 100 s : File "//vmware-host/Shared Folders/shared_folder/cs141/pa3/lab3_start/test_traffic_light_controller.v" Line 120
