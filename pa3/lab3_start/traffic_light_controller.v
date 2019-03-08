@@ -25,8 +25,27 @@
 `define PED_BOTH 2'b11 
 `define PED_NEITHER 2'b00 
 
+
+
 module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, timer_out, 
 										  car_ns, car_ew, ped, light_ns, light_ew, light_ped);
+										  
+	localparam [3:0]  s0 = 4'b0000,
+					   s1 = 4'b0001,
+					   s2 = 4'b0010,
+					   s3 = 4'b0011,
+					   s4 = 4'b0100,
+					   s5 = 4'b0101,
+					   s6 = 4'b0110,
+					   s7 = 4'b0111,
+					   s8 = 4'b1000,
+					   s9 = 4'b1001,
+					  s10 = 4'b1010,
+					  s11 = 4'b1011,
+					  s12 = 4'b1100,
+					  s13 = 4'b1101,
+					  s14 = 4'b1110,
+					  s15 = 4'b1111;
 
 	//port definitions 
 	input clk, rst, car_ns, car_ew, ped;
@@ -38,7 +57,9 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 	output reg timer_load, timer_en; 
 
 	reg [3:0] state, next_state; 
-	reg sample_reg, sample_reg_next; 
+	reg sample_reg, sample_reg_next;
+	reg last_green, last_green_next; // 0 for N/S, 1 for E/W
+	reg [1:0] next_ped, next_ped_next;
 	
 	
 	//change to next state and change value of any internal register
@@ -47,15 +68,18 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 			state <= `IDLE; 
 			sample_reg <= 0; 
 		end
-		else
+		else begin
 			state <= next_state;
-			sample_reg <= sample_reg_next; 	
+			sample_reg <= sample_reg_next;
+			last_green <= last_green_next;
+			next_ped <= next_ped_next;
+		end
 	end 
 	
 	//triggers on change of state or inputs
-	always @(state, timer_out, rst, ped, car_ns, car_ew, from_ns) begin 
+	always @(state, timer_out, rst, ped, car_ns, car_ew) begin 
 		case (state) 
-				`IDLE : begin 
+				`IDLE : begin // RST STATE
 					
 					//set outputs
 					light_ns <= `LIGHT_RED;
@@ -64,16 +88,227 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 					timer_en <= 0; 
 					timer_load <= 1; 
 					timer_init <= 4'b1111;
+					
+					next_ped_next <= `PED_BOTH; 
+					last_green_next <= 1; // E/W last, N/S begins by default.
+					
+					next_state <= s1;
 
 					
 					//sample state transition
-					if (ped)
-						next_state <= `SAMPLE_STATE1;
-					else 
-						next_state <= `SAMPLE_STATE2; 
+					//if (ped)
+					//	next_state <= `SAMPLE_STATE1;
+					//else 
+					//	next_state <= `SAMPLE_STATE2; 
 					
 					//set next value for internal registers
-					sample_reg_next <= 1; 
+					//sample_reg_next <= 1; 
+				end
+				
+				s1 : begin // PED_INIT
+				
+					//set outputs
+					light_ns <= `LIGHT_RED;
+					light_ew <= `LIGHT_RED;
+					light_ped <= next_ped; 
+					timer_en <= 0; 
+					timer_load <= 1; 
+					timer_init <= 4'd14;
+					
+					last_green_next <= last_green ;
+					
+					next_state <= s3;
+	
+				end
+				
+				s2 : begin // PED_TIMER_BEGIN: SKIP, REDUNDANT
+				
+				   //set outputs
+					light_ns <= `LIGHT_RED;
+					light_ew <= `LIGHT_RED;
+					light_ped <= next_ped; 
+					timer_en <= 0; 
+					timer_load <= 1; 
+					timer_init <= 4'd14;
+					
+					last_green_next <= last_green ;
+					
+					next_state <= s3;
+				end
+				
+				s3 : begin // PED_TIMER_EXECUTE
+				   
+					//set outputs
+					light_ns <= `LIGHT_RED;
+					light_ew <= `LIGHT_RED;
+					light_ped <= next_ped; 
+					timer_en <= 1; 
+					timer_load <= 0; 
+					timer_init <= 4'd14; // not really necessary.
+					
+					last_green_next <= last_green ;
+					
+					if (timer_out == 4'd0) begin // once timer has ended
+					
+						// go to green light for n/s
+						if ((car_ns) && (~car_ew)) 
+							next_state <= s4;
+						
+						// go to green light for e/w
+						else if ((~car_ns) && (car_ew)) 
+							next_state <= s5;
+						
+						// if neither or both car_ns, car_ew
+						else 
+						
+							// last green was north/south, so give it to E/W
+							if (last_green == 0)
+								next_state <= s5;
+							
+							// last green was e/w, so give it to N/S now. 
+							else if (last_green == 1)
+								next_state <= s4;
+							
+					
+					end
+					
+					// timer not done yet. 
+					else
+						next_state <= s3;
+				
+				end
+				
+				s4 : begin // GREEN_NS_SET
+				
+					//set outputs
+					light_ns <= `LIGHT_GREEN;
+					light_ew <= `LIGHT_RED;
+					light_ped <= `PED_NS; 
+					timer_en <= 0; 
+					timer_load <= 1; 
+					timer_init <= 4'd9;
+					
+					last_green_next <= last_green ;
+					
+					// remember that N/S was the last green light.
+					last_green_next <= 0;
+					
+					next_state <= s7; // go to green light timer.
+					
+				end
+				
+				s5 : begin // GREEN_EW_SET
+						
+					//set outputs
+					light_ns <= `LIGHT_RED;
+					light_ew <= `LIGHT_GREEN;
+					light_ped <= `PED_EW; 
+					timer_en <= 0; 
+					timer_load <= 1; 
+					timer_init <= 4'd9;
+					
+					// remember that E/W was the last green light.
+					last_green_next <= 1;
+					
+					next_state <= s7; // go to green light timer.
+				
+				end
+				
+//				s6 : begin // GREEN_TIMER_INIT
+//					//set outputs
+//					light_ns <= last_green ? `LIGHT_RED : `LIGHT_GREEN;
+//					light_ew <= ~last_green ? `LIGHT_RED : `LIGHT_GREEN;
+//					light_ped <= last_green ? `PED_EW : `PED_NS; 
+//					timer_en <= 0; 
+//					timer_load <= 1; 
+//					timer_init <= 4'd10;
+//					
+//					last_green_next <= last_green ; // test: defining this on all states.
+//					
+//					next_state <= s7;
+//					
+//				end
+//				
+				s7 : begin // GREEN_TIMER_EXECUTE
+				
+					//set outputs
+					light_ns <= last_green ? `LIGHT_RED : `LIGHT_GREEN;
+					light_ew <= ~last_green ? `LIGHT_RED : `LIGHT_GREEN;
+					light_ped <= last_green ? `PED_EW : `PED_NS; 
+					timer_en <= 1; 
+					timer_load <= 0; 
+					timer_init <= 4'b1111;
+					
+					last_green_next <= last_green ; // test: defining this on all states.
+					
+					if (timer_out == 0)
+						next_state <= s8;
+					else
+						next_state <= s7;
+				
+				end
+				
+				s8 : begin // YELLOW_SET
+				
+					//set outputs
+					light_ns <= last_green ? `LIGHT_RED : `LIGHT_YELLOW;
+					light_ew <= ~last_green ? `LIGHT_RED : `LIGHT_YELLOW;
+					light_ped <= last_green ? `PED_EW : `PED_NS; 
+					timer_en <= 0; 
+					timer_load <= 1; 
+					timer_init <= 4'd4;
+					
+					last_green_next <= last_green ; // test: defining this on all states.
+					
+					next_state <= s10;
+				
+				end
+				
+//				s9 : begin //YELLOW_TIMER_INIT DEPCREATED
+//				
+//					//set outputs
+//					light_ns <= last_green ? `LIGHT_RED : `LIGHT_YELLOW;
+//					light_ew <= ~last_green ? `LIGHT_RED : `LIGHT_YELLOW;
+//					light_ped <= last_green ? `PED_EW : `PED_NS; 
+//					timer_en <= 0; 
+//					timer_load <= 1; 
+//					timer_init <= 4'd5;
+//					
+//					last_green_next <= last_green ; // test: defining this on all states.
+//					
+//					next_state <= s10;
+//
+//				end
+				
+				s10 : begin // YELLOW_TIMER_EXECUTE
+				
+					//set outputs
+					light_ns <= last_green ? `LIGHT_RED : `LIGHT_YELLOW;
+					light_ew <= ~last_green ? `LIGHT_RED : `LIGHT_YELLOW;
+					light_ped <= last_green ? `PED_EW : `PED_NS; 
+					timer_en <= 1; 
+					timer_load <= 0; 
+					timer_init <= 4'b1111;
+					
+					last_green_next <= last_green ; // test: defining this on all states.
+					
+					// if timer is done
+					if (timer_out == 0) begin
+						
+						// return to ped state if there is a pedestrian
+						if (ped)
+							next_state <= s1;
+							
+						// if no pedestrian, then just switch lights	
+						else 
+							next_state <= last_green ? s4 : s5;
+						
+					end
+					
+					// stay in here if timer is not done.
+					else 
+						next_state <= s10;
+					
 				end
 				
 				
