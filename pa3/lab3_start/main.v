@@ -45,16 +45,16 @@ module main(switch, led, rstb_button, button_center, button_down, unbuf_clk);
 	timer timer_u(.clk(clk_1hz), .rst(timer_rst), .en(en), .load(load), .init(init), .out(out)); 
 	
 	//uncomment for part 2
-	//traffic_light_controller tlc(.clk(clk_1hz), .rst(timer_rst), .timer_en(en), .timer_load(load), .timer_init(init), .timer_out(out),
-	//.car_ns(car_ns), .car_ew(car_ew), .ped(ped), .light_ns(light_ns), .light_ew(light_ew), .light_ped(light_ped));
+	traffic_light_controller tlc(.clk(clk_1hz), .rst(timer_rst), .timer_en(en), .timer_load(load), .timer_init(init), .timer_out(out),
+	.car_ns(car_ns), .car_ew(car_ew), .ped(ped), .light_ns(light_ns), .light_ew(light_ew), .light_ped(light_ped));
 	
 	//Part 1 I/O
 	//comment out for part 2
-	assign led[7:4] = 3'b0; 
-	assign led[3:0] = out; 
-	assign init = switch[3:0];
-	assign load = button_center_db; 
-	assign en = 1'b1;
+//	assign led[7:4] = 3'b0; 
+//	assign led[3:0] = out; 
+//	assign init = switch[3:0];
+//	assign load = button_center_db; 
+//	assign en = 1'b1;
 	
 	// TEST: last led shows clock
 	//assign led[7] = clk_1hz;
@@ -62,12 +62,12 @@ module main(switch, led, rstb_button, button_center, button_down, unbuf_clk);
 	
 	//Part 2 I/O
 	//uncomment for part 2 
-	/*assign car_ns = |switch[7:5]; 
+	assign car_ns = |switch[7:5]; 
 	assign car_ew = |switch[2:0]; 
 	assign ped = |switch[4:3];
 	assign led[7:5] = light_ns; 
 	assign led[4:3] = light_ped;
-	assign led[2:0] = light_ew;*/
+	assign led[2:0] = light_ew;
 	
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire

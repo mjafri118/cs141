@@ -1,0 +1,29 @@
+Command line:
+   test_traffic_light_controller_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49851
+
+Tue Mar 05 18:19:07 2019
+
+
+ Elaboration Time: 0.1875 sec
+
+ Current Memory Usage: 656.843 Meg
+
+ Total Signals          : 25
+ Total Nets             : 36
+ Total Signal Drivers   : 17
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 23
+ Total Traceable Variables  : 35
+ Total Scalar Nets and Variables : 181
+Total Line Count : 57
+
+ Total Simulation Time: 0.296875 sec
+
+ Current Memory Usage: 657.891 Meg
+
+Tue Mar 05 18:24:33 2019
+

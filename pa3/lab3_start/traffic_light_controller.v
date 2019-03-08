@@ -53,7 +53,7 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 	end 
 	
 	//triggers on change of state or inputs
-	always @(state, timer_out, rst, ped, car_ns, car_ew, from_ns) begin 
+	always @(state, timer_out, rst, ped, car_ns, car_ew/*, from_ns*/) begin 
 		case (state) 
 				`IDLE : begin 
 					
