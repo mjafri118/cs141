@@ -58,7 +58,7 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 	always @(posedge clk or posedge rst) begin 
 		if (rst) begin
 			state <= `IDLE; 
-			sample_reg <= 0; 
+//			sample_reg <= 0; 
 		end
 		else begin
 			state <= next_state;
@@ -257,9 +257,9 @@ module traffic_light_controller(clk, rst, timer_en, timer_load, timer_init, time
 					timer_load <= 1;
 					timer_init <= 4'b1111;	
 					
-					next_state <= `IDLE; 
+					next_state <= `IDLE;
 					
-					sample_reg_next <= 0; 
+//					sample_reg_next <= 0; 
 				end
 		endcase
 	end 

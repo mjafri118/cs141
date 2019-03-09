@@ -69,7 +69,7 @@ module test_traffic_light_controller;
 	);
 
 	integer timepassed = 4'd0;
-	integer T = 64'd1000000000; // 1 second period
+	integer T = 32'd1000000000; // 1 second period
 	integer i;
 	initial begin
 		// Initialize Inputs
@@ -121,8 +121,8 @@ module test_traffic_light_controller;
 
 	end
 	
-	integer cur = 8'b00000000;
-	integer prev = 8'b00000000;
+	reg[7:0] cur;
+	reg[7:0] prev;
 	
 	//Run a clock
 
@@ -144,25 +144,28 @@ module test_traffic_light_controller;
 		$display("TIME = %d	STATE = %b", timepassed, cur[7:0]);
 		case(prev)
 			8'b00100001 : begin	//test for transition to ped
-				if(cur !== 8'b00111001) begin
+				if(cur[7:0] !== 8'b00111001) begin
 					$display("ERROR: Rule 2  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end
 			end
-			
 			8'b00111001 : begin	//test for transition to green light
-				if(cur !== 8'b10010001 | cur !== 8'b00101100) begin
+				if(cur[7:0] == 8'b00100001) begin
+					$display("Warning: Reset  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
+				end
+				else if(cur[7:0] !== 8'b10010001 && cur[7:0] !== 8'b00101100) begin
+					$display("%b", cur[7:0]);
 					$display("Warning: Rule 4 (not lights)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end
-				if(car_ns == 1 && cur !== 8'b10010001) begin
-					$display("Warning: Rule 4 (NS)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
+				if(car_ns == 1 && cur[7:0] !== 8'b10010001) begin
+					$display("Warning: Rule 4 (car waiting NS)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end
-				if(car_ew == 1 && cur !== 8'b00101100) begin
-					$display("Warning: Rule 4 (EW)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
+				if(car_ew == 1 && cur[7:0] !== 8'b00101100) begin
+					$display("Warning: Rule 4 (car waiting EW)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end
 			end
 
 			8'b10010001: begin	// test for transition to yellow
-				if(cur !== 8'b01010001) begin
+				if(cur[7:0] !== 8'b01010001) begin
 					$display("ERROR: Rule 8 (NS)  Cur: NS=%b, EW=%b, PED=%b		Prev: NS=%b, EW=%b, PED=%b		Time=%b", cur[7:5], cur[2:0], cur[4:3], prev[7:5], prev[2:0], prev[4:3], timepassed);
 				end
 			end

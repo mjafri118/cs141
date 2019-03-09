@@ -1,4 +1,4 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_folder/cs141/pa3/lab3_start/test_traffic_light_controller_isim_beh.exe -prj Z:/shared_folder/cs141/pa3/lab3_start/test_traffic_light_controller_beh.prj test_traffic_light_controller work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_folder/cs141/pa3/lab3_start/test_traffic_light_controller_isim_beh.exe -prj Z:/shared_folder/cs141/pa3/lab3_start/test_traffic_light_controller_beh.prj work.test_traffic_light_controller work.glbl 
 ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
@@ -9,8 +9,8 @@ Analyzing Verilog file "Z:/shared_folder/cs141/pa3/lab3_start/test_traffic_light
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 102644 KB
-Fuse CPU Usage: 327 ms
+Fuse Memory Usage: 101812 KB
+Fuse CPU Usage: 546 ms
 Compiling module timer
 Compiling module traffic_light_controller
 Compiling module test_traffic_light_controller
@@ -18,5 +18,5 @@ Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 4 Verilog Units
 Built simulation executable Z:/shared_folder/cs141/pa3/lab3_start/test_traffic_light_controller_isim_beh.exe
-Fuse Memory Usage: 106212 KB
-Fuse CPU Usage: 468 ms
+Fuse Memory Usage: 105380 KB
+Fuse CPU Usage: 687 ms
