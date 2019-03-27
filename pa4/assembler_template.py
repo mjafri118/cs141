@@ -27,6 +27,34 @@ def dec_to_bin(value, nbits):
         value = value[-nbits:]
     return value
 
+def assem_to_machine(inst, operands):   #inst is string, operands is array of strings
+    mach_code = ""
+
+    # Resolve op code
+
+    # Deal with R-types
+
+    # Deal with I-types
+
+    # Deal with J-types
+
+    return mach_code
+
+def r_typeassem(inst, operands):
+    mach_code = ""
+
+    return mach_code
+
+def i_typeassem(inst, operands):
+    mach_code = ""
+
+    return mach_code
+
+def j_typeassem(inst, operands):
+    mach_code = ""
+
+    return mach_code
+
 rtypes = [
     # List of all R-type instructions.
     'sll', 'srl', 'sra', 'sllv', 'srlv', 'srav', 'jr', 'jalr', 'syscall', 'break', 'mfhi', 'mthi', 'mflo',
@@ -35,7 +63,17 @@ rtypes = [
 
 op_codes = {
     # Fill in mapping from instruction to its opcode.
-
+    'rtype' : dec_to_bin(0, 6),
+    'j'     : dec_to_bin(2, 6),
+    'jal'   : dec_to_bin(3, 6),
+    'beq'   : dec_to_bin(4, 6),
+    'bne'   : dec_to_bin(5, 6),
+    'addi'  : dec_to_bin(8, 6),
+    'slti'  : dec_to_bin(10, 6),
+    'andi'  : dec_to_bin(12, 6),
+    'ori'  : dec_to_bin(13, 6),
+    'xori'  : dec_to_bin(14, 6),
+    'lw'    : dec_to_bin(35, 6),
 }
 
 function_codes = {
@@ -73,7 +111,7 @@ function_codes = {
 
 registers = {
     #registers referenced by name
-    '$zero' : dec_to_bin(00, 5),
+    '$zero' : dec_to_bin(0, 5),
     '$at'   : dec_to_bin(1, 5),
     '$v0'   : dec_to_bin(2, 5),
     '$v1'   : dec_to_bin(3, 5),
@@ -105,6 +143,39 @@ registers = {
     '$sp'   : dec_to_bin(29, 5),
     '$fp'   : dec_to_bin(30, 5),
     '$ra'   : dec_to_bin(31, 5),
+
+    '$0' : dec_to_bin(0, 5),
+    '$1'   : dec_to_bin(1, 5),
+    '$2'   : dec_to_bin(2, 5),
+    '$3'   : dec_to_bin(3, 5),
+    '$4'   : dec_to_bin(4, 5),
+    '$5'   : dec_to_bin(5, 5),
+    '$6'   : dec_to_bin(6, 5),
+    '$7'   : dec_to_bin(7, 5),
+    '$8'   : dec_to_bin(8, 5),
+    '$9'   : dec_to_bin(9, 5),
+    '$10'   : dec_to_bin(10, 5),
+    '$11'   : dec_to_bin(11, 5),
+    '$12'   : dec_to_bin(12, 5),
+    '$13'   : dec_to_bin(13, 5),
+    '$14'   : dec_to_bin(14, 5),
+    '$15'   : dec_to_bin(15, 5),
+    '$16'   : dec_to_bin(16, 5),
+    '$17'   : dec_to_bin(17, 5),
+    '$18'   : dec_to_bin(18, 5),
+    '$19'   : dec_to_bin(19, 5),
+    '$20'   : dec_to_bin(20, 5),
+    '$21'   : dec_to_bin(21, 5),
+    '$22'   : dec_to_bin(22, 5),
+    '$23'   : dec_to_bin(23, 5),
+    '$24'   : dec_to_bin(24, 5),
+    '$25'   : dec_to_bin(25, 5),
+    '$26'   : dec_to_bin(26, 5),
+    '$27'   : dec_to_bin(27, 5),
+    '$28'   : dec_to_bin(28, 5),
+    '$29'   : dec_to_bin(29, 5),
+    '$30'   : dec_to_bin(30, 5),
+    '$31'   : dec_to_bin(31, 5),
 }
 
 def main():
@@ -136,15 +207,16 @@ def main():
             index = 0
             if ':' in commands[index]:
                 line_attr['label'] = commands[index].replace(':', '')
+                labels[line_attr['label']] = line_count - 1
                 index += 1
 
             # Parse the rest of the instruction and its register arguments.
             line_attr['instruction'] = commands[index]
             index += 1
 
-            line_attr['registers'] = []
+            line_attr['operands'] = []
             while len(commands) > index:
-                line_attr['registers'].append(commands[index])
+                line_attr['operands'].append(commands[index])
                 index += 1
 
             print line_attr
@@ -156,22 +228,22 @@ def main():
     machine = ""  # Current machine code word.
 
     for line in parsed_lines:
+        instruction_line
         if line['instruction'] == 'nop':
             print 8*'0'
         elif line['instruction'] in rtypes:
-            print "no"
+            print "yes"
             # Encode an R-type instruction.
         else:
             print "yes"
             # Encode a non-R-type instruction.
-        # Hint: the function_codes map will be useful here.
 
-        # We'll get you started with jr.
-        if line['instruction'] == 'jr':
-            print "fill out jr"
-            # Fill out jr.
+        # # We'll get you started with jr.
+        # if line['instruction'] == 'jr':
+        #     print "fill out jr"
+        #     # Fill out jr.
 
         # Finish handling the rest of the instructions (load/store, other jumps).
-
+    print labels
 if __name__ == "__main__":
     main()
