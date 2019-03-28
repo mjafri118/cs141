@@ -3,16 +3,22 @@
 # Template for MIPS assembler.py
 #
 # Usage:
-#    python assembler_template.py [asm file]
+#    python assembler_template.py [asm file] (testbench)
+#    TYPE "testbench" AFTER ASM FILE TO RUN OUR CUSTOM TESTBENCH.
+#    NOTE: THIS ASSUMES YOU HAVE A <fname>.machine FOR A <fname>.asm FILE
 
 import sys, re
 
+# ------------------ NUMBER CONVERSION HELPER FUNCTIONS ------------------
+
+# converts a binary number to hex.
 def bin_to_hex(x):
     y = hex(int(x,2))[2:]
     if len(y) < 8:
         y = (8-len(y))*"0" + y
     return y
 
+# converts dec to binary with n bits.
 def dec_to_bin(value, nbits):
     value = int(value)
     fill = "0"
@@ -27,33 +33,7 @@ def dec_to_bin(value, nbits):
         value = value[-nbits:]
     return value
 
-def assem_to_machine(inst, operands):   #inst is string, operands is array of strings
-    mach_code = ""
-
-    # Resolve op code
-
-    # Deal with R-types
-
-    # Deal with I-types
-
-    # Deal with J-types
-
-    return mach_code
-
-def r_typeassem(inst, operands):
-    mach_code = ""
-
-    return mach_code
-
-def i_typeassem(inst, operands):
-    mach_code = ""
-
-    return mach_code
-
-def j_typeassem(inst, operands):
-    mach_code = ""
-
-    return mach_code
+# ------------------ CONSTANTS ------------------
 
 rtypes = [
     # List of all R-type instructions.
@@ -61,8 +41,8 @@ rtypes = [
     'mtlo', 'mult', 'multu', 'div', 'divu', 'add', 'addu', 'sub', 'subu', 'and', 'or', 'xor', 'nor', 'slt', 'sltu'
 ]
 
+# Fill in mapping from instruction to its opcode.
 op_codes = {
-    # Fill in mapping from instruction to its opcode.
     'rtype' : dec_to_bin(0, 6),
     'j'     : dec_to_bin(2, 6),
     'jal'   : dec_to_bin(3, 6),
@@ -74,19 +54,20 @@ op_codes = {
     'ori'  : dec_to_bin(13, 6),
     'xori'  : dec_to_bin(14, 6),
     'lw'    : dec_to_bin(35, 6),
+    'sw'    : dec_to_bin(43,6),
+    'nop'   : dec_to_bin(0,6)
 }
 
+# Fill in function codes.
 function_codes = {
-    # Fill in function codes.
-    """currently all r-type functs
     'sll'   : dec_to_bin(00, 6),
     'srl'   : dec_to_bin(02, 6),
     'sra'   : dec_to_bin(03, 6),
     'sllv'  : dec_to_bin(04, 6),
     'srlv'  : dec_to_bin(06, 6),
     'srav'  : dec_to_bin(07, 6),
-    'jr'    : dec_to_bin(08, 6),
-    'jalr'  : dec_to_bin(09, 6),
+    'jr'    : dec_to_bin(8, 6),
+    'jalr'  : dec_to_bin(9, 6),
     'syscall'   : dec_to_bin(12, 6),
     'break'     : dec_to_bin(13, 6),
     'mfhi'  : dec_to_bin(16, 6),
@@ -106,11 +87,12 @@ function_codes = {
     'xor'   : dec_to_bin(38, 6),
     'nor'   : dec_to_bin(39, 6),
     'slt'   : dec_to_bin(42, 6),
-    'sltu'  : dec_to_bin(43, 6),"""
+    'sltu'  : dec_to_bin(43, 6),
 }
 
+# registers referenced by name
 registers = {
-    #registers referenced by name
+
     '$zero' : dec_to_bin(0, 5),
     '$at'   : dec_to_bin(1, 5),
     '$v0'   : dec_to_bin(2, 5),
@@ -178,10 +160,117 @@ registers = {
     '$31'   : dec_to_bin(31, 5),
 }
 
+# Main function that translates assembly code into machine code.
+def assem_to_machine(inst, operands, line_number):   #inst is string, operands is array of strings
+
+    # Nop is a trivial 32 bits.
+    if inst is "nop":
+        return(bin_to_hex("".join(["0"]*32)))
+
+    # Resolve op code
+    opcode, type =  resolve_op_code(inst)
+
+    # Deal with R-types
+    if type is "r":
+        assem = r_typeassem(inst, operands)
+
+    # Deal with I-types
+    if type is "i":
+        assem = i_typeassem(inst, operands, line_number)
+
+    # Deal with J-types
+    if type in ["j", "jal"]:
+        assem = j_typeassem(inst, operands)
+
+    mach_code = opcode + assem
+    return bin_to_hex(mach_code)
+
+# ------------------ HELPERS TO TRANSLATION ------------------
+
+# Gets an instruction and returns its op code.
+def resolve_op_code(inst):
+    if inst in rtypes:
+        return 6*"0", "r"
+    type = inst if inst in ["j", "jal"] else "i"
+    return op_codes[inst], type
+
+# returns machine code for r-type MIPS, excluding op code.
+# op code 6 bits, rs 5 bits, rt 5 bits, rd 5 bits, shamt 5 bits, funct 6 bits
+def r_typeassem(inst, operands):
+
+    funct_code = str(function_codes[inst])
+
+    rs, rt, rd, shamt = ["0"]*4 #instantiate
+
+    # inst rd, rs, rt
+    if inst in ["add","sub", "or", "xor", "nor", "slt","and"]:
+        rs = str(registers[operands[1]])
+        rt = str(registers[operands[2]])
+        rd = str(registers[operands[0]])
+        shamt = str(dec_to_bin(0, 5))
+
+    # inst rd, rt, shamt
+    if inst in ["sll","sra","srl"]:
+        rs = str(dec_to_bin(0,5))
+        rt = str(registers[operands[1]])
+        rd = str(registers[operands[0]])
+        shamt = str(dec_to_bin(operands[2],5))
+
+    # inst rs
+    if inst == "jr":
+        rs = str(registers[operands[0]])
+        rt = str(dec_to_bin(0,5))
+        rd = str(dec_to_bin(0,5))
+        shamt = dec_to_bin(0, 5)
+
+    mach_code = rs + rt + rd + shamt + funct_code
+    return str(mach_code)
+
+# returns machine code for i-type MIPS, excluding op code.
+# op code 6 bits, rs 5 bits, rt 5 bits, imm 16 bits
+def i_typeassem(inst, operands, line_number):
+
+    rs, rt, imm = ["0"]*3
+
+    # inst rt, rs, imm
+    if inst in ["addi", "andi", "ori", "xori", "slti"]:
+        rt = str(registers[operands[0]])
+        rs = str(registers[operands[1]])
+        imm = str(dec_to_bin(operands[2],16))
+
+    # <bne beq ONLY> rs, rt, imm
+    if inst in ["bne", "beq"]:
+        rt = str(registers[operands[1]])
+        rs = str(registers[operands[0]])
+        imm = dec_to_bin((labels[operands[2]]) - int(line_number), 16)
+
+    # inst rt, imm(rs)
+    if inst in ["lw", "sw"]:
+        rt = str(registers[operands[0]])
+        rs = str(registers[operands[1].split("(")[1].split(")")[0]])
+        imm = str(dec_to_bin(operands[1].split("($")[0],16))
+
+    mach_code = rs + rt + imm
+    return str(mach_code)
+
+# returns machine code for j-type MIPS, excluding op code.
+# op code 6 bits, addr 26 bits
+def j_typeassem(inst, operands):
+    addr = dec_to_bin(1048576 +  labels[operands[0]],26)
+    return str(addr)
+
 def main():
-    me, fname = sys.argv
+
+    # Optional testbench logic toggle.
+    testbench = False
+    if len(sys.argv) == 3:
+        testbench = (sys.argv[2] == "testbench")
+    me, fname = sys.argv[0], sys.argv[1]
+
+    # --------------- Parse data from assembly file. ---------------
 
     f = open(fname, "r")
+    global labels
     labels = {}        # Map from label to its address.
     parsed_lines = []  # List of parsed instructions.
     address = 0        # Track the current address of the instruction.
@@ -196,8 +285,6 @@ def main():
         # Handle comments, whitespace.
         inst = line.split('#')[0].replace(',', '')
         commands = inst.split()
-        #commands[0] = commands[0].replace(':', '')
-        print commands
 
         if line:
             # We'll get you started here with line_count.
@@ -219,31 +306,30 @@ def main():
                 line_attr['operands'].append(commands[index])
                 index += 1
 
-            print line_attr
-
             # Finally, add this dict to the complete list of instructions.
             parsed_lines.append(line_attr)
     f.close()
 
-    machine = ""  # Current machine code word.
+    machine_codes = []
 
+    # --------------- Calculate all the machine codes from assembly
+    # --------------- instructions/operands/line#s. ---------------
     for line in parsed_lines:
-        instruction_line
-        if line['instruction'] == 'nop':
-            print 8*'0'
-        elif line['instruction'] in rtypes:
-            print "yes"
-            # Encode an R-type instruction.
-        else:
-            print "yes"
-            # Encode a non-R-type instruction.
+        machine_codes.append(assem_to_machine(line["instruction"],line['operands'], line['line_number']))
 
-        # # We'll get you started with jr.
-        # if line['instruction'] == 'jr':
-        #     print "fill out jr"
-        #     # Fill out jr.
+    # Print machine codes to serial, each on separate line.
+    print("\r\n".join(machine_codes))
 
-        # Finish handling the rest of the instructions (load/store, other jumps).
-    print labels
+    # Run a little testbench we made.
+    if testbench:
+        # Test to see if we got it right!
+        with open(fname.split(".")[0] + ".machine", "r") as f:
+            answers = f.read().splitlines()
+            for machine, answer, assembly in zip(machine_codes, answers, parsed_lines):
+                if answer == str(machine):
+                    print("Success: " + " ".join(str(vals) for vals in assembly.values()) + " --> " + machine )
+                else:
+                    print("Failed " + str(assembly) + ": " + "expected " + answer + ", got " + machine )
+
 if __name__ == "__main__":
     main()
