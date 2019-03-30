@@ -1,0 +1,48 @@
+ISim log file
+Running: C:\Users\joncr_000\Downloads\lab4-start\lab4-start\test_register_file_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/joncr_000/Downloads/lab4-start/lab4-start/test_register_file_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+R0 : 00000000, R31 : 00000220
+R1 : 00000022, R30 : 0000020f
+R2 : 00000033, R29 : 000001fe
+R3 : 00000044, R28 : 000001ed
+R4 : 00000055, R27 : 000001dc
+R5 : 00000066, R26 : 000001cb
+R6 : 00000077, R25 : 000001ba
+R7 : 00000088, R24 : 000001a9
+R8 : 00000099, R23 : 00000198
+R9 : 000000aa, R22 : 00000187
+R10 : 000000bb, R21 : 00000176
+R11 : 000000cc, R20 : 00000165
+R12 : 000000dd, R19 : 00000154
+R13 : 000000ee, R18 : 00000143
+R14 : 000000ff, R17 : 00000132
+R15 : 00000110, R16 : 00000121
+R16 : 00000121, R15 : 00000110
+R17 : 00000132, R14 : 000000ff
+R18 : 00000143, R13 : 000000ee
+R19 : 00000154, R12 : 000000dd
+R20 : 00000165, R11 : 000000cc
+R21 : 00000176, R10 : 000000bb
+R22 : 00000187, R9 : 000000aa
+R23 : 00000198, R8 : 00000099
+R24 : 000001a9, R7 : 00000088
+R25 : 000001ba, R6 : 00000077
+R26 : 000001cb, R5 : 00000066
+R27 : 000001dc, R4 : 00000055
+R28 : 000001ed, R3 : 00000044
+R29 : 000001fe, R2 : 00000033
+R30 : 0000020f, R1 : 00000022
+R31 : 00000220, R0 : 00000000
+
+SUCCESS: test completed without errors
+Stopped at time : 655 ns : File "C:/Users/joncr_000/Downloads/lab4-start/lab4-start/remote_sources/_/test_register_file.v" Line 98
