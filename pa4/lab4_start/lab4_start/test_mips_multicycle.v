@@ -11,7 +11,7 @@ integer i;
 reg [8*100:0] WAVE_FILE;
 
 //declare any parameters for your mips core module
-
+parameter N = 32;
 
 //declare any additional IO for your mips core module
 reg  clk, rst;
@@ -39,7 +39,17 @@ synth_dual_port_memory #(
 );
 
 //instantiate your mips core module here
-
+mips_core #(
+	.N(32),
+	.I_LENGTH(1024),
+	.D_LENGTH(1024)
+) MIPS(
+	.clk(clk),
+	.mem_wr_ena(mem_wr_ena),
+	.mem_addr(mem_addr),
+	.mem_wr_data(mem_wr_data),
+	.mem_rd_data(mem_rd_data)
+	);
 
 initial begin
 	clk = 0;
