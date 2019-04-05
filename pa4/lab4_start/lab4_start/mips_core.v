@@ -27,7 +27,7 @@ module mips_core(
 	// CONTROLS
 	input wire PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, ALUSrcA;
 	input wire [1:0] ALUSrcB;
-	input wire [2:0] ALUControl;
+	input wire [3:0] ALUControl;
 	
 	// MEMORY
 	input wire clk;
