@@ -18,6 +18,11 @@ module mips_core(
 	parameter I_LENGTH = 1024;
 	parameter D_LENGTH = 1024;
 	
+	// CONTROLS
+	input wire PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, ALUSrcA;
+	input wire [1:0] ALUSrcB;
+	input wire [2:0] ALUControl;
+	
 	// MEMORY
 	input wire clk;
 	output wire mem_wr_ena;
@@ -31,48 +36,48 @@ module mips_core(
 	two_mux #(
 		.N(32)
 	) IorD_MUX(
-			.X(), .Y(), .Z(), .CTRL());
+			.X(), .Y(), .Z(), .CTRL(IorD));
 			
 	two_mux #(
 		.N(32)
 	) RegDst_MUX(
-			.X(), .Y(), .Z(), .CTRL());
+			.X(), .Y(), .Z(), .CTRL(RegDst));
 			
 	two_mux #(
 		.N(32)
 	) MemtoReg_MUX(
-			.X(), .Y(), .Z(), .CTRL());
+			.X(), .Y(), .Z(), .CTRL(MemtoReg));
 			
 	two_mux #(
 		.N(32)
 	) ALUSrcA_MUX(
-			.X(), .Y(), .Z(), .CTRL());
+			.X(), .Y(), .Z(), .CTRL(ALUSrcA));
 			
 	// Four to One's
 	four_mux #(N(32)
 	) ALUSrcB_MUX(
-		.A(),.B(),.C(),.D(),.CTRL(),.Z());
+		.A(),.B(),.C(),.D(),.CTRL(ALUSrcB),.Z());
 		
 	// ----- ALU -----
 	alu #(N(32)
-	) ALU(.x(), .y(), .op_code(), .z(), .equal(), .zero(), .overflow());
+	) ALU(.x(), .y(), .op_code(ALUControl), .z(), .equal(), .zero(), .overflow());
 	
 	// ----- ARCHITECTURAL MEMORY (i.e. legit just registers) -----
 	// naming convention based on outputs
 	register #(N(32)
-	) PC_AM(.clk(), .rst(), .d(), .q(), .ena());
+	) PC_AM(.clk(), .rst(), .d(), .q(), .ena(PCWrite));
 	
 	register #(N(32)
-	) Instr_AM(.clk(), .rst(), .d(), .q(), .ena());
+	) Instr_AM(.clk(), .rst(), .d(), .q(), .ena(IRWrite));
 	
 	register #(N(32)
-	) Data_AM(.clk(), .rst(), .d(), .q(), .ena());
+	) Data_AM(.clk(), .rst(), .d(), .q(), .ena(1));
 	
 	register #(N(32)
-	) A_AM(.clk(), .rst(), .d(), .q(), .ena());
+	) A_AM(.clk(), .rst(), .d(), .q(), .ena(1));
 	
 	register #(N(32)
-	) B_AM(.clk(), .rst(), .d(), .q(), .ena());
+	) B_AM(.clk(), .rst(), .d(), .q(), .ena(1));
 	
 	register #(N(32)
 	) ALUOut_AM(.clk(), .rst(), .d(), .q(), .ena());
