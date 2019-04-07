@@ -25,6 +25,7 @@ wire [N-1:0] mem_rd_data;
 wire mem_wr_ena;
 wire mem_invalid;
 
+
 synth_dual_port_memory #(
 	.N(32),
 	.I_LENGTH(1024),
@@ -50,6 +51,7 @@ mips_core #(
 	.mem_wr_data(mem_wr_data),
 	.mem_rd_data(mem_rd_data)
 	);
+
 
 initial begin
 	clk = 0;

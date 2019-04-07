@@ -11,9 +11,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 module mips_core(
 	clk, 
-	mem_wr_ena, mem_addr, mem_wr_data, mem_rd_data,
-	PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, ALUSrcA, ALUSrcB, ALUControl
-	
+	mem_wr_ena, mem_addr, mem_wr_data, mem_rd_data
+	//PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, ALUSrcA, ALUSrcB, ALUControl
 	);
 
 	// --------- VARIABLES/WIRES --------
@@ -25,9 +24,9 @@ module mips_core(
 	parameter D_LENGTH = 1024;
 	
 	// CONTROLS
-	input wire PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, ALUSrcA;
-	input wire [1:0] ALUSrcB;
-	input wire [3:0] ALUControl;
+	wire PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, ALUSrcA, Branch, PCEn, Zero;
+	wire [1:0] ALUSrcB;
+	wire [3:0] ALUControl;
 	
 	// MEMORY
 	input wire clk;
@@ -75,18 +74,18 @@ module mips_core(
 		
 	// ----- ALU -----
 	alu #(.N(32)
-	) ALU(.x(SrcA), .y(SrcB), .op_code(ALUControl), .z(PC_0), .equal(), .zero(), .overflow());
+	) ALU(.x(SrcA), .y(SrcB), .op_code(ALUControl), .z(PC_0), .equal(), .zero(Zero), .overflow());
 	
 	// ----- ARCHITECTURAL MEMORY (i.e. legit just registers) -----
 	// naming convention based on outputs
 	register #(.N(32)
-	) PC_AM(.clk(clk), .rst(), .d(PC_0), .q(PC), .ena(PCWrite));
+	) PC_AM(.clk(clk), .rst(), .d(PC_0), .q(PC), .ena(PCEn));
 	
 	register #(.N(32)
-	) Instr_AM(.clk(clk), .rst(), .d(mem_rd_data), .q(), .ena(IRWrite));
+	) Instr_AM(.clk(clk), .rst(), .d(mem_rd_data), .q(Instr), .ena(IRWrite));
 	
 	register #(.N(32)
-	) Data_AM(.clk(clk), .rst(), .d(mem_rd_data), .q(), .ena(1));
+	) Data_AM(.clk(clk), .rst(), .d(mem_rd_data), .q(Instr), .ena(1));
 	
 	register #(.N(32)
 	) A_AM(.clk(clk), .rst(), .d(RD1), .q(A), .ena(1));
@@ -106,7 +105,14 @@ module mips_core(
 	// ----- SIGN EXTENSION ------
 	signExt #(.N(32)
 	) SIGN_EXT(.immed(Instr[15:0]), .out(SignImm));
-
+	
+	// ----- CONTROLLER -----
+	//control signals
+		mips_controller Controller(.clk(clk), 
+					.Funct(Instr[5:0]), .OpCode(Instr[31:26]),
+					.MemtoReg(MemtoReg), .RegDST(RegDst), .IorD(IorD), .PCSrc(PCSrc), .ALUSrcB(ALUSrcB), .ALUSrcA(ALUSrcA),
+					.IRWrite(IRWrite), .MemWrite(mem_wr_ena), .PCWrite(PCWrite), .Branch(Branch), .RegWrite(RegWrite), .ALUControl(ALUControl));
+		assign PCEn = (Zero & Branch) | PCWrite;
 	//port definitions - customize for different bit widths
 
 
