@@ -85,7 +85,7 @@ module mips_core(
 	) Instr_AM(.clk(clk), .rst(rst), .d(mem_rd_data), .q(Instr), .ena(IRWrite));
 	
 	register #(.N(32)
-	) Data_AM(.clk(clk), .rst(rst), .d(mem_rd_data), .q(Data), .ena(1'b1));
+	) Data_AM(.clk(clk), .rst(rst), .d(mem_rd_data), .q(Data), .ena(IRWrite));
 	
 	register #(.N(32)
 	) A_AM(.clk(clk), .rst(rst), .d(RD1), .q(A), .ena(1'b1));

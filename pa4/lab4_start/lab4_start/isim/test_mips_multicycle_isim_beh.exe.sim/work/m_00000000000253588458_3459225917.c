@@ -30,7 +30,7 @@ static int ng5[] = {1000, 0};
 static int ng6[] = {2, 0};
 static const char *ng7 = "simulated %d cycles";
 static unsigned int ng8[] = {0U, 0U};
-static unsigned int ng9[] = {1000U, 0U};
+static unsigned int ng9[] = {5U, 0U};
 static const char *ng10 = "Dumping data memory from address %d -> %d:";
 static const char *ng11 = "\tDMEM[%d]=%h";
 

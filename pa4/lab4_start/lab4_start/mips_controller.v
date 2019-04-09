@@ -58,8 +58,6 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 		else begin
 			state <= next_state;
 		end
-
-
 		
 		// Next statements for outputs
 		MemtoReg <= MemtoReg_next;
@@ -73,10 +71,11 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 		PCWrite <= PCWrite_next;
 		Branch <= Branch_next;
 		RegWrite <= RegWrite_next;
+		ALUOp <= ALUOp_next;
 			
 	end 
 
-	always @(Funct, OpCode) begin
+	always @(Funct, OpCode, state) begin
 		case (state)
 			default : begin	// equivalent to s0
 				// multiplexer selects
@@ -123,6 +122,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 			
 			// repeat to take into account non perfect memory
 			sr2 : begin 
+				$display("sr2");
 				// multiplexer selects
 				// DC when doesn't show up in FSM
 				IorD_next <= 0;
@@ -143,6 +143,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 			end
 		
 			s0 : begin // fetch, reset state
+				$display("s0");
 				// multiplexer selects
 				// DC when doesn't show up in FSM
 				ALUSrcA_next <= 0;
@@ -158,36 +159,39 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				RegWrite_next <= 0;
 				
 				next_state <= s1;
+				$display("next state s1");
 			
 			end
 			
 			s1 : begin // decode	
+				$display("s1");
 							// Go to R-Type FSM
 				//if (OpCode == 6'b000000) begin
-					// multiplexer selects
-					// DC when doesn't show up in FSM
-					ALUSrcA_next <= 1;
-					ALUOp_next <= 2'b10;
-					
-					// Change Mux 4-to-1 control signal to 11 if R-type shift is used.
-					if (Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011)) begin
-					    ALUSrcB_next <= 2'b11;    
-					end 
-					
-					// Else use the output of regb using control signal 00 
-					else begin
-					    ALUSrcB_next <= 2'b00;
-					end
-					
-					// Register Enables
-					// if they don't show up, must be set as 0
-					IRWrite_next <= 0;
-					PCWrite_next <= 0;
-					MemWrite_next <= 0;
-					Branch_next <= 0;
-					RegWrite_next <= 0;
-					
-				   next_state <= s6;
+				// multiplexer selects
+				// DC when doesn't show up in FSM
+				ALUSrcA_next <= 1;
+				ALUOp_next <= 2'b10;
+				
+				// Change Mux 4-to-1 control signal to 11 if R-type shift is used.
+				if (Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011)) begin
+					 ALUSrcB_next <= 2'b11;    
+				end 
+				
+				// Else use the output of regb using control signal 00 
+				else begin
+					 ALUSrcB_next <= 2'b00;
+				end
+				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 0;
+				PCWrite_next <= 0;
+				MemWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 0;
+				
+				next_state <= s6;
+				$display("next state s6");
 				//end
 				
 			end
