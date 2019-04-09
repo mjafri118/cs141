@@ -60,12 +60,12 @@ op_codes = {
 
 # Fill in function codes.
 function_codes = {
-    'sll'   : dec_to_bin(00, 6),
-    'srl'   : dec_to_bin(02, 6),
-    'sra'   : dec_to_bin(03, 6),
-    'sllv'  : dec_to_bin(04, 6),
-    'srlv'  : dec_to_bin(06, 6),
-    'srav'  : dec_to_bin(07, 6),
+    'sll'   : dec_to_bin(0, 6),
+    'srl'   : dec_to_bin(2, 6),
+    'sra'   : dec_to_bin(3, 6),
+    'sllv'  : dec_to_bin(4, 6),
+    'srlv'  : dec_to_bin(6, 6),
+    'srav'  : dec_to_bin(7, 6),
     'jr'    : dec_to_bin(8, 6),
     'jalr'  : dec_to_bin(9, 6),
     'syscall'   : dec_to_bin(12, 6),

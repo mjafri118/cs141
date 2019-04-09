@@ -108,7 +108,7 @@ module mips_core(
 	
 	// ----- CONTROLLER -----
 	//control signals
-		mips_controller Controller(.clk(clk), 
+		mips_controller Controller(.clk(clk), .rst(), 
 					.Funct(Instr[5:0]), .OpCode(Instr[31:26]),
 					.MemtoReg(MemtoReg), .RegDST(RegDst), .IorD(IorD), .PCSrc(), .ALUSrcB(ALUSrcB), .ALUSrcA(ALUSrcA),
 					.IRWrite(IRWrite), .MemWrite(mem_wr_ena), .PCWrite(PCWrite), .Branch(Branch), .RegWrite(RegWrite), .ALUControl(ALUControl));

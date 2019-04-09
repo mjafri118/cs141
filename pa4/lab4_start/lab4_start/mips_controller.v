@@ -9,7 +9,7 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module mips_controller(clk, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrcB, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite, ALUControl);
+module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrcB, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite, ALUControl);
 	
 	//parameter definitions
 	
@@ -28,7 +28,7 @@ module mips_controller(clk, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrc
 						  s10 = 4'b1010;
 	
 	// INPUT
-	input wire clk;
+	input wire clk, rst;
 	input wire [5:0] Funct, OpCode;
 	output reg MemtoReg, RegDST, IorD, PCSrc, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite;
 	reg MemtoReg_next, RegDST_next, IorD_next, PCSrc_next, ALUSrcA_next, IRWrite_next, MemWrite_next, PCWrite_next, Branch_next, RegWrite_next;
@@ -50,9 +50,9 @@ module mips_controller(clk, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrc
 	
 		//change to next state and change value of any internal register
 	always @(posedge clk) begin 
-		//if (rst) begin
-			//state <= `s0; 
-		//end
+		if (rst) begin
+			state <= s0; 
+		end
 
 		state <= next_state;
 		
