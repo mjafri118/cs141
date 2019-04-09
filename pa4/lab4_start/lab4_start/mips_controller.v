@@ -53,7 +53,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 		//change to next state and change value of any internal register
 	always @(posedge clk) begin 
 		if (rst) begin
-			state <= sr; 
+			state <= s0; 
 		end
 		else begin
 			state <= next_state;
@@ -75,7 +75,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 			
 	end 
 
-	always @(Funct, OpCode, state) begin
+	always @(Funct, OpCode, state,rst) begin
 		case (state)
 			
 			// repeat to take into account non perfect memory
@@ -90,7 +90,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				
 				// Register Enables
 				// if they don't show up, must be set as 0
-				IRWrite_next <= 1;
+				IRWrite_next <= 0;
 				PCWrite_next <= 1;
 				MemWrite_next <= 0;
 				Branch_next <= 0;
@@ -122,7 +122,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 //			end
 		
 			s0 : begin // fetch, reset state
-				$display("s0");
+//				$display("s0");
 				// multiplexer selects
 				// DC when doesn't show up in FSM
 				ALUSrcA_next <= 0;
@@ -138,7 +138,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				RegWrite_next <= 0;
 				
 				next_state <= s1;
-				$display("next state s1");
+//				$display("next state s1");
 			
 			end
 			
@@ -151,13 +151,15 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				ALUSrcA_next <= 1;
 				ALUOp_next <= 2'b10;
 				
-				// Change Mux 4-to-1 control signal to 11 if R-type shift is used.
-				if (Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011)) begin
+				// Change Mux 4-to-1 control signal to 11 if R-type shift is used. //Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011) || 
+				if (Funct == 6'b000010) begin
+					$display("entering shift R");
 					 ALUSrcB_next <= 2'b11;    
 				end 
 				
 				// Else use the output of regb using control signal 00 
 				else begin
+//					$display("entering normal R");
 					 ALUSrcB_next <= 2'b00;
 				end
 				
@@ -205,7 +207,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				
 				// Register Enables
 				// if they don't show up, must be set as 0
-				IRWrite_next <= 0;
+				IRWrite_next <= 1;
 				PCWrite_next <= 0;
 				MemWrite_next <= 0;
 				Branch_next <= 0;
@@ -226,7 +228,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				
 				// Register Enables
 				// if they don't show up, must be set as 0
-				IRWrite_next <= 0;
+				IRWrite_next <= 1;
 				PCWrite_next <= 0;
 				MemWrite_next <= 0;
 				Branch_next <= 0;
