@@ -18,7 +18,6 @@ reg  clk, rst;
 wire rstb;
 assign rstb = ~rst;
 
-
 //memory
 wire [N-1:0] mem_wr_data, mem_addr;
 wire [N-1:0] mem_rd_data;
@@ -32,7 +31,9 @@ synth_dual_port_memory #(
 	.D_LENGTH(1024)
 ) MEMORY(
 	.clk(clk),
-	.rstb(rstb),
+	.rstb(rstb), 
+	.error(),
+	.wr_ena1(), .addr1(), .din1(), .dout1(),
 	.wr_ena0(mem_wr_ena),
 	.addr0(mem_addr),
 	.din0(mem_wr_data),
@@ -46,6 +47,7 @@ mips_core #(
 	.D_LENGTH(1024)
 ) MIPS(
 	.clk(clk),
+	.rst(rst),
 	.mem_wr_ena(mem_wr_ena),
 	.mem_addr(mem_addr),
 	.mem_wr_data(mem_wr_data),
@@ -67,8 +69,8 @@ initial begin
 	repeat (NUM_CYCLES) @(negedge clk); //run the CPU
 	$display("simulated %d cycles", NUM_CYCLES);
 	
-	DATA_MEM_START = 0;
-	DATA_MEM_STOP = 0;  //change this to a larger number if you wish to dump the data memory at the end of the program
+	DATA_MEM_START = 32'h0;	
+	DATA_MEM_STOP = DATA_MEM_START + 32'd1000 ;  //change this to a larger number if you wish to dump the data memory at the end of the program
 	if (DATA_MEM_STOP > DATA_MEM_START) begin
 		$display("Dumping data memory from address %d -> %d:", DATA_MEM_START, DATA_MEM_STOP);
 		

@@ -49,7 +49,7 @@ assign phy_d_addr1 = addr1[D_WIDTH+1:2];
 
 wire i0, i1, d0, d1, wr_i_ena0, wr_d_ena0, wr_i_ena1, wr_d_ena1;
 assign i0 = addr0[31:20] === `I_START_ADDRESS;
-assign i1 = addr1[31:20] === `I_START_ADDRESS;
+assign i1 = addr1[31:20] === `I_START_ADDRESS;  
 assign d0 = ~i0;
 assign d1 = ~i1;
 assign wr_i_ena0 = i0 & wr_ena0;

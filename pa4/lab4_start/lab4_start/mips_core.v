@@ -10,7 +10,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module mips_core(
-	clk, 
+	clk, rst,
 	mem_wr_ena, mem_addr, mem_wr_data, mem_rd_data
 	//PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, ALUSrcA, ALUSrcB, ALUControl
 	);
@@ -29,14 +29,14 @@ module mips_core(
 	wire [3:0] ALUControl;
 	
 	// MEMORY
-	input wire clk;
+	input wire clk, rst;
 	output wire mem_wr_ena;
 	output wire [N-1:0] mem_addr, mem_wr_data;
 	input wire [N-1:0] mem_rd_data;
 	
 	// INTERNALS
-	reg [N-1:0] PC, PC_0, ALUOut, Data, SignImm, SrcA, SrcB, A, B, Instr, WD3, RD1, RD2;
-	reg [4:0] A3;
+	wire [N-1:0] PC, PC_0, ALUOut, Data, SignImm, SrcA, SrcB, A, B, Instr, WD3, RD1, RD2, PadShamt;
+	wire [4:0] A3; // testing
 	
 	// ASSIGNS
 	assign mem_wr_data = B;
@@ -53,7 +53,7 @@ module mips_core(
 			.X(PC), .Y(ALUOut), .Z(mem_addr), .CTRL(IorD));
 			
 	two_mux #(
-		.N(32)
+		.N(5)
 	) RegDst_MUX(
 			.X(Instr[20:16]), .Y(Instr[15:11]), .Z(A3), .CTRL(RegDst));
 			
@@ -70,7 +70,7 @@ module mips_core(
 	// Four to One's
 	four_mux #(.N(32)
 	) ALUSrcB_MUX(
-		.A(B),.B(32'd4),.C(SignImm),.D(),.CTRL(ALUSrcB),.Z(SrcB));
+		.A(B),.B(32'd4),.C(SignImm),.D(PadShamt),.CTRL(ALUSrcB),.Z(SrcB));
 		
 	// ----- ALU -----
 	alu #(.N(32)
@@ -78,37 +78,42 @@ module mips_core(
 	
 	// ----- ARCHITECTURAL MEMORY (i.e. legit just registers) -----
 	// naming convention based on outputs
-	register #(.N(32)
-	) PC_AM(.clk(clk), .rst(), .d(PC_0), .q(PC), .ena(PCEn));
+	PC_AM_register #(.N(32)
+	) PC_AM(.clk(clk), .rst(rst), .d(PC_0), .q(PC), .ena(PCEn));
 	
 	register #(.N(32)
-	) Instr_AM(.clk(clk), .rst(), .d(mem_rd_data), .q(Instr), .ena(IRWrite));
+	) Instr_AM(.clk(clk), .rst(rst), .d(mem_rd_data), .q(Instr), .ena(IRWrite));
 	
 	register #(.N(32)
-	) Data_AM(.clk(clk), .rst(), .d(mem_rd_data), .q(Instr), .ena(1));
+	) Data_AM(.clk(clk), .rst(rst), .d(mem_rd_data), .q(Data), .ena(1'b1));
 	
 	register #(.N(32)
-	) A_AM(.clk(clk), .rst(), .d(RD1), .q(A), .ena(1));
+	) A_AM(.clk(clk), .rst(rst), .d(RD1), .q(A), .ena(1'b1));
 	
 	register #(.N(32)
-	) B_AM(.clk(clk), .rst(), .d(RD2), .q(B), .ena(1));
+	) B_AM(.clk(clk), .rst(rst), .d(RD2), .q(B), .ena(1'b1));
 	
 	register #(.N(32)
-	) ALUOut_AM(.clk(clk), .rst(), .d(PC_0), .q(ALUOut), .ena(1));
+	) ALUOut_AM(.clk(clk), .rst(rst), .d(PC_0), .q(ALUOut), .ena(1'b1));
 	
 	// ----- REGISTER FILE -----
 	register_file #(.N(32)
 	) Register_File(
-		.clk(clk), .rst(), 
+		.clk(clk), .rst(rst), 
 		.rd_addr0(Instr[25:21]), .rd_addr1(Instr[20:16]), .wr_addr(A3), .rd_data0(RD1), .rd_data1(RD2), .wr_data(WD3), .wr_ena(RegWrite)); 
 		
 	// ----- SIGN EXTENSION ------
-	signExt #(.N(32)
+	signExt #(.N_in(16), .N_out(32) 
 	) SIGN_EXT(.immed(Instr[15:0]), .out(SignImm));
+	
+	// ----- PAD ------
+	pad32 #(.N_in(5), .N_out(32) 
+	) PAD(.immed(Instr[10:6]), .out(PadShamt));
+
 	
 	// ----- CONTROLLER -----
 	//control signals
-		mips_controller Controller(.clk(clk), .rst(), 
+		mips_controller Controller(.clk(clk), .rst(rst), 
 					.Funct(Instr[5:0]), .OpCode(Instr[31:26]),
 					.MemtoReg(MemtoReg), .RegDST(RegDst), .IorD(IorD), .PCSrc(), .ALUSrcB(ALUSrcB), .ALUSrcA(ALUSrcA),
 					.IRWrite(IRWrite), .MemWrite(mem_wr_ena), .PCWrite(PCWrite), .Branch(Branch), .RegWrite(RegWrite), .ALUControl(ALUControl));

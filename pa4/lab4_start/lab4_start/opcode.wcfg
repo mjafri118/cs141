@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_mips_multicycle" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="21" />
+   <wvobject fp_name="/test_mips_multicycle/rstb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rstb</obj_property>
+      <obj_property name="ObjectShortName">rstb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/mem_wr_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/mem_addr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/mem_rd_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_rd_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_rd_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/mem_wr_ena" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_wr_ena</obj_property>
+      <obj_property name="ObjectShortName">mem_wr_ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/mem_invalid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_invalid</obj_property>
+      <obj_property name="ObjectShortName">mem_invalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/NUM_CYCLES" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">NUM_CYCLES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUM_CYCLES[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/DATA_MEM_START" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA_MEM_START[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_MEM_START[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/DATA_MEM_STOP" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA_MEM_STOP[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_MEM_STOP[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/WAVE_FILE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">WAVE_FILE[800:0]</obj_property>
+      <obj_property name="ObjectShortName">WAVE_FILE[800:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Controller/OpCode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">OpCode[5:0]</obj_property>
+      <obj_property name="ObjectShortName">OpCode[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Controller/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Data_AM/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Data_AM/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Data_AM/ena" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Data_AM/d" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d[31:0]</obj_property>
+      <obj_property name="ObjectShortName">d[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Data_AM/q" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">q[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Data_AM/N" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">N[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N[31:0]</obj_property>
+   </wvobject>
+</wave_config>

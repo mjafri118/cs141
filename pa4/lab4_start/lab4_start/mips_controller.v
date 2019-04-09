@@ -15,7 +15,9 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 	
 	// local paramaters
 	// These are namespaces used for the states. 
-	localparam [3:0]  s0 = 4'b0000,
+	localparam [3:0]  sr = 4'b1111, 
+							sr2 = 4'b1110,
+							s0 = 4'b0000,
 							s1 = 4'b0001,
 							s2 = 4'b0010,
 							s3 = 4'b0011,
@@ -90,8 +92,51 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				Branch_next <= 0;
 				RegWrite_next <= 0;
 				
-				next_state <= s0;
 				
+				next_state <= sr;
+				
+			end
+			
+			// repeat to take into account non perfect memory
+			sr : begin 
+				// multiplexer selects
+				// DC when doesn't show up in FSM
+				IorD_next <= 0;
+				ALUSrcA_next <= 0;
+				ALUSrcB_next <= 2'b01;
+				ALUOp_next <= 2'b00;
+				PCSrc_next <= 0;
+				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 1;
+				PCWrite_next <= 1;
+				MemWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 0;
+				
+				next_state <= sr2;
+			end
+			
+			// repeat to take into account non perfect memory
+			sr2 : begin 
+				// multiplexer selects
+				// DC when doesn't show up in FSM
+				IorD_next <= 0;
+				ALUSrcA_next <= 0;
+				ALUSrcB_next <= 2'b01;
+				ALUOp_next <= 2'b00;
+				PCSrc_next <= 0;
+				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 1;
+				PCWrite_next <= 1;
+				MemWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 0;
+				
+				next_state <= s0;
 			end
 		
 			s0 : begin // fetch, reset state
@@ -119,8 +164,17 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 					// multiplexer selects
 					// DC when doesn't show up in FSM
 					ALUSrcA_next <= 1;
-					ALUSrcB_next <= 2'b00;
 					ALUOp_next <= 2'b10;
+					
+					// Change Mux 4-to-1 control signal to 11 if R-type shift is used.
+					if (Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011)) begin
+					    ALUSrcB_next <= 2'b11;    
+					end 
+					
+					// Else use the output of regb using control signal 00 
+					else begin
+					    ALUSrcB_next <= 2'b00;
+					end
 					
 					// Register Enables
 					// if they don't show up, must be set as 0
@@ -136,6 +190,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 			end
 			
 			s6 : begin // state 6
+				// execute
 				// multiplexer selects
 				// DC when doesn't show up in FSM
 				RegDST_next <= 1;
@@ -153,7 +208,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 			
 			end
 			
-			s7 : begin // state 7
+			s7 : begin // state 7: write back
 				// multiplexer selects
 				// DC when doesn't show up in FSM
 				IorD_next <= 0;
