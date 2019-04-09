@@ -7,7 +7,7 @@ module PC_AM_register(clk, rst, d, q, ena);
 
 	always @(posedge clk) begin
 		if(rst) begin
-			q <= 32'h4;
+			q <= 32'h0;
 		end
 		else if (ena) begin
 			q <= d;

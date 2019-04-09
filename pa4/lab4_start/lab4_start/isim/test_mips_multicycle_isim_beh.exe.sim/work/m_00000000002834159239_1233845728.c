@@ -22,7 +22,7 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/PC_AM_register.v";
-static unsigned int ng1[] = {4U, 0U};
+static unsigned int ng1[] = {0U, 0U};
 
 
 
