@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v";
+static const char *ng0 = "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v";
 static int ng1[] = {0, 0};
 static int ng2[] = {1, 0};
 static const char *ng3 = "NUM_CYCLES=%d";
@@ -256,10 +256,10 @@ LAB11:    xsi_set_current_line(67, ng0);
     t12 = (~(t11));
     t13 = *((unsigned int *)t2);
     t23 = (t13 & t12);
-    t6 = (t0 + 4548);
+    t6 = (t0 + 4532);
     *((int *)t6) = t23;
 
-LAB13:    t8 = (t0 + 4548);
+LAB13:    t8 = (t0 + 4532);
     if (*((int *)t8) > 0)
         goto LAB14;
 
@@ -276,10 +276,10 @@ LAB15:    xsi_set_current_line(67, ng0);
     t12 = (~(t11));
     t13 = *((unsigned int *)t6);
     t23 = (t13 & t12);
-    t9 = (t0 + 4552);
+    t9 = (t0 + 4536);
     *((int *)t9) = t23;
 
-LAB17:    t10 = (t0 + 4552);
+LAB17:    t10 = (t0 + 4536);
     if (*((int *)t10) > 0)
         goto LAB18;
 
@@ -345,7 +345,7 @@ LAB14:    xsi_set_current_line(67, ng0);
     *((char **)t1) = &&LAB16;
     goto LAB1;
 
-LAB16:    t2 = (t0 + 4548);
+LAB16:    t2 = (t0 + 4532);
     t23 = *((int *)t2);
     *((int *)t2) = (t23 - 1);
     goto LAB13;
@@ -358,7 +358,7 @@ LAB18:    xsi_set_current_line(69, ng0);
     *((char **)t1) = &&LAB20;
     goto LAB1;
 
-LAB20:    t2 = (t0 + 4552);
+LAB20:    t2 = (t0 + 4536);
     t23 = *((int *)t2);
     *((int *)t2) = (t23 - 1);
     goto LAB17;
@@ -406,15 +406,15 @@ LAB28:    xsi_set_current_line(78, ng0);
     t17 = (t0 + 1644);
     t24 = (t17 + 36U);
     t25 = *((char **)t24);
-    t26 = (t0 + 4568);
+    t26 = (t0 + 4552);
     t27 = *((char **)t26);
     t28 = ((((char*)(t27))) + 36U);
     t29 = *((char **)t28);
-    t30 = (t0 + 4584);
+    t30 = (t0 + 4568);
     t31 = *((char **)t30);
     t32 = ((((char*)(t31))) + 44U);
     t33 = *((char **)t32);
-    t34 = (t0 + 4600);
+    t34 = (t0 + 4584);
     t35 = *((char **)t34);
     t36 = ((((char*)(t35))) + 40U);
     t37 = *((char **)t36);

@@ -1,27 +1,27 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.exe -prj Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_beh.prj work.test_mips_multicycle work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.exe -prj Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_beh.prj work.test_mips_multicycle work.glbl 
 ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
 Determining compilation order of HDL files
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/two_mux.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/remote_sources/_/register.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/decoder.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/alu_decoder.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/signExt.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/remote_sources/_/register_file.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/remote_sources/_/alu.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/PC_AM_register.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/pad32.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/four_mux.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/remote_sources/_/synth_dual_port_memory.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_core.v" into library work
-Analyzing Verilog file "Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/two_mux.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/remote_sources/_/register.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/decoder.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/alu_decoder.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/signExt.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/remote_sources/_/register_file.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/remote_sources/_/alu.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/PC_AM_register.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/pad32.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/four_mux.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/remote_sources/_/synth_dual_port_memory.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_core.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 103032 KB
-Fuse CPU Usage: 577 ms
+Fuse Memory Usage: 103156 KB
+Fuse CPU Usage: 1015 ms
 Compiling module synth_dual_port_memory(I_LENGTH=...
 Compiling module two_mux
 Compiling module two_mux(N=5)
@@ -42,6 +42,6 @@ Compiling module test_mips_multicycle
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 18 Verilog Units
-Built simulation executable Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.exe
-Fuse Memory Usage: 106600 KB
-Fuse CPU Usage: 906 ms
+Built simulation executable Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.exe
+Fuse Memory Usage: 106724 KB
+Fuse CPU Usage: 2078 ms

@@ -53,10 +53,13 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 		//change to next state and change value of any internal register
 	always @(posedge clk) begin 
 		if (rst) begin
-			state <= s0; 
+			state <= sr; 
+		end
+		else begin
+			state <= next_state;
 		end
 
-		state <= next_state;
+
 		
 		// Next statements for outputs
 		MemtoReg <= MemtoReg_next;
@@ -130,8 +133,8 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				
 				// Register Enables
 				// if they don't show up, must be set as 0
-				IRWrite_next <= 1;
-				PCWrite_next <= 1;
+				IRWrite_next <= 0;
+				PCWrite_next <= 0;
 				MemWrite_next <= 0;
 				Branch_next <= 0;
 				RegWrite_next <= 0;
@@ -160,7 +163,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 			
 			s1 : begin // decode	
 							// Go to R-Type FSM
-				if (OpCode == 6'b000000) begin
+				//if (OpCode == 6'b000000) begin
 					// multiplexer selects
 					// DC when doesn't show up in FSM
 					ALUSrcA_next <= 1;
@@ -185,7 +188,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 					RegWrite_next <= 0;
 					
 				   next_state <= s6;
-				end
+				//end
 				
 			end
 			
