@@ -61,11 +61,7 @@ module mips_core(
 		.N(32)
 	) MemtoReg_MUX(
 			.X(ALUOut), .Y(Data), .Z(WD3), .CTRL(MemtoReg));
-			
-//	two_mux #(
-//		.N(32)
-//	) ALUSrcA_MUX(
-//			.X(PC), .Y(A), .Z(SrcA), .CTRL(ALUSrcA));
+
 			
 	// Four to One's
 	four_mux #(.N(32)

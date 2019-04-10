@@ -98,28 +98,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				
 				next_state <= s0;
 			end
-			
-//			// repeat to take into account non perfect memory
-//			sr2 : begin 
-//				$display("sr2");
-//				// multiplexer selects
-//				// DC when doesn't show up in FSM
-//				IorD_next <= 0;
-//				ALUSrcA_next <= 0;
-//				ALUSrcB_next <= 2'b01;
-//				ALUOp_next <= 2'b00;
-//				PCSrc_next <= 0;
-//				
-//				// Register Enables
-//				// if they don't show up, must be set as 0
-//				IRWrite_next <= 0;
-//				PCWrite_next <= 0;
-//				MemWrite_next <= 0;
-//				Branch_next <= 0;
-//				RegWrite_next <= 0;
-//				
-//				next_state <= s0;
-//			end
+
 		
 			s0 : begin // fetch, reset state
 //				$display("s0");
