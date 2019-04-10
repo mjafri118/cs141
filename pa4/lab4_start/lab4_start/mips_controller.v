@@ -53,7 +53,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 		//change to next state and change value of any internal register
 	always @(posedge clk) begin 
 		if (rst) begin
-			state <= s0; 
+			state <= s7; 
 		end
 		else begin
 			state <= next_state;
@@ -152,8 +152,8 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				ALUOp_next <= 2'b10;
 				
 				// Change Mux 4-to-1 control signal to 11 if R-type shift is used. //Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011) || 
-				if (Funct == 6'b000010) begin
-					$display("entering shift R");
+				if ((Funct == 6'b000010) || (Funct == 6'b000000)) begin
+					$display("entering shift R, %b", Funct);
 					 ALUSrcB_next <= 2'b11;    
 				end 
 				

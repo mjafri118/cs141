@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="35" />
+   <WVObjectSize size="36" />
    <wvobject fp_name="/test_mips_multicycle/rstb" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rstb</obj_property>
       <obj_property name="ObjectShortName">rstb</obj_property>
@@ -112,12 +112,6 @@
       <obj_property name="ObjectShortName">q[31:0]</obj_property>
       <obj_property name="label">Instr</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_mips_multicycle/MIPS/ALU/z" type="array" db_ref_id="1">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">z[31:0]</obj_property>
-      <obj_property name="ObjectShortName">z[31:0]</obj_property>
-      <obj_property name="label">ALUResult</obj_property>
-   </wvobject>
    <wvobject fp_name="/test_mips_multicycle/MIPS/Register_File/r15" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">r15[31:0]</obj_property>
       <obj_property name="ObjectShortName">r15[31:0]</obj_property>
@@ -154,6 +148,12 @@
       <obj_property name="ElementShortName">ALUSrcB[1:0]</obj_property>
       <obj_property name="ObjectShortName">ALUSrcB[1:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/ALU/z" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">z[31:0]</obj_property>
+      <obj_property name="ObjectShortName">z[31:0]</obj_property>
+      <obj_property name="label">ALUResult</obj_property>
+   </wvobject>
    <wvobject fp_name="/test_mips_multicycle/MIPS/ALU/x" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">x[31:0]</obj_property>
       <obj_property name="ObjectShortName">x[31:0]</obj_property>
@@ -161,5 +161,9 @@
    <wvobject fp_name="/test_mips_multicycle/MIPS/ALU/y" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">y[31:0]</obj_property>
       <obj_property name="ObjectShortName">y[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/ALU/op_code" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">op_code[3:0]</obj_property>
+      <obj_property name="ObjectShortName">op_code[3:0]</obj_property>
    </wvobject>
 </wave_config>
