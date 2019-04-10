@@ -32,10 +32,10 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 	// INPUT
 	input wire clk, rst;
 	input wire [5:0] Funct, OpCode;
-	output reg MemtoReg, RegDST, IorD, PCSrc, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite;
-	reg MemtoReg_next, RegDST_next, IorD_next, PCSrc_next, ALUSrcA_next, IRWrite_next, MemWrite_next, PCWrite_next, Branch_next, RegWrite_next;
-	output reg [1:0] ALUSrcB;
-	reg [1:0] ALUSrcB_next;
+	output reg MemtoReg, RegDST, IorD, PCSrc, IRWrite, MemWrite, PCWrite, Branch, RegWrite;
+	reg MemtoReg_next, RegDST_next, IorD_next, PCSrc_next, IRWrite_next, MemWrite_next, PCWrite_next, Branch_next, RegWrite_next;
+	output reg [1:0] ALUSrcA, ALUSrcB;
+	reg [1:0] ALUSrcA_next, ALUSrcB_next;
 	output wire [3:0] ALUControl;
 	
 	reg [1:0] ALUOp, ALUOp_next;
@@ -83,7 +83,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				// multiplexer selects
 				// DC when doesn't show up in FSM
 				IorD_next <= 0;
-				ALUSrcA_next <= 0;
+				ALUSrcA_next <= 00;
 				ALUSrcB_next <= 2'b01;
 				ALUOp_next <= 2'b00;
 				PCSrc_next <= 0;
@@ -125,7 +125,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 //				$display("s0");
 				// multiplexer selects
 				// DC when doesn't show up in FSM
-				ALUSrcA_next <= 0;
+				ALUSrcA_next <= 00;
 				ALUSrcB_next <= 2'b01;
 				ALUOp_next <= 2'b00;
 				
@@ -148,18 +148,20 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				//if (OpCode == 6'b000000) begin
 				// multiplexer selects
 				// DC when doesn't show up in FSM
-				ALUSrcA_next <= 1;
+				
 				ALUOp_next <= 2'b10;
 				
 				// Change Mux 4-to-1 control signal to 11 if R-type shift is used. //Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011) || 
-				if ((Funct == 6'b000010) || (Funct == 6'b000000)) begin
+				if ((Funct == 6'b000000) || (Funct == 6'b000010) || (Funct == 6'b000011)) begin
 					$display("entering shift R, %b", Funct);
+					 ALUSrcA_next <= 2'b10;
 					 ALUSrcB_next <= 2'b11;    
 				end 
 				
 				// Else use the output of regb using control signal 00 
 				else begin
 //					$display("entering normal R");
+					 ALUSrcA_next <= 01;
 					 ALUSrcB_next <= 2'b00;
 				end
 				

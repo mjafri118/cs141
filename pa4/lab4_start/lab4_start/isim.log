@@ -21,9 +21,9 @@ next state s6
 s1
 next state s6
 s1
+entering shift R, 000010
 next state s6
 s1
-entering shift R
 next state s6
 s1
 next state s6
@@ -73,9 +73,7 @@ next state s6
 s1
 next state s6
 s1
-next state s6
-s1
-entering shift R
+entering shift R, 000010
 next state s6
 s1
 next state s6
@@ -107,8 +105,14 @@ s1
 next state s6
 s1
 next state s6
-# restart
-# run all
+s1
+next state s6
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
 Simulator is doing circuit initialization process.
 no data file was supplied, using tests/zero.memh
 initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
@@ -121,9 +125,7 @@ next state s6
 s1
 next state s6
 s1
-next state s6
-s1
-entering shift R
+entering shift R, 000010
 next state s6
 s1
 next state s6
@@ -155,6 +157,217 @@ s1
 next state s6
 s1
 next state s6
+s1
+next state s6
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+# run all
 s1
 next state s6
 s1
@@ -520,8 +733,8 @@ Dumping data memory from address           0 ->           5:
 	DMEM[          0]=00009027
 	DMEM[          1]=00009827
 	DMEM[          2]=0272a020
-	DMEM[          3]=0014a882
-	DMEM[          4]=02608824
+	DMEM[          3]=0012a882
+	DMEM[          4]=02728824
 Stopped at time : 10010 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" Line 82
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
@@ -539,11 +752,63 @@ next state s6
 s1
 next state s6
 s1
+entering shift R, 000010
 next state s6
 s1
 next state s6
 s1
-entering shift R
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
 next state s6
 s1
 next state s6
@@ -587,16 +852,15 @@ initializing test_mips_multicycle.MEMORY's instruction memory from '            
 defaulting to 1000 cycles
 Finished circuit initialization process.
 s1
-entering shift R
 next state s6
 s1
 next state s6
 s1
 next state s6
 s1
+entering shift R, 000010
 next state s6
 s1
-entering shift R
 next state s6
 s1
 next state s6
@@ -639,131 +903,29 @@ no data file was supplied, using tests/zero.memh
 initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
 defaulting to 1000 cycles
 Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
 s1
 entering shift R, 000000
 next state s6
 s1
+entering shift R, 000011
 next state s6
 s1
-next state s6
-s1
-next state s6
-s1
-entering shift R, 000010
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-entering shift R, 000010
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-next state s6
-s1
-next state s6
-s1
-entering shift R, 000010
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
-next state s6
-s1
+entering shift R, 101010
 next state s6
 s1
 next state s6
@@ -812,10 +974,13 @@ next state s6
 s1
 next state s6
 s1
+entering shift R, 000000
 next state s6
 s1
+entering shift R, 000011
 next state s6
 s1
+entering shift R, 101010
 next state s6
 s1
 next state s6
@@ -864,8 +1029,654 @@ next state s6
 s1
 next state s6
 s1
+entering shift R, 000000
 next state s6
 s1
+entering shift R, 000011
+next state s6
+s1
+entering shift R, 101010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000000
+next state s6
+s1
+entering shift R, 000011
+next state s6
+s1
+entering shift R, 101010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000000
+next state s6
+s1
+entering shift R, 000011
+next state s6
+s1
+entering shift R, 101010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000000
+next state s6
+s1
+entering shift R, 000011
+next state s6
+s1
+entering shift R, 101010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+# restart
+# run all
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000000
+next state s6
+s1
+entering shift R, 000011
+next state s6
+s1
+entering shift R, 101010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+simulated        1000 cycles
+Dumping data memory from address           0 ->          10:
+	DMEM[          0]=00009027
+	DMEM[          1]=00009827
+	DMEM[          2]=0272a020
+	DMEM[          3]=0012a882
+	DMEM[          4]=02728824
+	DMEM[          5]=xxxxxxxx
+	DMEM[          6]=xxxxxxxx
+	DMEM[          7]=xxxxxxxx
+	DMEM[          8]=xxxxxxxx
+	DMEM[          9]=xxxxxxxx
+Stopped at time : 10010 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" Line 82
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000000
+next state s6
+s1
+entering shift R, 000011
 next state s6
 s1
 next state s6
@@ -912,8 +1723,10 @@ next state s6
 s1
 next state s6
 s1
+entering shift R, 000000
 next state s6
 s1
+entering shift R, 000011
 next state s6
 s1
 next state s6
@@ -1298,12 +2111,17 @@ next state s6
 s1
 next state s6
 simulated        1000 cycles
-Dumping data memory from address           0 ->           5:
+Dumping data memory from address           0 ->          10:
 	DMEM[          0]=00009027
 	DMEM[          1]=00009827
 	DMEM[          2]=0272a020
 	DMEM[          3]=0012a882
-	DMEM[          4]=02608824
+	DMEM[          4]=02728824
+	DMEM[          5]=xxxxxxxx
+	DMEM[          6]=xxxxxxxx
+	DMEM[          7]=xxxxxxxx
+	DMEM[          8]=xxxxxxxx
+	DMEM[          9]=xxxxxxxx
 Stopped at time : 10010 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" Line 82
 # restart
 # run all
@@ -1328,8 +2146,10 @@ next state s6
 s1
 next state s6
 s1
+entering shift R, 000000
 next state s6
 s1
+entering shift R, 000011
 next state s6
 s1
 next state s6
@@ -1714,12 +2534,494 @@ next state s6
 s1
 next state s6
 simulated        1000 cycles
-Dumping data memory from address           0 ->           5:
+Dumping data memory from address           0 ->          10:
 	DMEM[          0]=00009027
 	DMEM[          1]=00009827
 	DMEM[          2]=0272a020
 	DMEM[          3]=0012a882
-	DMEM[          4]=02608824
+	DMEM[          4]=02728824
+	DMEM[          5]=xxxxxxxx
+	DMEM[          6]=xxxxxxxx
+	DMEM[          7]=xxxxxxxx
+	DMEM[          8]=xxxxxxxx
+	DMEM[          9]=xxxxxxxx
+Stopped at time : 10010 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" Line 82
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000000
+next state s6
+s1
+entering shift R, 000011
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+# restart
+# run all
+Simulator is doing circuit initialization process.
+no data file was supplied, using tests/zero.memh
+initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+defaulting to 1000 cycles
+Finished circuit initialization process.
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000010
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+entering shift R, 000000
+next state s6
+s1
+entering shift R, 000011
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+simulated        1000 cycles
+Dumping data memory from address           0 ->          10:
+	DMEM[          0]=00009027
+	DMEM[          1]=00009827
+	DMEM[          2]=0272a020
+	DMEM[          3]=0012a882
+	DMEM[          4]=02728824
+	DMEM[          5]=xxxxxxxx
+	DMEM[          6]=xxxxxxxx
+	DMEM[          7]=xxxxxxxx
+	DMEM[          8]=xxxxxxxx
+	DMEM[          9]=xxxxxxxx
 Stopped at time : 10010 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" Line 82
 # restart
 # run all
@@ -1744,8 +3046,10 @@ next state s6
 s1
 next state s6
 s1
+entering shift R, 000000
 next state s6
 s1
+entering shift R, 000011
 next state s6
 s1
 next state s6
@@ -2130,10 +3434,15 @@ next state s6
 s1
 next state s6
 simulated        1000 cycles
-Dumping data memory from address           0 ->           5:
+Dumping data memory from address           0 ->          10:
 	DMEM[          0]=00009027
 	DMEM[          1]=00009827
 	DMEM[          2]=0272a020
 	DMEM[          3]=0012a882
-	DMEM[          4]=02608824
+	DMEM[          4]=02728824
+	DMEM[          5]=xxxxxxxx
+	DMEM[          6]=xxxxxxxx
+	DMEM[          7]=xxxxxxxx
+	DMEM[          8]=xxxxxxxx
+	DMEM[          9]=xxxxxxxx
 Stopped at time : 10010 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" Line 82

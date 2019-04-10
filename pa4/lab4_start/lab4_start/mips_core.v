@@ -24,8 +24,8 @@ module mips_core(
 	parameter D_LENGTH = 1024;
 	
 	// CONTROLS
-	wire PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, ALUSrcA, Branch, PCEn, Zero;
-	wire [1:0] ALUSrcB;
+	wire PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, Branch, PCEn, Zero;
+	wire [1:0] ALUSrcA, ALUSrcB;
 	wire [3:0] ALUControl;
 	
 	// MEMORY
@@ -62,12 +62,16 @@ module mips_core(
 	) MemtoReg_MUX(
 			.X(ALUOut), .Y(Data), .Z(WD3), .CTRL(MemtoReg));
 			
-	two_mux #(
-		.N(32)
-	) ALUSrcA_MUX(
-			.X(PC), .Y(A), .Z(SrcA), .CTRL(ALUSrcA));
+//	two_mux #(
+//		.N(32)
+//	) ALUSrcA_MUX(
+//			.X(PC), .Y(A), .Z(SrcA), .CTRL(ALUSrcA));
 			
 	// Four to One's
+	four_mux #(.N(32)
+	) ALUSrcA_MUX (
+		.A(PC), .B(A), .C(B), .D(), .CTRL(ALUSrcA), .Z(SrcA));
+	
 	four_mux #(.N(32)
 	) ALUSrcB_MUX(
 		.A(B),.B(32'd4),.C(SignImm),.D(PadShamt),.CTRL(ALUSrcB),.Z(SrcB));
