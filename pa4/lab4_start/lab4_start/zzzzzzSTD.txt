@@ -1,0 +1,7 @@
+Implement SrcB as an 8-mux
+Figure out if the Data Reg should still be tied to IRWrite given lw/sw
+Build reset insertion state
+
+Done
+- Imported eight-mux into project
+- Implmented state transition based on OpCode in FSM

@@ -124,37 +124,37 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 			s1 : begin // decode	
 				$display("s1");
 							// Go to R-Type FSM
-				//if (OpCode == 6'b000000) begin
-				// multiplexer selects
-				// DC when doesn't show up in FSM
-				
-				ALUOp_next <= 2'b10;
-				
-				// Change Mux 4-to-1 control signal to 11 if R-type shift is used. //Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011) || 
-				if ((Funct == 6'b000000) || (Funct == 6'b000010) || (Funct == 6'b000011)) begin
-					$display("entering shift R, %b", Funct);
-					 ALUSrcA_next <= 2'b10;
-					 ALUSrcB_next <= 2'b11;    
-				end 
-				
-				// Else use the output of regb using control signal 00 
-				else begin
-//					$display("entering normal R");
-					 ALUSrcA_next <= 01;
-					 ALUSrcB_next <= 2'b00;
+				if (OpCode == 6'b000000) begin
+					// multiplexer selects
+					// DC when doesn't show up in FSM
+					
+					ALUOp_next <= 2'b10;
+					
+					// Change Mux 4-to-1 control signal to 11 if R-type shift is used. //Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011) || 
+					if ((Funct == 6'b000000) || (Funct == 6'b000010) || (Funct == 6'b000011)) begin
+						$display("entering shift R, %b", Funct);
+						 ALUSrcA_next <= 2'b10;
+						 ALUSrcB_next <= 2'b11;    
+					end 
+					
+					// Else use the output of regb using control signal 00 
+					else begin
+	//					$display("entering normal R");
+						 ALUSrcA_next <= 01;
+						 ALUSrcB_next <= 2'b00;
+					end
+					
+					// Register Enables
+					// if they don't show up, must be set as 0
+					IRWrite_next <= 0;
+					PCWrite_next <= 0;
+					MemWrite_next <= 0;
+					Branch_next <= 0;
+					RegWrite_next <= 0;
+					
+					next_state <= s6;
+					$display("next state s6");
 				end
-				
-				// Register Enables
-				// if they don't show up, must be set as 0
-				IRWrite_next <= 0;
-				PCWrite_next <= 0;
-				MemWrite_next <= 0;
-				Branch_next <= 0;
-				RegWrite_next <= 0;
-				
-				next_state <= s6;
-				$display("next state s6");
-				//end
 				
 			end
 			
