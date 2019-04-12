@@ -1,0 +1,4 @@
+nor $s0, $0, $0 #$s0= -1
+addi $s1, $s0, 4
+andi $s2, $s1, 3
+add $s3, $s2, $s1

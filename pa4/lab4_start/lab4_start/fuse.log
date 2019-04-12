@@ -5,6 +5,7 @@ Turning on mult-threading, number of parallel sub-compilation jobs: 0
 Determining compilation order of HDL files
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/two_mux.v" into library work
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/remote_sources/_/register.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/four_mux.v" into library work
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/decoder.v" into library work
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/alu_decoder.v" into library work
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/signExt.v" into library work
@@ -13,20 +14,23 @@ Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/remote_
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/PC_AM_register.v" into library work
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/pad32.v" into library work
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" into library work
-Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/four_mux.v" into library work
+Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/eight_mux.v" into library work
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/remote_sources/_/synth_dual_port_memory.v" into library work
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_core.v" into library work
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:189 - "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 57: Size mismatch in connection of port <X>. Formal port size is 32-bit while actual signal size is 6-bit.
 Completed static elaboration
-Fuse Memory Usage: 102836 KB
-Fuse CPU Usage: 546 ms
+Fuse Memory Usage: 102196 KB
+Fuse CPU Usage: 1092 ms
 Compiling module synth_dual_port_memory(I_LENGTH=...
 Compiling module two_mux
 Compiling module two_mux(N=5)
 Compiling module two_mux(N=32)
 Compiling module four_mux
+Compiling module four_mux(N=32)
+Compiling module eight_mux
 Compiling module alu
 Compiling module PC_AM_register
 Compiling module register
@@ -41,7 +45,7 @@ Compiling module mips_core
 Compiling module test_mips_multicycle
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Compiled 18 Verilog Units
+Compiled 20 Verilog Units
 Built simulation executable Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.exe
-Fuse Memory Usage: 106404 KB
-Fuse CPU Usage: 906 ms
+Fuse Memory Usage: 106788 KB
+Fuse CPU Usage: 2233 ms

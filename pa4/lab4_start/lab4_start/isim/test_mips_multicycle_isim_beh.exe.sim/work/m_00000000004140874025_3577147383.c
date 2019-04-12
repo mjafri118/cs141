@@ -10,27 +10,22 @@
 /*  \___\/\___\                                                    */
 /***********************************************************************/
 
+/* This file is designed for use with ISim build 0x8ef4fb42 */
+
+#define XSI_HIDE_SYMBOL_SPEC true
 #include "xsi.h"
+#include <memory.h>
+#ifdef __GNUC__
+#include <stdlib.h>
+#else
+#include <malloc.h>
+#define alloca _alloca
+#endif
 
-struct XSI_INFO xsi_info;
 
 
 
-int main(int argc, char **argv)
+extern void work_m_00000000004140874025_3577147383_init()
 {
-    xsi_init_design(argc, argv);
-    xsi_register_info(&xsi_info);
-
-    xsi_register_min_prec_unit(-12);
-    work_m_00000000001865182114_1020968299_init();
-    work_m_00000000001471568877_1697483925_init();
-    work_m_00000000004134447467_2073120511_init();
-
-
-    xsi_register_tops("work_m_00000000001471568877_1697483925");
-    xsi_register_tops("work_m_00000000004134447467_2073120511");
-
-
-    return xsi_run_simulation(argc, argv);
-
+	xsi_register_didat("work_m_00000000004140874025_3577147383", "isim/test_mips_multicycle_isim_beh.exe.sim/work/m_00000000004140874025_3577147383.didat");
 }

@@ -112,7 +112,7 @@
       <obj_property name="ElementShortName">q[31:0]</obj_property>
       <obj_property name="ObjectShortName">q[31:0]</obj_property>
       <obj_property name="label">Instr</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_mips_multicycle/MIPS/Controller/ALUOp_next" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">ALUOp_next[1:0]</obj_property>
@@ -125,8 +125,8 @@
       <obj_property name="label">ALUSrcA</obj_property>
    </wvobject>
    <wvobject fp_name="/test_mips_multicycle/MIPS/Controller/ALUSrcB" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ALUSrcB[1:0]</obj_property>
-      <obj_property name="ObjectShortName">ALUSrcB[1:0]</obj_property>
+      <obj_property name="ElementShortName">ALUSrcB[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUSrcB[2:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/test_mips_multicycle/MIPS/ALU/z" type="array" db_ref_id="1">
       <obj_property name="DisplayName">label</obj_property>

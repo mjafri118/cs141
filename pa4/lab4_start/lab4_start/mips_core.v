@@ -25,7 +25,8 @@ module mips_core(
 	
 	// CONTROLS
 	wire PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, Branch, PCEn, Zero;
-	wire [1:0] ALUSrcA, ALUSrcB;
+	wire [1:0] ALUSrcA;
+	wire [2:0] ALUSrcB;
 	wire [3:0] ALUControl;
 	
 	// MEMORY
@@ -68,9 +69,11 @@ module mips_core(
 	) ALUSrcA_MUX (
 		.A(PC), .B(A), .C(B), .D(), .CTRL(ALUSrcA), .Z(SrcA));
 	
-	four_mux #(.N(32)
+	
+	// Eight to One's
+	eight_mux #(.N(32)
 	) ALUSrcB_MUX(
-		.A(B),.B(32'd4),.C(SignImm),.D(PadShamt),.CTRL(ALUSrcB),.Z(SrcB));
+		.A(B),.B(32'd4),.C(SignImm),.D(PadShamt),.E(),.F(),.G(),.H(),.CTRL(ALUSrcB),.Z(SrcB));
 		
 	// ----- ALU -----
 	alu #(.N(32)

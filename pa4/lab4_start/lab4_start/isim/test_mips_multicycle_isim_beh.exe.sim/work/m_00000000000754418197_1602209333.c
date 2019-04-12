@@ -27,7 +27,7 @@ static unsigned int ng2[] = {1U, 0U};
 
 
 
-static void Cont_42_0(char *t0)
+static void Cont_43_0(char *t0)
 {
     char *t1;
     char *t2;
@@ -45,7 +45,7 @@ LAB0:    t1 = (t0 + 4812U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(42, ng0);
+LAB2:    xsi_set_current_line(43, ng0);
     t2 = (t0 + 3232U);
     t3 = *((char **)t2);
     t2 = (t0 + 5780);
@@ -61,7 +61,7 @@ LAB2:    xsi_set_current_line(42, ng0);
 LAB1:    return;
 }
 
-static void Cont_120_1(char *t0)
+static void Cont_123_1(char *t0)
 {
     char t5[8];
     char t38[8];
@@ -149,7 +149,7 @@ LAB0:    t1 = (t0 + 4956U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(120, ng0);
+LAB2:    xsi_set_current_line(123, ng0);
     t2 = (t0 + 1576U);
     t3 = *((char **)t2);
     t2 = (t0 + 1392U);
@@ -440,9 +440,9 @@ LAB1:    return;
 }
 
 
-extern void work_m_00000000004017839121_1602209333_init()
+extern void work_m_00000000000754418197_1602209333_init()
 {
-	static char *pe[] = {(void *)Cont_42_0,(void *)Cont_120_1,(void *)implSig1_execute,(void *)implSig2_execute,(void *)implSig3_execute,(void *)implSig4_execute};
-	xsi_register_didat("work_m_00000000004017839121_1602209333", "isim/test_mips_multicycle_isim_beh.exe.sim/work/m_00000000004017839121_1602209333.didat");
+	static char *pe[] = {(void *)Cont_43_0,(void *)Cont_123_1,(void *)implSig1_execute,(void *)implSig2_execute,(void *)implSig3_execute,(void *)implSig4_execute};
+	xsi_register_didat("work_m_00000000000754418197_1602209333", "isim/test_mips_multicycle_isim_beh.exe.sim/work/m_00000000000754418197_1602209333.didat");
 	xsi_register_executes(pe);
 }
