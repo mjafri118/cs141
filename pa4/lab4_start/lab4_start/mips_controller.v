@@ -9,14 +9,13 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrcB, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite, ALUControl);
+	module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrcB, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite, ALUControl);
 	
 	//parameter definitions
 	
 	// local paramaters
 	// These are namespaces used for the states. 
 	localparam [3:0]  sr = 4'b1111, 
-							sr2 = 4'b1110,
 							s0 = 4'b0000,
 							s1 = 4'b0001,
 							s2 = 4'b0010,
@@ -28,7 +27,10 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 							s8 = 4'b1000,
 							s9 = 4'b1001,
 						  s10 = 4'b1010,
-						  s11 = 4'b1011;
+						  s11 = 4'b1011,
+						  s12 = 4'b1100,
+						  s13 = 4'b1101,
+						  s14 = 4'b1110;
 	
 	// INPUT
 	input wire clk, rst;
@@ -231,7 +233,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 					next_state <= s9;
 				end
 				
-				// Enter J instr
+				// Enter j instr
 				else if(OpCode == 6'b000010) begin
 				
 					PCSrc_next <= 2'b10;
@@ -245,6 +247,24 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 					RegWrite_next <= 0;
 				
 					next_state <= s11;
+				end
+				
+				// Enter jal instr
+				else if(OpCode == 6'b000011) begin
+					ALUSrcA_next <= 2'b00;
+					ALUSrcB_next <= 3'b001;
+					ALUOp_next <= 2'b00;
+					PCSrc_next <= 2'b00;
+					
+					// Register Enables
+					// if they don't show up, must be set as 0
+					IRWrite_next <= 0;
+					PCWrite_next <= 0;
+					MemWrite_next <= 0;
+					Branch_next <= 0;
+					RegWrite_next <= 0;
+				
+					next_state <= s12;
 				end
 				
 			end
@@ -281,17 +301,14 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 			
 			s3 : begin // Load word's MemRead
 			
-								IorD_next <= 1;
-					MemWrite_next <= 0;
+				IorD_next <= 1;
+				MemWrite_next <= 0;
 					
-									IRWrite_next <= 0;
+				IRWrite_next <= 0;
 				PCWrite_next <= 0;
 				Branch_next <= 0;
 				RegWrite_next <= 0;
-					
-					
 
-				
 				next_state <= s4;
 			end
 			
@@ -405,13 +422,14 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				next_state <= sr;
 			end
 			
+			// j instr write step
 			s11 : begin
 				PCSrc_next <= 2'b10;
 				
 				// Register Enables
 				// if they don't show up, must be set as 0
 				IRWrite_next <= 0;
-				PCWrite_next <= 1;
+				PCWrite_next <= 0;
 				MemWrite_next <= 0;
 				Branch_next <= 0;
 				RegWrite_next <= 0;
@@ -419,6 +437,18 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				next_state <= s10;
 			end
 			
+			// jal instr reg write step
+			s12 : begin
+				RegDST_next <= 1;	// CHANGE THIS to 2
+				MemtoReg_next <= 0;
+				FunctControl_next <= 0;
+				
+				
+			end
+			
+			s13 : begin
+			
+			end
 			default : begin	// equivalent to s0
 				// multiplexer selects
 				// DC when doesn't show up in FSM

@@ -20,10 +20,10 @@ Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_co
 Analyzing Verilog file "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:189 - "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 58: Size mismatch in connection of port <X>. Formal port size is 32-bit while actual signal size is 6-bit.
+WARNING:HDLCompiler:189 - "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 60: Size mismatch in connection of port <X>. Formal port size is 32-bit while actual signal size is 6-bit.
 Completed static elaboration
-Fuse Memory Usage: 102836 KB
-Fuse CPU Usage: 624 ms
+Fuse Memory Usage: 102260 KB
+Fuse CPU Usage: 499 ms
 Compiling module synth_dual_port_memory(I_LENGTH=...
 Compiling module two_mux
 Compiling module two_mux(N=5)
@@ -47,5 +47,5 @@ Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 20 Verilog Units
 Built simulation executable Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.exe
-Fuse Memory Usage: 106404 KB
-Fuse CPU Usage: 1234 ms
+Fuse Memory Usage: 106852 KB
+Fuse CPU Usage: 859 ms
