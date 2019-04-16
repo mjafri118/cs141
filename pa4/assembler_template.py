@@ -256,7 +256,7 @@ def i_typeassem(inst, operands, line_number):
 # returns machine code for j-type MIPS, excluding op code.
 # op code 6 bits, addr 26 bits
 def j_typeassem(inst, operands):
-    addr = dec_to_bin(1048576 +  labels[operands[0]],26)
+    addr = dec_to_bin(1048576 +  labels[operands[0]] + 4,26)
     return str(addr)
 
 def main():

@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="41" />
+   <WVObjectSize size="44" />
    <wvobject fp_name="/test_mips_multicycle/rstb" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rstb</obj_property>
       <obj_property name="ObjectShortName">rstb</obj_property>
@@ -189,5 +189,18 @@
    <wvobject fp_name="/test_mips_multicycle/MIPS/Register_File/rd_addr1" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rd_addr1[4:0]</obj_property>
       <obj_property name="ObjectShortName">rd_addr1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/PC_0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_0[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/PCSrc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PCSrc[1:0]</obj_property>
+      <obj_property name="ObjectShortName">PCSrc[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/PCSrc_MUX/C" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">C[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C[31:0]</obj_property>
    </wvobject>
 </wave_config>

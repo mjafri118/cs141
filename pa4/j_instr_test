@@ -1,0 +1,4 @@
+  j second
+  nor $s0, $0, $0
+second: nor $s1, $0, $0
+  nor $s2, $0, $0
