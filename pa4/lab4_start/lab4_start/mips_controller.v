@@ -116,7 +116,6 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 
 		
 			s0 : begin // fetch, reset state
-//				$display("s0");
 				// multiplexer selects
 				// DC when doesn't show up in FSM
 				ALUSrcA_next <= 00;
@@ -172,8 +171,26 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 					$display("next state s6");
 				end
 				
+				// Enter LW or SW
+				else if ((OpCode == 6'b100011) || (OpCode == 6'b101011)) begin
+				   $display("entering LW or SW, state 2");
+					// Register Enables
+					// if they don't show up, must be set as 0
+					IRWrite_next <= 0;
+					PCWrite_next <= 0;
+					MemWrite_next <= 0;
+					Branch_next <= 0;
+					RegWrite_next <= 0;
+					
+					ALUSrcA_next <= 2'b01;
+					ALUSrcB_next <= 3'b010;
+					ALUOp_next <= 2'b00;
+					
+					next_state <= s2;
+				end
+				
 				//Enter I-type
-				else if((OpCode == 6'b001100) || (OpCode == 6'b001101) || (OpCode == 6'b001110) || (OpCode == 6'b001010) || (OpCode == 6'b001000)) begin
+				else if ((OpCode == 6'b001100) || (OpCode == 6'b001101) || (OpCode == 6'b001110) || (OpCode == 6'b001010) || (OpCode == 6'b001000)) begin
 					
 					//manipulate FunctControl_next so that false Funct is sent
 					ALUOp_next <= 2'b10;
@@ -214,6 +231,82 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				end
 				
 			end
+			
+			s2 : begin // state 2: moves to load or store word.
+			
+				// Load Word
+				if (OpCode == 6'b100011) begin
+					IorD_next <= 1;
+					MemWrite_next <= 0;
+					$display("Going to load word");
+					
+					next_state <= s3;
+				end				
+				
+				// Store Word
+				if (OpCode == 6'b101011) begin
+					IorD_next <= 1;
+					MemWrite_next <= 1;
+					
+					$display("Going to store word");
+					
+					next_state <= s5;
+				end	
+				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 0;
+				PCWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 0;
+			
+			end
+			
+			s3 : begin // Load word's MemRead
+			
+								IorD_next <= 1;
+					MemWrite_next <= 0;
+					
+									IRWrite_next <= 0;
+				PCWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 0;
+					
+					
+
+				
+				next_state <= s4;
+			end
+			
+			s4 : begin
+				RegDST_next <= 0;
+				MemtoReg_next <= 1;
+				RegWrite_next <= 1; 
+				IorD_next <= 0; // testing IorD
+				
+				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 0;
+				PCWrite_next <= 0;
+				MemWrite_next <= 0;
+				Branch_next <= 0;
+				
+				next_state <= s10;
+			end
+			
+			s5  : begin
+				IorD_next <= 0;
+				MemWrite_next <= 1;
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 0;
+				PCWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 0;
+				
+				next_state <= s10;
+			end	
 			
 			s6 : begin // state 6: execution R-type
 				// multiplexer selects
@@ -286,7 +379,7 @@ module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, A
 				
 				// Register Enables
 				// if they don't show up, must be set as 0
-				IRWrite_next <= 1;
+				IRWrite_next <= 1; // SR 
 				PCWrite_next <= 0;
 				MemWrite_next <= 0;
 				Branch_next <= 0;

@@ -69,7 +69,7 @@ initial begin
 	repeat (NUM_CYCLES) @(negedge clk); //run the CPU
 	$display("simulated %d cycles", NUM_CYCLES);
 	
-	DATA_MEM_START = 32'h0;	
+	DATA_MEM_START = 32'h4;	
 	DATA_MEM_STOP = DATA_MEM_START + 32'd10;  //change this to a larger number if you wish to dump the data memory at the end of the program
 	if (DATA_MEM_STOP > DATA_MEM_START) begin
 		$display("Dumping data memory from address %d -> %d:", DATA_MEM_START, DATA_MEM_STOP);

@@ -3,14 +3,14 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="glbl" />
             <top_module name="test_mips_multicycle" />
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="20" />
    <wvobject fp_name="/test_mips_multicycle/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -26,10 +26,6 @@
    <wvobject fp_name="/test_mips_multicycle/mem_addr" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">mem_addr[31:0]</obj_property>
       <obj_property name="ObjectShortName">mem_addr[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_mips_multicycle/mem_rd_data" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">mem_rd_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_rd_data[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/test_mips_multicycle/mem_wr_ena" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">mem_wr_ena</obj_property>
@@ -75,16 +71,27 @@
       <obj_property name="ElementShortName">r24[31:0]</obj_property>
       <obj_property name="ObjectShortName">r24[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_mips_multicycle/MIPS/Instr_AM/q" type="array" db_ref_id="1">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">q[31:0]</obj_property>
-      <obj_property name="ObjectShortName">q[31:0]</obj_property>
-      <obj_property name="label">Instr_AM_output</obj_property>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Instr_AM/ena" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
    </wvobject>
    <wvobject fp_name="/test_mips_multicycle/MIPS/PC_AM/q" type="array" db_ref_id="1">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">q[31:0]</obj_property>
       <obj_property name="ObjectShortName">q[31:0]</obj_property>
       <obj_property name="label">PC_AM_output</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/SIGN_EXT/N_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">N_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/SIGN_EXT/N_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">N_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Register_File/r13" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r13[31:0]</obj_property>
+      <obj_property name="ObjectShortName">r13[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
 </wave_config>
