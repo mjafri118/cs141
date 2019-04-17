@@ -2,9 +2,28 @@ Command line:
    test_mips_multicycle_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  49174
+     -socket  49194
 
-Tue Apr 16 14:38:42 2019
+Wed Apr 17 00:13:21 2019
 
 
- Elaboration Time: 0.1875 sec
+ Elaboration Time: 0.53125 sec
+
+ Current Memory Usage: 659.468 Meg
+
+ Total Signals          : 415
+ Total Nets             : 2580
+ Total Signal Drivers   : 150
+ Total Blocks           : 75
+ Total Primitive Blocks : 65
+ Total Processes        : 202
+ Total Traceable Variables  : 202
+ Total Scalar Nets and Variables : 74820
+Total Line Count : 786
+
+ Total Simulation Time: 0.65625 sec
+
+ Current Memory Usage: 659.468 Meg
+
+Wed Apr 17 00:13:42 2019
+

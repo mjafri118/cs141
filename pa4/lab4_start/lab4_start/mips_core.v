@@ -24,8 +24,8 @@ module mips_core(
 	parameter D_LENGTH = 1024;
 	
 	// CONTROLS
-	wire PCWrite, IorD, IRWrite, RegDst, MemtoReg, RegWrite, Branch, PCEn, Zero;
-	wire [1:0] ALUSrcA, PCSrc;
+	wire PCWrite, IorD, IRWrite, MemtoReg, RegWrite, Branch, PCEn, Zero;
+	wire [1:0] ALUSrcA, PCSrc, RegDst;
 	wire [2:0] ALUSrcB;
 	wire [3:0] ALUControl;
 	
@@ -57,11 +57,6 @@ module mips_core(
 			.X(PC), .Y(ALUOut), .Z(mem_addr), .CTRL(IorD));
 			
 	two_mux #(
-		.N(5)
-	) RegDst_MUX(
-			.X(Instr[20:16]), .Y(Instr[15:11]), .Z(A3), .CTRL(RegDst));
-			
-	two_mux #(
 		.N(32)
 	) MemtoReg_MUX(
 			.X(ALUOut), .Y(Data), .Z(WD3), .CTRL(MemtoReg));
@@ -75,6 +70,11 @@ module mips_core(
 	four_mux #(.N(32)
 	) PCSrc_MUX (
 		.A(ALUResult), .B(ALUOut), .C(PCJump), .D(), .CTRL(PCSrc), .Z(PC_0));
+		
+	four_mux #(
+		.N(5)
+	) RegDst_MUX(
+			.A(Instr[20:16]), .B(Instr[15:11]), .C(5'b11111), .D(), .CTRL(RegDst), .Z(A3));
 	
 	
 	// Eight to One's

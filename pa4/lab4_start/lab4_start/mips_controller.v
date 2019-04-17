@@ -35,11 +35,11 @@
 	// INPUT
 	input wire clk, rst;
 	input wire [5:0] Funct, OpCode;
-	output reg MemtoReg, RegDST, IorD, IRWrite, MemWrite, PCWrite, Branch, RegWrite;
-	reg MemtoReg_next, RegDST_next, IorD_next, IRWrite_next, MemWrite_next, PCWrite_next, Branch_next, RegWrite_next;
-	output reg [1:0] ALUSrcA, PCSrc;
+	output reg MemtoReg, IorD, IRWrite, MemWrite, PCWrite, Branch, RegWrite;
+	reg MemtoReg_next, IorD_next, IRWrite_next, MemWrite_next, PCWrite_next, Branch_next, RegWrite_next;
+	output reg [1:0] ALUSrcA, PCSrc, RegDST;
 	output reg [2:0] ALUSrcB;
-	reg [1:0] ALUSrcA_next, PCSrc_next;
+	reg [1:0] ALUSrcA_next, PCSrc_next, RegDST_next;
 	reg [2:0] ALUSrcB_next;
 	output wire [3:0] ALUControl;
 	
@@ -313,7 +313,7 @@
 			end
 			
 			s4 : begin
-				RegDST_next <= 0;
+				RegDST_next <= 2'b00;
 				MemtoReg_next <= 1;
 				RegWrite_next <= 1; 
 				IorD_next <= 0; // testing IorD
@@ -345,7 +345,7 @@
 			s6 : begin // state 6: execution R-type
 				// multiplexer selects
 				// DC when doesn't show up in FSM
-				RegDST_next <= 1;
+				RegDST_next <= 2'b01;
 				MemtoReg_next <= 0;
 				FunctControl_next <= 0;
 				
@@ -386,7 +386,7 @@
 			s9 : begin	// state 9: execution I type
 				// multiplexer selects
 				// DC when doesn't show up in FSM
-				RegDST_next <= 0;
+				RegDST_next <= 2'b00;
 				MemtoReg_next <= 0;
 				FunctControl_next <= 0;
 				
@@ -439,16 +439,36 @@
 			
 			// jal instr reg write step
 			s12 : begin
-				RegDST_next <= 1;	// CHANGE THIS to 2
+				RegDST_next <= 2'b10;	// CHANGE THIS to 2
 				MemtoReg_next <= 0;
 				FunctControl_next <= 0;
 				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 0;
+				PCWrite_next <= 0;
+				MemWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 1;
 				
+				next_state <= s13;				
 			end
 			
 			s13 : begin
+							
+				PCSrc_next <= 2'b10;
+				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 0;
+				PCWrite_next <= 1;
+				MemWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 0;
 			
+				next_state <= s11;
 			end
+			
 			default : begin	// equivalent to s0
 				// multiplexer selects
 				// DC when doesn't show up in FSM
