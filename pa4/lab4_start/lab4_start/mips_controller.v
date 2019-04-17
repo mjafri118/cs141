@@ -92,7 +92,7 @@
 		
 	end 
 
-	always @(Funct, OpCode, state,rst) begin
+	always @(Funct, OpCode, state, rst) begin
 		case (state)
 			
 			// repeat to take into account non perfect memory
@@ -162,16 +162,25 @@
 						 ALUSrcB_next <= 3'b000;
 					end
 					
+					if((Funct == 6'b001000)) begin
+						PCSrc_next <= 2'b00;
+						PCWrite_next <= 1;
+						
+						next_state <= s11;
+					end
+					else begin
+						PCWrite_next <= 0;
+						
+						next_state <= s6;
+						$display("next state s6");
+					end
+					
 					// Register Enables
 					// if they don't show up, must be set as 0
 					IRWrite_next <= 0;
-					PCWrite_next <= 0;
 					MemWrite_next <= 0;
 					Branch_next <= 0;
 					RegWrite_next <= 0;
-					
-					next_state <= s6;
-					$display("next state s6");
 				end
 				
 				// Enter LW or SW
@@ -252,7 +261,7 @@
 				// Enter jal instr
 				else if(OpCode == 6'b000011) begin
 					ALUSrcA_next <= 2'b00;
-					ALUSrcB_next <= 3'b001;
+					ALUSrcB_next <= 3'b111;
 					ALUOp_next <= 2'b00;
 					PCSrc_next <= 2'b00;
 					

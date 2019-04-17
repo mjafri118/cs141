@@ -23,7 +23,7 @@ Starting static elaboration
 WARNING:HDLCompiler:189 - "Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 60: Size mismatch in connection of port <X>. Formal port size is 32-bit while actual signal size is 6-bit.
 Completed static elaboration
 Fuse Memory Usage: 102836 KB
-Fuse CPU Usage: 1265 ms
+Fuse CPU Usage: 686 ms
 Compiling module synth_dual_port_memory(I_LENGTH=...
 Compiling module two_mux
 Compiling module two_mux(N=32)
@@ -49,4 +49,4 @@ Time Resolution for simulation is 1ps.
 Compiled 21 Verilog Units
 Built simulation executable Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.exe
 Fuse Memory Usage: 106404 KB
-Fuse CPU Usage: 2280 ms
+Fuse CPU Usage: 1250 ms

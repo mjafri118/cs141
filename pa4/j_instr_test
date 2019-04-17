@@ -1,4 +1,8 @@
   jal second
   nor $s0, $0, $0
-second: nor $s1, $0, $0
-  nor $s2, $0, $0
+  j end
+  nor $s1, $0, $0
+second: nor $s2, $0, $0
+  nor $s3, $0, $0
+  jr $ra
+end: nor $s4, $0, $0

@@ -82,6 +82,11 @@ module alu_decoder(ALUOp, Funct, ALUControl);
 			      6'b000011: begin
 					    ALUControlIntl = 4'b1011;
 					end
+					
+					//jr
+					6'b001000: begin
+						ALUControlIntl = 4'b0111;
+					end
 			endcase
 					
 				
