@@ -9,7 +9,7 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-	module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrcB, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite, ALUControl);
+	module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrcB, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite, ALUControl, Zero);
 	
 	//parameter definitions
 	
@@ -33,7 +33,7 @@
 						  s14 = 4'b1110;
 	
 	// INPUT
-	input wire clk, rst;
+	input wire clk, rst, Zero;
 	input wire [5:0] Funct, OpCode;
 	output reg MemtoReg, IorD, IRWrite, MemWrite, PCWrite, Branch, RegWrite;
 	reg MemtoReg_next, IorD_next, IRWrite_next, MemWrite_next, PCWrite_next, Branch_next, RegWrite_next;
@@ -92,7 +92,7 @@
 		
 	end 
 
-	always @(Funct, OpCode, state, rst) begin
+	always @(Funct, OpCode, state, rst, Zero) begin
 		case (state)
 			
 			// repeat to take into account non perfect memory
@@ -276,6 +276,24 @@
 					next_state <= s12;
 				end
 				
+				// Enter BEQ instr
+				else if (OpCode == 6'b000100) begin
+					 ALUSrcA_next  <= 2'b01;
+					 ALUSrcB_next  <= 2'b000;
+					 ALUOp_next <= 2'b01;
+					 PCSrc_next <= 2'b01;
+					 Branch_next <= 0;
+					 
+					 // Register Enables
+					 // if they don't show up, must be set as 0
+					 IRWrite_next <= 0;
+					 PCWrite_next <= 0;
+					 MemWrite_next <= 0;
+					 RegWrite_next <= 0;
+					
+					 next_state <= s8;
+				end
+				
 			end
 			
 			s2 : begin // state 2: moves to load or store word.
@@ -392,6 +410,58 @@
 			
 			end
 			
+			s8 : begin // state  8: branch for BEQ
+			
+				
+				
+				// evaluating Zero
+				if (Zero == 1'b1) begin
+						$display("Zero");
+						// multiplication
+						
+						// Perform: PC + 4 + 4*IMM 
+						ALUSrcA_next <= 2'b00; // PC + 4
+						ALUSrcB_next <= 3'b110; // immediate * 4
+						ALUOp_next <= 2'b00; // add
+						
+						Branch_next <= 1'b1;
+						PCSrc_next <= 2'b00;
+						
+						// Register Enables
+						// if they don't show up, must be set as 0
+						IRWrite_next <= 0;
+						PCWrite_next <= 0;
+						MemWrite_next <= 0;
+//						Branch_next <= 0;
+						RegWrite_next <= 0;
+									
+						next_state <= s14;
+						
+				end
+				
+				else if (Zero == 1'b0) begin
+					// setup for S10 normal business
+					// multiplexer selects
+					// DC when doesn't show up in FSM
+					RegDST_next <= 2'b00;
+					MemtoReg_next <= 0;
+					FunctControl_next <= 0;
+					
+					// Register Enables
+					// if they don't show up, must be set as 0
+					IRWrite_next <= 0;
+					PCWrite_next <= 0;
+					MemWrite_next <= 0;
+					Branch_next <= 0;
+					RegWrite_next <= 1;
+					
+					next_state <= s10;
+				end
+				
+				
+				
+			end
+			
 			s9 : begin	// state 9: execution I type
 				// multiplexer selects
 				// DC when doesn't show up in FSM
@@ -476,6 +546,21 @@
 				RegWrite_next <= 0;
 			
 				next_state <= s11;
+			end
+			
+			s14: begin // state 14: BEQ true 
+				Branch_next <= 1'b0;
+				PCSrc_next <= 2'b00;
+				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 0;
+				PCWrite_next <= 0;
+				MemWrite_next <= 0;
+				RegWrite_next <= 0;
+				
+				next_state <= s10;
+			
 			end
 			
 			default : begin	// equivalent to s0

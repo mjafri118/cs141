@@ -36,7 +36,7 @@ module mips_core(
 	input wire [N-1:0] mem_rd_data;
 	
 	// INTERNALS
-	wire [N-1:0] PC, PC_0, PCJump, ALUOut, ALUResult, Data, SignImm, SrcA, SrcB, A, B, Instr, WD3, RD1, RD2, PadShamt;
+	wire [N-1:0] PC, PC_0, PCJump, ALUOut, ALUResult, Data, SignImm, SrcA, SrcB, A, B, Instr, WD3, RD1, RD2, PadShamt, FourxImm;
 	wire [4:0] A3; // testing
 	
 	// ASSIGNS
@@ -44,6 +44,8 @@ module mips_core(
 	assign PCJump[1:0] = 2'b00;
 	assign PCJump[27:2] = Instr[25:0];
 	assign PCJump[31:28] = PC[31:28];
+	assign FourxImm = SignImm << 2;
+	
 	
 	// ---------- INSTANTIATING EXTERNAL MODULES ---------
 	
@@ -80,7 +82,7 @@ module mips_core(
 	// Eight to One's
 	eight_mux #(.N(32)
 	) ALUSrcB_MUX(
-		.A(B),.B(32'd4),.C(SignImm),.D(PadShamt),.E(),.F(),.G(),.H(32'd0),.CTRL(ALUSrcB),.Z(SrcB));
+		.A(B),.B(32'd4),.C(SignImm),.D(PadShamt),.E(),.F(),.G(FourxImm),.H(32'd0),.CTRL(ALUSrcB),.Z(SrcB));
 		
 	// ----- ALU -----
 	alu #(.N(32)
@@ -126,8 +128,8 @@ module mips_core(
 		mips_controller Controller(.clk(clk), .rst(rst), 
 					.Funct(Instr[5:0]), .OpCode(Instr[31:26]),
 					.MemtoReg(MemtoReg), .RegDST(RegDst), .IorD(IorD), .PCSrc(PCSrc), .ALUSrcB(ALUSrcB), .ALUSrcA(ALUSrcA),
-					.IRWrite(IRWrite), .MemWrite(mem_wr_ena), .PCWrite(PCWrite), .Branch(Branch), .RegWrite(RegWrite), .ALUControl(ALUControl));
-		assign PCEn = (Zero & Branch) | PCWrite;
+					.IRWrite(IRWrite), .MemWrite(mem_wr_ena), .Zero(Zero), .PCWrite(PCWrite), .Branch(Branch), .RegWrite(RegWrite), .ALUControl(ALUControl));
+		assign PCEn =  Branch | PCWrite;
 	//port definitions - customize for different bit widths
 
 

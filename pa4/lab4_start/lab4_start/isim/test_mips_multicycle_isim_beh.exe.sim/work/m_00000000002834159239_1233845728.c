@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/PC_AM_register.v";
+static const char *ng0 = "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/PC_AM_register.v";
 static unsigned int ng1[] = {4194304U, 0U};
 
 

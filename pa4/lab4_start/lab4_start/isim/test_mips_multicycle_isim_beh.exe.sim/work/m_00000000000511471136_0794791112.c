@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/remote_sources/_/synth_dual_port_memory.v";
+static const char *ng0 = "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/remote_sources/_/synth_dual_port_memory.v";
 static unsigned int ng1[] = {4U, 0U};
 static const char *ng2 = "INIT_INST=%s";
 static int ng3[] = {1835363688, 0, 1702065198, 0, 1853120372, 0, 1970434661, 0, 1953705827, 0, 7628147, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
