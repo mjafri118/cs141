@@ -24,7 +24,7 @@ module mips_core(
 	parameter D_LENGTH = 1024;
 	
 	// CONTROLS
-	wire PCWrite, IorD, IRWrite, MemtoReg, RegWrite, Branch, PCEn, Zero;
+	wire PCWrite, IorD, IRWrite, MemtoReg, RegWrite, Branch, PCEn, Zero, Equal;
 	wire [1:0] ALUSrcA, PCSrc, RegDst;
 	wire [2:0] ALUSrcB;
 	wire [3:0] ALUControl;
@@ -86,7 +86,7 @@ module mips_core(
 		
 	// ----- ALU -----
 	alu #(.N(32)
-	) ALU(.x(SrcA), .y(SrcB), .op_code(ALUControl), .z(ALUResult), .equal(), .zero(Zero), .overflow());
+	) ALU(.x(SrcA), .y(SrcB), .op_code(ALUControl), .z(ALUResult), .equal(Equal), .zero(Zero), .overflow());
 	
 	// ----- ARCHITECTURAL MEMORY (i.e. legit just registers) -----
 	// naming convention based on outputs
@@ -128,7 +128,7 @@ module mips_core(
 		mips_controller Controller(.clk(clk), .rst(rst), 
 					.Funct(Instr[5:0]), .OpCode(Instr[31:26]),
 					.MemtoReg(MemtoReg), .RegDST(RegDst), .IorD(IorD), .PCSrc(PCSrc), .ALUSrcB(ALUSrcB), .ALUSrcA(ALUSrcA),
-					.IRWrite(IRWrite), .MemWrite(mem_wr_ena), .Zero(Zero), .PCWrite(PCWrite), .Branch(Branch), .RegWrite(RegWrite), .ALUControl(ALUControl));
+					.IRWrite(IRWrite), .MemWrite(mem_wr_ena), .Zero(Zero), .Equal(Equal), .PCWrite(PCWrite), .Branch(Branch), .RegWrite(RegWrite), .ALUControl(ALUControl));
 		assign PCEn =  Branch | PCWrite;
 	//port definitions - customize for different bit widths
 

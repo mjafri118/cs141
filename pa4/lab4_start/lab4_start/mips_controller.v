@@ -9,7 +9,7 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-	module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrcB, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite, ALUControl, Zero);
+	module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrcB, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite, ALUControl, Zero, Equal);
 	
 	//parameter definitions
 	
@@ -33,7 +33,7 @@
 						  s14 = 4'b1110;
 	
 	// INPUT
-	input wire clk, rst, Zero;
+	input wire clk, rst, Zero, Equal;
 	input wire [5:0] Funct, OpCode;
 	output reg MemtoReg, IorD, IRWrite, MemWrite, PCWrite, Branch, RegWrite;
 	reg MemtoReg_next, IorD_next, IRWrite_next, MemWrite_next, PCWrite_next, Branch_next, RegWrite_next;
@@ -276,8 +276,8 @@
 					next_state <= s12;
 				end
 				
-				// Enter BEQ instr
-				else if (OpCode == 6'b000100) begin
+				// Enter BEQ and BNE instr
+				else if ((OpCode == 6'b000100) || (OpCode == 6'b000101)) begin
 					 ALUSrcA_next  <= 2'b01;
 					 ALUSrcB_next  <= 2'b000;
 					 ALUOp_next <= 2'b01;
@@ -415,7 +415,7 @@
 				
 				
 				// evaluating Zero
-				if (Zero == 1'b1) begin
+				if (((OpCode == 6'b000100) && (Zero == 1'b1)) || ((OpCode == 6'b000101) && (Zero == 1'b0))) begin
 						$display("Zero");
 						// multiplication
 						
@@ -439,7 +439,7 @@
 						
 				end
 				
-				else if (Zero == 1'b0) begin
+				else if (((OpCode == 6'b000100) && (Zero == 1'b0)) || ((OpCode == 6'b000101) && (Zero == 1'b1))) begin
 					// setup for S10 normal business
 					// multiplexer selects
 					// DC when doesn't show up in FSM

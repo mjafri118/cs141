@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/remote_sources/_/register_file.v";
+static const char *ng0 = "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/remote_sources/_/register_file.v";
 static const char *ng1 = "r00::   $zero::%h";
 static const char *ng2 = "r01::     $at::%h";
 static const char *ng3 = "r02::     $v0::%h";

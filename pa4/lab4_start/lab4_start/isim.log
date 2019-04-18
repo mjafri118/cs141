@@ -1,13 +1,13 @@
 ISim log file
-Running: Z:\shared_with_vm\141git\cs141\pa4\lab4_start\lab4_start\test_mips_multicycle_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.wdb 
+Running: Z:\shared_folder\cs141\pa4\lab4_start\lab4_start\test_mips_multicycle_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
@@ -23,15 +23,18 @@ s1
 entering shift R, 000000
 next state s6
 s1
+Zero
+s1
+next state s6
 s1
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
 # run 1000 ns
 Simulator is doing circuit initialization process.
 no data file was supplied, using tests/zero.memh
@@ -44,29 +47,7 @@ s1
 entering shift R, 000000
 next state s6
 s1
-s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-s1
-s1
-entering shift R, 000000
-next state s6
-s1
-s1
-next state s6
+Zero
 s1
 next state s6
 s1
@@ -75,9 +56,9 @@ WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
 # run 1000 ns
 Simulator is doing circuit initialization process.
 no data file was supplied, using tests/zero.memh
@@ -101,113 +82,9 @@ WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-s1
-s1
-entering shift R, 000000
-next state s6
-s1
-s1
-s1
-next state s6
-s1
-next state s6
-s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-s1
-s1
-entering shift R, 000000
-next state s6
-s1
-s1
-s1
-next state s6
-s1
-next state s6
-s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-s1
-s1
-entering shift R, 000000
-next state s6
-s1
-s1
-s1
-next state s6
-s1
-next state s6
-s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-s1
-s1
-entering shift R, 000000
-next state s6
-s1
-s1
-s1
-next state s6
-s1
-next state s6
-s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
 # run 1000 ns
 Simulator is doing circuit initialization process.
 no data file was supplied, using tests/zero.memh
@@ -223,14 +100,18 @@ s1
 Zero
 s1
 s1
+next state s6
+s1
+next state s6
+s1
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
+WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
 # run 1000 ns
 Simulator is doing circuit initialization process.
 no data file was supplied, using tests/zero.memh
@@ -244,81 +125,6 @@ entering shift R, 000000
 next state s6
 s1
 Zero
-s1
-s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-s1
-s1
-entering shift R, 000000
-next state s6
-s1
-Zero
-s1
-s1
-Zero
-s1
-s1
-next state s6
-s1
-next state s6
-s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-s1
-s1
-entering shift R, 000000
-next state s6
-s1
-Zero
-s1
-s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_with_vm/141git/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
-s1
-s1
-s1
-entering shift R, 000000
-next state s6
-s1
 Zero
 s1
 next state s6
