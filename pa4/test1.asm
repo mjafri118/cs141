@@ -22,6 +22,6 @@ hello:	slti	$t0, $s3, -40
 	bne	$s3, $s0, hello
 	j	main
 	j	test
-	jr      $ra
+	jr  $ra
 	jr 	$s1
 	jal	hello

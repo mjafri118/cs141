@@ -20,13 +20,43 @@ Finished circuit initialization process.
 s1
 s1
 s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+s1
+next state s6
+s1
+s1
+next state s6
+s1
+s1
+next state s6
+s1
+entering LW or SW, state 2
+Going to load word
+s1
+entering LW or SW, state 2
+Going to store word
+s1
 entering shift R, 000000
 next state s6
 s1
-Zero
+entering shift R, 000000
+next state s6
+s1
+entering shift R, 000011
+next state s6
+s1
+entering shift R, 000010
+next state s6
 s1
 next state s6
 s1
+entering shift R, 000000
+next state s6
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -44,13 +74,282 @@ Finished circuit initialization process.
 s1
 s1
 s1
+next state s6
+s1
+next state s6
+s1
+next state s6
+s1
+s1
+next state s6
+s1
+s1
+next state s6
+s1
+s1
+next state s6
+s1
+entering LW or SW, state 2
+Going to load word
+s1
+entering LW or SW, state 2
+Going to store word
+s1
 entering shift R, 000000
 next state s6
 s1
-Zero
+entering shift R, 000000
+next state s6
+s1
+entering shift R, 000011
+next state s6
+s1
+entering shift R, 000010
+next state s6
 s1
 next state s6
 s1
+entering shift R, 000000
+next state s6
+# run all
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+s1
+s1
+Zero
+s1
+simulated        1000 cycles
+Dumping data memory from address           4 ->          14:
+	DMEM[          4]=xxxxxxxx
+	DMEM[          5]=xxxxxxxx
+	DMEM[          6]=00000023
+	DMEM[          7]=xxxxxxxx
+	DMEM[          8]=xxxxxxxx
+	DMEM[          9]=xxxxxxxx
+	DMEM[         10]=xxxxxxxx
+	DMEM[         11]=xxxxxxxx
+	DMEM[         12]=xxxxxxxx
+	DMEM[         13]=xxxxxxxx
+Stopped at time : 10010 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" Line 82
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -67,30 +366,15 @@ defaulting to 1000 cycles
 Finished circuit initialization process.
 s1
 s1
-s1
-entering shift R, 000000
-next state s6
-s1
-s1
-s1
 next state s6
 s1
 next state s6
 s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
+s1
+next state s6
+s1
+s1
+next state s6
 s1
 s1
 s1
@@ -99,33 +383,26 @@ next state s6
 s1
 Zero
 s1
-s1
 next state s6
 s1
 next state s6
 s1
-ISim P.20131013 (signature 0x8ef4fb42)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 37.  For instance Controller/FunctMux/, width 32 of formal port X is not equal to width 6 of actual signal Funct.
-WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 48.  For instance Controller/FunctMux/, width 32 of formal port Y is not equal to width 6 of actual variable FalseFunct. 
-WARNING: File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/mips_controller.v" Line 50.  For instance Controller/FunctMux/, width 32 of formal port Z is not equal to width 6 of actual signal ALUFunct.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-no data file was supplied, using tests/zero.memh
-initializing test_mips_multicycle.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
-defaulting to 1000 cycles
-Finished circuit initialization process.
 s1
-s1
-s1
-entering shift R, 000000
-next state s6
-s1
-Zero
-Zero
 s1
 next state s6
 s1
+s1
+# run all
+simulated        1000 cycles
+Dumping data memory from address           4 ->          14:
+	DMEM[          4]=xxxxxxxx
+	DMEM[          5]=xxxxxxxx
+	DMEM[          6]=xxxxxxxx
+	DMEM[          7]=xxxxxxxx
+	DMEM[          8]=xxxxxxxx
+	DMEM[          9]=xxxxxxxx
+	DMEM[         10]=xxxxxxxx
+	DMEM[         11]=xxxxxxxx
+	DMEM[         12]=xxxxxxxx
+	DMEM[         13]=xxxxxxxx
+Stopped at time : 10010 ns : File "//vmware-host/Shared Folders/shared_folder/cs141/pa4/lab4_start/lab4_start/test_mips_multicycle.v" Line 82

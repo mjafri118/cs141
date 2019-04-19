@@ -1,0 +1,20 @@
+  jal second
+  nor $s0, $0, $0 # $s0 = -1
+  j skip
+  nor $s1, $0, $0 # not run
+second: nor $s2, $0, $0 # $s2 = -1
+  nor $s3, $0, $0 # $s3 = -1
+  jr $ra
+skip: nor $s4, $0, $0 #$s4 = -1
+  addi $s5, $0, 4 # $s5 = 0+4 = 4
+  addi $s6, $0, 1 # $s6 = 0+1 = 1
+  sll $s6, $s6, 1 # $s6 = 1 << 1 = 2
+  bne $s0, $0, target # $s0 != $0, so branch is taken
+  addi $s1, $s1, 1 # not executed
+  sub $s1, $s1, $s0 # not executed
+target: add $s1, $s1, $s5 # $s1 = 2+4 = 6
+  sub $t0, $s1, $s5 # $t0 = 6-4 = 2
+  beq $t0, $s6, end
+  addi $s7, $s7, 1 # not executed
+  sub $s7, $s7, $s0 # not executed
+end: addi $s7, $0, 3 # $s7 = 3
