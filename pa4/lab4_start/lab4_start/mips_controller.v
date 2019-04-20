@@ -134,12 +134,10 @@
 				RegWrite_next <= 0;
 				
 				next_state <= s1;
-//				$display("next state s1");
 			
 			end
 			
 			s1 : begin // decode	
-				$display("s1");
 				// Go to R-Type FSM
 				if (OpCode == 6'b000000) begin
 					// multiplexer selects
@@ -150,14 +148,12 @@
 					
 					// Change Mux 4-to-1 control signal to 11 if R-type shift is used. //Funct == (6'b101010 || 6'b000000 || 6'b000010 || 6'b000011) || 
 					if ((Funct == 6'b000000) || (Funct == 6'b000010) || (Funct == 6'b000011)) begin
-						$display("entering shift R, %b", Funct);
 						 ALUSrcA_next <= 2'b10;
 						 ALUSrcB_next <= 3'b011;    
 					end 
 					
 					// Else use the output of regb using control signal 00 
 					else begin
-	//					$display("entering normal R");
 						 ALUSrcA_next <= 2'b01;
 						 ALUSrcB_next <= 3'b000;
 					end
@@ -172,7 +168,6 @@
 						PCWrite_next <= 0;
 						
 						next_state <= s6;
-						$display("next state s6");
 					end
 					
 					// Register Enables
@@ -185,7 +180,6 @@
 				
 				// Enter LW or SW
 				else if ((OpCode == 6'b100011) || (OpCode == 6'b101011)) begin
-				   $display("entering LW or SW, state 2");
 					// Register Enables
 					// if they don't show up, must be set as 0
 					IRWrite_next <= 0;
@@ -302,7 +296,6 @@
 				if (OpCode == 6'b100011) begin
 					IorD_next <= 1;
 					MemWrite_next <= 0;
-					$display("Going to load word");
 					
 					next_state <= s3;
 				end				
@@ -311,9 +304,7 @@
 				if (OpCode == 6'b101011) begin
 					IorD_next <= 1;
 					MemWrite_next <= 1;
-					
-					$display("Going to store word");
-					
+	
 					next_state <= s5;
 				end	
 				
@@ -416,7 +407,6 @@
 				
 				// evaluating Zero
 				if (((OpCode == 6'b000100) && (Zero == 1'b1)) || ((OpCode == 6'b000101) && (Zero == 1'b0))) begin
-						$display("Zero");
 						// multiplication
 						
 						// Perform: PC + 4 + 4*IMM 
@@ -432,7 +422,6 @@
 						IRWrite_next <= 0;
 						PCWrite_next <= 0;
 						MemWrite_next <= 0;
-//						Branch_next <= 0;
 						RegWrite_next <= 0;
 									
 						next_state <= s14;
