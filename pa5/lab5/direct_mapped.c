@@ -7,7 +7,6 @@
 direct_mapped_cache* dmc_init(main_memory* mm)
 {
     // TODO
-
     direct_mapped_cache* result = malloc(sizeof(direct_mapped_cache));
     result -> mm = mm;
     result -> cs = cs_init();
@@ -33,7 +32,7 @@ direct_mapped_cache* dmc_init(main_memory* mm)
     //     *(temp + i) = malloc(sizeof(cache_line));
     //     *(temp + i) -> mem = malloc(sizeof(memory_block));
     // }
-
+    printf("dmc created\n");
     return result;
 }
 
@@ -61,10 +60,19 @@ void dmc_store_word(direct_mapped_cache* dmc, void* addr, unsigned int val)
     cache_line *arr = dmc -> cache;
 
     // deref to unsigned int pointer for changing the value, write to main mem
-    unsigned int * temp = arr[index].mem -> data;
-    *temp = val;
-    arr[index].dirty = 1;
-    mm_write(dmc->mm, MAIN_MEMORY_START_ADDR + (int) addr * MAIN_MEMORY_BLOCK_SIZE, arr[index].mem);
+    unsigned int * temp;
+    if(arr[index].mem == 0){
+        printf("%d\n", addr);
+        arr[index].mem = mb_new(((int) addr)/MAIN_MEMORY_BLOCK_SIZE, DIRECT_MAPPED_NUM_SETS_LN, &val);
+        printf("not seg yet\n");
+        arr[index].valid = 1;
+        arr[index].dirty = 1;
+    } else {
+        temp = arr[index].mem -> data;
+        *temp = val;
+        arr[index].dirty = 1;
+        // mm_write(dm c->mm, MAIN_MEMORY_START_ADDR + (int) addr * MAIN_MEMORY_BLOCK_SIZE, arr[index].mem);
+    }
 
 }
 
@@ -103,4 +111,12 @@ unsigned int dmc_load_word(direct_mapped_cache* dmc, void* addr)
 void dmc_free(direct_mapped_cache* dmc)
 {
     // TODO
+    cache_line *arr = dmc -> cache;
+    for(int i = 0; i < DIRECT_MAPPED_NUM_SETS; i++){
+        if(arr[i].mem != 0){
+            mb_free(arr[i].mem);
+        }
+    }
+    free(arr);
+    free(dmc);
 }
