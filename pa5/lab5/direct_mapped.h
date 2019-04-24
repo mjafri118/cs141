@@ -9,7 +9,7 @@
 
 typedef struct cache_line
 {
-    memory_block* mem;
+    memory_block *mem;
     unsigned int valid;
     unsigned int dirty;
 } cache_line;
@@ -20,7 +20,7 @@ typedef struct direct_mapped_cache
     cache_stats cs;
 
     // TODO: add anything you need
-    cache_line *cache[DIRECT_MAPPED_NUM_SETS];
+    cache_line *cache;
 
 } direct_mapped_cache;
 
