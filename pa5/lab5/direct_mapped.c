@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <string.h>
-
+#include <stdio.h>
 #include "memory_block.h"
 #include "direct_mapped.h"
 
@@ -14,97 +14,134 @@ direct_mapped_cache* dmc_init(main_memory* mm)
     // Create cache - allocate array to the heap
     result -> cache = calloc(DIRECT_MAPPED_NUM_SETS, sizeof(cache_line));
 
-    // printf("%d", size);
-    // memory_block * temp = mb_new(0, size, source);
     cache_line *set = result->cache;
+
+    // Iterate over every set, set to 0.
     for(int i = 0; i < DIRECT_MAPPED_NUM_SETS; i++) {
         set[i].valid = 0;
         set[i].dirty = 0;
     }
 
-    // set = new cache_line [DIRECT_MAPPED_NUM_SETS];
-    // malloc(sizeof(cache_line) * DIRECT_MAPPED_NUM_SETS);
-
-
-    // Instantiate cache lines
-    // cache_line *temp = result -> cache;
-    // for(int i = 0; i < DIRECT_MAPPED_NUM_SETS; i++) {
-    //     *(temp + i) = malloc(sizeof(cache_line));
-    //     *(temp + i) -> mem = malloc(sizeof(memory_block));
-    // }
-    printf("dmc created\n");
     return result;
 }
 
 // Optional
 // Calculates index of cache for given address
+// Units of return value: cache index, # sets to advance by
 static int addr_to_set(void* addr)
 {
-    const int *address = &addr;
-    int dress = *address;
-
-    int offset = 0;
-    offset = (int) (dress/4);
-    offset = offset % DIRECT_MAPPED_NUM_SETS;
-    // printf("%d\n", offset);
-
+    // const int *address = &addr;
+    int offset = ((int)addr/MAIN_MEMORY_BLOCK_SIZE) % DIRECT_MAPPED_NUM_SETS;
+    // printf("Index: %d\n", offset);
     return offset;
+    // return (size_t) (addr - MAIN_MEMORY_START_ADDR) % MAIN_MEMORY_BLOCK_SIZE;
 }
 
 
 void dmc_store_word(direct_mapped_cache* dmc, void* addr, unsigned int val)
 {
-    // TODO
+    ++dmc->cs.w_queries;
     // Get index of cache
-    int index = addr_to_set(addr);
+
+    // Precompute start address of memory block IN BYTES (size_t in bytes)
+    size_t addr_offt = (size_t) (addr - MAIN_MEMORY_START_ADDR) % MAIN_MEMORY_BLOCK_SIZE;
+    void* mb_start_addr = addr - addr_offt;
+    int index = addr_to_set(mb_start_addr); // which cache line/set
+
     cache_line *arr = dmc -> cache;
 
     // deref to unsigned int pointer for changing the value, write to main mem
     unsigned int * temp;
+
+
+    // if the cache is empty, write the data in. Miss.
     if(arr[index].mem == 0){
-        printf("%d\n", addr);
-        arr[index].mem = mb_new(((int) addr)/MAIN_MEMORY_BLOCK_SIZE, DIRECT_MAPPED_NUM_SETS_LN, &val);
-        printf("not seg yet\n");
+        ++dmc->cs.w_misses;
+
+        // Load memory block from main memory
+        memory_block* mb = mm_read(dmc->mm, mb_start_addr);
+
+        // Update relevant word in memory block
+        unsigned int* mb_addr = mb->data + addr_offt;
+
+        // Update
+        *mb_addr = val;
         arr[index].valid = 1;
         arr[index].dirty = 1;
+
+        arr[index].mem = mb;
+
+    // replacing what was in the filled cache with new value
     } else {
-        temp = arr[index].mem -> data;
+
+        temp = arr[index].mem -> data + addr_offt;
+        // printf("\nSegfault\n");
         *temp = val;
+
         arr[index].dirty = 1;
-        // mm_write(dm c->mm, MAIN_MEMORY_START_ADDR + (int) addr * MAIN_MEMORY_BLOCK_SIZE, arr[index].mem);
     }
 
 }
 
 unsigned int dmc_load_word(direct_mapped_cache* dmc, void* addr)
 {
+    ++dmc->cs.r_queries;
     // TODO
-    // Get index of cache
-    int index = addr_to_set(addr);
+    // Precompute start address of memory block IN BYTES (size_t in bytes)
+    size_t addr_offt = (size_t) (addr - MAIN_MEMORY_START_ADDR) % MAIN_MEMORY_BLOCK_SIZE;
+    printf("Offset:%d\n",addr_offt);
+    void* mb_start_addr = addr - addr_offt;
+    int index = addr_to_set(mb_start_addr); // which cache line/set
+
     cache_line *arr = dmc -> cache;
-    unsigned int * out;
-    // printf("%d", arr[index].mem);
+
+    // printf("Address: %d\n", addr);
+
+    unsigned int* out;
 
     // If mem block exists figure out if it's what you want
     if((arr[index].mem != 0) && (arr[index].valid == 1)){
-        if((int) arr[index].mem->start_addr == (int) addr * MAIN_MEMORY_BLOCK_SIZE){
-            out = arr[index].mem->data;
+
+        // check if the tags are equal: means we have a hit.
+        if((int) arr[index].mem->start_addr == (int)mb_start_addr){
+            memory_block* mb = arr[index].mem;
+
+            out = mb->data + addr_offt;
+            // out = arr[index].mem->data;
             return(*out);
+
+        // miss: eviction
         } else if(arr[index].dirty == 1){
-            mm_write(dmc->mm, MAIN_MEMORY_START_ADDR + (int) arr[index].mem->start_addr * MAIN_MEMORY_BLOCK_SIZE, arr[index].mem);
+            // printf("Mem start address: %d\n", arr[index].mem->start_addr);
+            // printf("Mem block: %d\n",arr[index].mem);
+
+            mm_write(dmc->mm, arr[index].mem->start_addr, arr[index].mem);
+            // printf("\n-------SEGFAULT -----\n");
             mb_free(arr[index].mem);
+
         }
+
     }
 
+    // After Eviction, Write New Data Into
     //Read in the mem block from main mem
-    arr[index].mem = mm_read(dmc->mm, MAIN_MEMORY_START_ADDR + (int) addr * MAIN_MEMORY_BLOCK_SIZE);
+    // memory_block* mb = mm_read(dmc->mm, mb_start_addr);
+    memory_block* mb = mm_read(dmc->mm, mb_start_addr);
+
+    unsigned int* mb_addr = mb->data + addr_offt;
+    arr[index].mem = mb;
+    // ^^REMOVED BUT WORKING?
     // printf("%d", arr[index].mem->start_addr);
     arr[index].valid = 1;
+    arr[index].dirty = 0;
     // memory_block * temp = mb_new((dmc -> mm) + (int) addr, DIRECT_MAPPED_NUM_SETS_LN, (dmc -> mm) + (int) addr);
     // printf("%d", temp->data);
 
+    // Update statistics
+    ++dmc->cs.r_misses;
+
     // deref to integer for output
-    out = arr[index].mem->data;
+    out = mb_addr;
     return (*out);
 }
 
