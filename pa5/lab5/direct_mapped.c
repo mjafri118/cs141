@@ -31,7 +31,7 @@ direct_mapped_cache* dmc_init(main_memory* mm)
 static int addr_to_set(void* addr)
 {
     // const int *address = &addr;
-    int offset = ((int)addr/MAIN_MEMORY_BLOCK_SIZE) % DIRECT_MAPPED_NUM_SETS;
+    int offset = ((long) addr/MAIN_MEMORY_BLOCK_SIZE) % DIRECT_MAPPED_NUM_SETS;
     // printf("Index: %d\n", offset);
     return offset;
     // return (size_t) (addr - MAIN_MEMORY_START_ADDR) % MAIN_MEMORY_BLOCK_SIZE;
@@ -68,17 +68,37 @@ void dmc_store_word(direct_mapped_cache* dmc, void* addr, unsigned int val)
         *mb_addr = val;
         arr[index].valid = 1;
         arr[index].dirty = 1;
-
         arr[index].mem = mb;
 
     // replacing what was in the filled cache with new value
     } else {
+        // Check if the right block is in array: hit
+        if((long) arr[index].mem->start_addr == (long) mb_start_addr){
+            temp = arr[index].mem -> data + addr_offt;
+            *temp = val;
+            arr[index].dirty = 1;
 
-        temp = arr[index].mem -> data + addr_offt;
-        // printf("\nSegfault\n");
-        *temp = val;
+        // miss: eviction and reading from memory
+        } else if(arr[index].dirty == 1){
+            ++dmc->cs.w_misses;
 
-        arr[index].dirty = 1;
+            // eviction
+            mm_write(dmc->mm, arr[index].mem->start_addr, arr[index].mem);
+            mb_free(arr[index].mem);
+
+            // Load memory block from main memory
+            memory_block* mb = mm_read(dmc->mm, mb_start_addr);
+
+            // Update relevant word in memory block
+            unsigned int* mb_addr = mb->data + addr_offt;
+
+            // Update
+            *mb_addr = val;
+            arr[index].valid = 1;
+            arr[index].dirty = 1;
+            arr[index].mem = mb;
+
+        }
     }
 
 }
@@ -89,7 +109,6 @@ unsigned int dmc_load_word(direct_mapped_cache* dmc, void* addr)
     // TODO
     // Precompute start address of memory block IN BYTES (size_t in bytes)
     size_t addr_offt = (size_t) (addr - MAIN_MEMORY_START_ADDR) % MAIN_MEMORY_BLOCK_SIZE;
-    printf("Offset:%d\n",addr_offt);
     void* mb_start_addr = addr - addr_offt;
     int index = addr_to_set(mb_start_addr); // which cache line/set
 
@@ -103,7 +122,7 @@ unsigned int dmc_load_word(direct_mapped_cache* dmc, void* addr)
     if((arr[index].mem != 0) && (arr[index].valid == 1)){
 
         // check if the tags are equal: means we have a hit.
-        if((int) arr[index].mem->start_addr == (int)mb_start_addr){
+        if((long) arr[index].mem->start_addr == (long)mb_start_addr){
             memory_block* mb = arr[index].mem;
 
             out = mb->data + addr_offt;
@@ -112,8 +131,6 @@ unsigned int dmc_load_word(direct_mapped_cache* dmc, void* addr)
 
         // miss: eviction
         } else if(arr[index].dirty == 1){
-            // printf("Mem start address: %d\n", arr[index].mem->start_addr);
-            // printf("Mem block: %d\n",arr[index].mem);
 
             mm_write(dmc->mm, arr[index].mem->start_addr, arr[index].mem);
             // printf("\n-------SEGFAULT -----\n");
