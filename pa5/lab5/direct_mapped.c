@@ -79,11 +79,13 @@ void dmc_store_word(direct_mapped_cache* dmc, void* addr, unsigned int val)
             arr[index].dirty = 1;
 
         // miss: eviction and reading from memory
-        } else if(arr[index].dirty == 1){
+        } else {
             ++dmc->cs.w_misses;
 
             // eviction
-            mm_write(dmc->mm, arr[index].mem->start_addr, arr[index].mem);
+            if(arr[index].dirty == 1){
+                mm_write(dmc->mm, arr[index].mem->start_addr, arr[index].mem);
+            }
             mb_free(arr[index].mem);
 
             // Load memory block from main memory
@@ -144,11 +146,9 @@ unsigned int dmc_load_word(direct_mapped_cache* dmc, void* addr)
     //Read in the mem block from main mem
     // memory_block* mb = mm_read(dmc->mm, mb_start_addr);
     memory_block* mb = mm_read(dmc->mm, mb_start_addr);
-
     unsigned int* mb_addr = mb->data + addr_offt;
+
     arr[index].mem = mb;
-    // ^^REMOVED BUT WORKING?
-    // printf("%d", arr[index].mem->start_addr);
     arr[index].valid = 1;
     arr[index].dirty = 0;
     // memory_block * temp = mb_new((dmc -> mm) + (int) addr, DIRECT_MAPPED_NUM_SETS_LN, (dmc -> mm) + (int) addr);
