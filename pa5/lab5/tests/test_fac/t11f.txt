@@ -46,6 +46,7 @@ Wrote to 0x44dc: 1237578194
 MM: Read 32 bytes at 0xf1e0.
 Wrote to 0xf1e0: 698543717
 
+MM: Wrote 32 bytes at 0x9de0.
 MM: Read 32 bytes at 0x6ee0.
 Wrote to 0x6ef4: -841213749
 
@@ -53,6 +54,6 @@ Wrote to 0x6ef4: -841213749
 Write Hit Rate:		0% (0/11)
 Read Hit Rate:		0% (0/6)
 Total Hit Rate:		0% (0/17)
-Writes to Main Memory:	0
+Writes to Main Memory:	1
 Reads from Main Memory:	17
 *******************************************

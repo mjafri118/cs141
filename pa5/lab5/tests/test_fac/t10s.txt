@@ -8,7 +8,7 @@ MM: Read 32 bytes at 0xb200.
 Read from 0xb204: 1572424277
 
 *******************************************
-Write Hit Rate:		nan% (0/0)
+Write Hit Rate:		-nan% (0/0)
 Read Hit Rate:		0% (0/3)
 Total Hit Rate:		0% (0/3)
 Writes to Main Memory:	0
