@@ -1,4 +1,4 @@
-MM: Read 32 bytes at (nil).
+MM: Read 32 bytes at 0x0.
 Read from 0x4: 1037588349
 
 MM: Read 32 bytes at 0x60.

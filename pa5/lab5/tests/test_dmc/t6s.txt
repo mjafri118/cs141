@@ -86,7 +86,7 @@ MM: Read 32 bytes at 0xbda0.
 Read from 0xbda4: -688432699
 
 MM: Wrote 32 bytes at 0x6c00.
-MM: Read 32 bytes at (nil).
+MM: Read 32 bytes at 0x0.
 Wrote to 0x1c: -300724427
 
 Read from 0xae6c: 863700500
@@ -120,12 +120,12 @@ Wrote to 0x12e8: -751360783
 
 Wrote to 0xebdc: 1220916072
 
-MM: Wrote 32 bytes at (nil).
+MM: Wrote 32 bytes at 0x0.
 MM: Read 32 bytes at 0x6c00.
 Wrote to 0x6c00: -1445725578
 
 MM: Wrote 32 bytes at 0x6c00.
-MM: Read 32 bytes at (nil).
+MM: Read 32 bytes at 0x0.
 Read from 0xc: -1143656449
 
 Wrote to 0xbda0: -8250992

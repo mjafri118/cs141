@@ -7,12 +7,20 @@
 #define FULLY_ASSOCIATIVE_NUM_WAYS 16
 #define FULLY_ASSOCIATIVE_NUM_WAYS_LN 4
 
+typedef struct set
+{
+    memory_block *mem;
+    unsigned int valid;
+    unsigned int dirty;
+    unsigned int LRU_index;
+} set;
+
 typedef struct fully_associative_cache
 {
     main_memory* mm;
     cache_stats cs;
-    
-    // TODO: add anything you need
+    set *set;
+
 } fully_associative_cache;
 
 // Do not edit below this line
