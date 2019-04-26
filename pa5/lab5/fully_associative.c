@@ -27,15 +27,16 @@ fully_associative_cache* fac_init(main_memory* mm)
 
 static void mark_as_used(fully_associative_cache* fac, int way)
 {
-    set* set = &(fac->set[way*MAIN_MEMORY_BLOCK_SIZE]);
-    set->LRU_index += 1;
+    set* set = fac->set;
+    set[way].LRU_index += 1;
 }
 
 // find the way where the LRU is. static -> unsigned
 unsigned int lru(fully_associative_cache* fac)
 {
     set *set = fac->set;
-    unsigned int lru = 0;
+    unsigned int lru = 160; // any arbitrarily large number
+    unsigned int lru_target = FULLY_ASSOCIATIVE_NUM_WAYS -1;
 
     // Iterate over every way/set to find least LRU number.
     for(int i = 0; i < FULLY_ASSOCIATIVE_NUM_WAYS; i++) {
@@ -43,12 +44,15 @@ unsigned int lru(fully_associative_cache* fac)
         // update LRU for the highest LRU_index number.
         // (LRU_index gets incremented for every use in
         // mark_as_used.)
-        if (set[i].LRU_index > lru){
+
+        // Iterates only over valid sets as well
+        if ((set[i].LRU_index < lru)){//&& (set[i].mem != 0) && (set[i].valid == 1)){
+            lru_target = i;
             lru = set[i].LRU_index;
         }
     }
 
-    return lru;
+    return lru_target;
 
 }
 
@@ -73,12 +77,12 @@ void fac_store_word(fully_associative_cache* fac, void* addr, unsigned int val)
             // checks if the memory start address of the set corresponds
             // to the one in our address.
             if ((long) set[i].mem->start_addr == (long) mb_start_addr){
-
                 // Check if the right block is in array: hit
                 if((long) set[i].mem->start_addr == (long) mb_start_addr){
                     temp = set[i].mem -> data + addr_offt;
                     *temp = val;
                     set[i].dirty = 1;
+                    mark_as_used(fac,i);
                     return;
                 }
 
@@ -104,6 +108,7 @@ void fac_store_word(fully_associative_cache* fac, void* addr, unsigned int val)
 
                 // replacing what was in the filled cache with new value
 
+
             }
         }
     }
@@ -123,6 +128,8 @@ void fac_store_word(fully_associative_cache* fac, void* addr, unsigned int val)
     set[lru_target].valid = 1;
     set[lru_target].dirty = 1;
     set[lru_target].mem = mb;
+    set[lru_target].LRU_index = 1;
+    // mark_as_used(fac,lru_target);
 }
 
 
@@ -144,6 +151,7 @@ unsigned int fac_load_word(fully_associative_cache* fac, void* addr)
                 memory_block* mb = set[i].mem;
                 unsigned int* mb_addr = mb->data + addr_offt;
                 unsigned int* out = mb_addr;
+                mark_as_used(fac,i);
                 return(*out);
             }
         }
@@ -167,6 +175,7 @@ unsigned int fac_load_word(fully_associative_cache* fac, void* addr)
             set[i].mem = mb;
             set[i].valid = 1;
             set[i].dirty = 0;
+            mark_as_used(fac,i);
             return(*out);
         }
     }
@@ -192,7 +201,7 @@ unsigned int fac_load_word(fully_associative_cache* fac, void* addr)
     set[lru_target].mem = mb;
     set[lru_target].valid = 1;
     set[lru_target].dirty = 0;
-    printf("lru\n");
+    mark_as_used(fac,lru_target);
     // mark as used? maybe.
 
     unsigned int* mb_addr = mb->data; //+ addr_offt;
