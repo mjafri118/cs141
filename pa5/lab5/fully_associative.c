@@ -28,6 +28,9 @@ fully_associative_cache* fac_init(main_memory* mm)
 static void mark_as_used(fully_associative_cache* fac, int way)
 {
     set* set = fac->set;
+
+    // iterates through all the sets
+        // find the greatest LRU_index, set that
     set[way].LRU_index += 1;
 }
 
@@ -77,47 +80,62 @@ void fac_store_word(fully_associative_cache* fac, void* addr, unsigned int val)
             // checks if the memory start address of the set corresponds
             // to the one in our address.
             if ((long) set[i].mem->start_addr == (long) mb_start_addr){
+
+
                 // Check if the right block is in array: hit
-                if((long) set[i].mem->start_addr == (long) mb_start_addr){
-                    temp = set[i].mem -> data + addr_offt;
-                    *temp = val;
-                    set[i].dirty = 1;
-                    mark_as_used(fac,i);
-                    return;
-                }
+                // if((long) set[i].mem->start_addr == (long) mb_start_addr){
+                temp = set[i].mem -> data + addr_offt;
+                *temp = val;
+                set[i].dirty = 1;
+                mark_as_used(fac,i);
+                return;
+
+            }
+        }
 
 
-                // check if the cache is empty (miss)
-                else{
-                    ++fac->cs.w_misses;
+        // check if the cache is empty (miss)
+        else{
 
-                    // Load memory block from main memory
-                    memory_block* mb = mm_read(fac->mm, addr);
+            // mb_free(memory_block *mb)
 
-                    // Update relevant word in memory block
-                    unsigned int* mb_addr = mb->data ;//+ addr_offt;
+            ++fac->cs.w_misses;
 
-                    // Update
-                    *mb_addr = val;
-                    set[i].valid = 1;
-                    set[i].dirty = 1;
-                    set[i].LRU_index = 1;
-                    set[i].mem = mb;
+            // Load memory block from main memory
+            memory_block* mb = mm_read(fac->mm, mb_start_addr);
 
-                }
+            // Update relevant word in memory block
+            unsigned int* mb_addr = mb->data ;//+ addr_offt;
+
+            // Update
+            *mb_addr = val;
+            set[i].valid = 1;
+            set[i].dirty = 1;
+            set[i].LRU_index = 1;
+            set[i].mem = mb;
+            return;
+
+        }
 
                 // replacing what was in the filled cache with new value
 
 
-            }
-        }
     }
 
     // if we're here, the memory isn't in the set at all. miss.
     ++fac->cs.w_misses;
 
+
     // find next available way and put memory in there, marking as dirty.
     unsigned int lru_target = lru(fac);
+
+    // check if lru target is dirty
+    if (set[lru_target].dirty == 1){
+        printf("mm_write 134\n");
+        mm_write(fac->mm, set[lru_target].mem->start_addr, set[lru_target].mem);
+        mb_free(set[lru_target].mem);
+    }
+
     memory_block* mb = mm_read(fac->mm, mb_start_addr);
 
     // Update relevant word in memory block
@@ -190,13 +208,14 @@ unsigned int fac_load_word(fully_associative_cache* fac, void* addr)
 
         // write what's currently in lru
         // to main memory to save changes from cache.
-        mm_write(fac->mm, set[lru_target].mem, set[lru_target].mem);
+        printf("mm_write 210\n");
+        mm_write(fac->mm, set[lru_target].mem->start_addr, set[lru_target].mem);
         mb_free(set[lru_target].mem);
 
     }
 
     // overwrite LRU data with a read from main memory
-    memory_block* mb = mm_read(fac->mm, addr);
+    memory_block* mb = mm_read(fac->mm, mb_start_addr);
 
     set[lru_target].mem = mb;
     set[lru_target].valid = 1;

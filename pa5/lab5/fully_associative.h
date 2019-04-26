@@ -20,6 +20,7 @@ typedef struct fully_associative_cache
     main_memory* mm;
     cache_stats cs;
     set *set;
+    unsigned int LRU_count;
 
 } fully_associative_cache;
 
