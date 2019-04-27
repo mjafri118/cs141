@@ -30,16 +30,14 @@ static void mark_as_used(fully_associative_cache* fac, int way)
 {
     set* set = fac->set;
 
-    // iterates through all the sets
-        // find the greatest LRU_index, set that
-
     //If LRU is maxed out
-    // if(fac -> LRU_count == 4294967295){
-    //     for(int i=0; i < FULLY_ASSOCIATIVE_NUM_WAYS; i++){
-    //         //change index of every set
-    //     }
-    //     fac -> LRU_count -= 4294967278;
-    // }
+    if(fac -> LRU_count == 4294967295){
+        for(int i=0; i < FULLY_ASSOCIATIVE_NUM_WAYS; i++){
+            //change index of every set
+            set[i].LRU_index -= 4294967278;
+        }
+        fac -> LRU_count -= 4294967278;
+    }
     set[way].LRU_index = fac -> LRU_count;
 }
 
@@ -53,9 +51,8 @@ unsigned int lru(fully_associative_cache* fac)
     // Iterate over every way/set to find least LRU number.
     for(int i = 0; i < FULLY_ASSOCIATIVE_NUM_WAYS; i++) {
 
-        // update LRU for the highest LRU_index number.
-        // (LRU_index gets incremented for every use in
-        // mark_as_used.)
+        // update LRU for the lowest LRU_index number.
+        // Index with lowest LRU is flushed
 
         // Iterates only over valid sets as well
         if ((set[i].LRU_index < lru)){//&& (set[i].mem != 0) && (set[i].valid == 1)){
@@ -107,8 +104,6 @@ void fac_store_word(fully_associative_cache* fac, void* addr, unsigned int val)
         // check if the cache is empty (miss)
         else{
 
-            // mb_free(memory_block *mb)
-
             ++fac->cs.w_misses;
 
             // Load memory block from main memory
@@ -127,9 +122,6 @@ void fac_store_word(fully_associative_cache* fac, void* addr, unsigned int val)
             return;
 
         }
-
-                // replacing what was in the filled cache with new value
-
 
     }
 

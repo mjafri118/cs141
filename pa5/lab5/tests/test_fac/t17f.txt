@@ -1,5 +1,5 @@
 MM: Read 32 bytes at 0x0.
-Wrote to (nil): -1352877201
+Wrote to 0x0: -1352877201
 
 MM: Read 32 bytes at 0x8f00.
 Read from 0x8f0c: 113156297
@@ -51,7 +51,7 @@ MM: Read 32 bytes at 0x6560.
 Wrote to 0x6570: 1195464471
 
 MM: Read 32 bytes at 0x0.
-Read from (nil): -1352877201
+Read from 0x0: -1352877201
 
 *******************************************
 Write Hit Rate:		0% (0/8)

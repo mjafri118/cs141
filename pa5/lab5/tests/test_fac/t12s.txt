@@ -10,7 +10,7 @@ Read from 0x23b0: -427136193
 Read from 0x53b4: 1406182955
 
 *******************************************
-Write Hit Rate:		-nan% (0/0)
+Write Hit Rate:		nan% (0/0)
 Read Hit Rate:		25% (1/4)
 Total Hit Rate:		25% (1/4)
 Writes to Main Memory:	0

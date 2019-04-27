@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 #include "main_memory.h"
 #include "simple.h"
@@ -15,17 +16,26 @@
 #define MODE_SAC 3
 
 void print_stats(main_memory* mm, cache_stats cs)
-{   
+{
     int w_hits = cs.w_queries - cs.w_misses;
     int r_hits = cs.r_queries - cs.r_misses;
-    
-    double whr = (double) w_hits / (double) cs.w_queries * 100;
-    double rhr = (double) r_hits / (double) cs.r_queries * 100;
+
+    double whr, rhr;
+    if (cs.w_queries == 0) {
+        whr = NAN;
+    } else {
+        whr = (double) w_hits / (double) cs.w_queries * 100;
+    }
+    if (cs.r_queries == 0) {
+        rhr = NAN;
+    } else {
+        rhr = (double) r_hits / (double) cs.r_queries * 100;
+    }
 
     int t_hits = w_hits + r_hits;
     unsigned int t_queries = cs.w_queries + cs.r_queries;
     double thr = (double) t_hits / (double) t_queries * 100;
-    
+
     printf("*******************************************\n");
     printf("Write Hit Rate:\t\t%.0lf%% (%d/%d)\n", whr, w_hits, cs.w_queries);
     printf("Read Hit Rate:\t\t%.0lf%% (%d/%d)\n", rhr, r_hits, cs.r_queries);
@@ -42,7 +52,7 @@ int main(int argc, char* argv[])
         fprintf(stderr, "Usage: %s sc|dmc|fac|sac input_file\n", argv[0]);
         exit(1);
     }
-    
+
     int mode;
     if (strcmp(argv[1], "sc") == 0)
         mode = MODE_SC;
@@ -57,14 +67,14 @@ int main(int argc, char* argv[])
         fprintf(stderr, "Error: Mode must be sc, dmc, fac, or sac.\n");
         exit (2);
     }
-    
+
     FILE* input_file = fopen(argv[2], "r");
     if (input_file == 0)
     {
         fprintf(stderr, "Error: Could not open %s.\n", argv[2]);
         exit(3);
     }
-    
+
     main_memory* mm = mm_init();
     simple_cache* sc = 0;
     direct_mapped_cache* dmc = 0;
@@ -78,18 +88,18 @@ int main(int argc, char* argv[])
         fac = fac_init(mm);
     else if (mode == MODE_SAC)
         sac = sac_init(mm);
-    
+
     char* line = 0;
     size_t line_len = 0;
     unsigned int line_num = 0;
     while (getline(&line, &line_len, input_file) != -1)
     {
         ++line_num;
-        
+
         char RW;
         void* addr;
         unsigned int val;
-        
+
         int tolkens_found = sscanf(line, "%c %p %d", &RW, &addr, &val);
 
         if (strlen(line) != 1 && RW != '#')
@@ -111,7 +121,7 @@ int main(int argc, char* argv[])
                         fac_store_word(fac, addr, val);
                     else if (mode == MODE_SAC)
                         sac_store_word(sac, addr, val);
-                    printf("Wrote to %p: %d\n\n", addr, val);
+                    printf("Wrote to 0x%x: %d\n\n", (long) addr, val);
                 }
                 else
                 {
@@ -123,16 +133,16 @@ int main(int argc, char* argv[])
                         val = fac_load_word(fac, addr);
                     else if (mode == MODE_SAC)
                         val = sac_load_word(sac, addr);
-                    printf("Read from %p: %d\n\n", addr, val);
+                    printf("Read from 0x%x: %d\n\n", (long) addr, val);
                 }
             }
         }
-        
+
     }
     free(line);
-    
+
     fclose(input_file);
-    
+
     if (mode == MODE_SC)
     {
         print_stats(mm, sc->cs);
@@ -154,6 +164,6 @@ int main(int argc, char* argv[])
         sac_free(sac);
     }
     mm_free(mm);
-    
+
     return 0;
 }

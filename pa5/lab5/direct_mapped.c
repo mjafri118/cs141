@@ -30,11 +30,9 @@ direct_mapped_cache* dmc_init(main_memory* mm)
 // Units of return value: cache index, # sets to advance by
 static int addr_to_set(void* addr)
 {
-    // const int *address = &addr;
     int offset = ((long) addr/MAIN_MEMORY_BLOCK_SIZE) % DIRECT_MAPPED_NUM_SETS;
     // printf("Index: %d\n", offset);
     return offset;
-    // return (size_t) (addr - MAIN_MEMORY_START_ADDR) % MAIN_MEMORY_BLOCK_SIZE;
 }
 
 
