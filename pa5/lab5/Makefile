@@ -4,7 +4,7 @@ MODE=normal
 ifeq ($(MODE),drmem)
 	CFLAGS=-std=c11 -Wall -O3 -g -m32 -fno-inline -fno-omit-frame-pointer
 else
-	CFLAGS=-std=c11 -Wall -O3 -g
+	CFLAGS=-std=c11 -Wall -O3 -g 
 endif
 
 all: main

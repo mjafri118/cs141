@@ -121,7 +121,7 @@ int main(int argc, char* argv[])
                         fac_store_word(fac, addr, val);
                     else if (mode == MODE_SAC)
                         sac_store_word(sac, addr, val);
-                    printf("Wrote to 0x%x: %d\n\n", (long) addr, val);
+                    printf("Wrote to 0x%lx: %d\n\n", (long) addr, val);
                 }
                 else
                 {
@@ -133,7 +133,7 @@ int main(int argc, char* argv[])
                         val = fac_load_word(fac, addr);
                     else if (mode == MODE_SAC)
                         val = sac_load_word(sac, addr);
-                    printf("Read from 0x%x: %d\n\n", (long) addr, val);
+                    printf("Read from 0x%lx: %d\n\n", (long) addr, val);
                 }
             }
         }

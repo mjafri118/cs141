@@ -53,7 +53,7 @@ void mm_write(main_memory* mm, void* start_addr, memory_block* mb)
 
     memcpy(mm->data + (size_t) start_addr - MAIN_MEMORY_START_ADDR, mb->data, mb->size);
 
-    printf("MM: Wrote %zu bytes at 0x%x.\n", mb->size, (long) start_addr);
+    printf("MM: Wrote %zu bytes at 0x%lx.\n", mb->size, (long) start_addr);
 
     ++mm->w_queries;
 }
@@ -72,7 +72,7 @@ memory_block* mm_read(main_memory* mm, void* start_addr)
         = mb_new(start_addr, MAIN_MEMORY_BLOCK_SIZE,
                  mm->data + (size_t) start_addr - MAIN_MEMORY_START_ADDR);
 
-    printf("MM: Read %zu bytes at 0x%x.\n", result->size, (long) start_addr);
+    printf("MM: Read %zu bytes at 0x%lx.\n", result->size, (long) start_addr);
 
     ++mm->r_queries;
 
