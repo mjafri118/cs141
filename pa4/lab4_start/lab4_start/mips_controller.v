@@ -143,6 +143,8 @@
 					// multiplexer selects
 					// DC when doesn't show up in FSM
 					
+					$display("R TYPE\r\n");
+					
 					ALUOp_next <= 2'b10;
 					FunctControl_next <= 0;
 					
@@ -361,6 +363,7 @@
 			end	
 			
 			s6 : begin // state 6: execution R-type
+				$display("executing r-type");
 				// multiplexer selects
 				// DC when doesn't show up in FSM
 				RegDST_next <= 2'b01;
@@ -382,6 +385,8 @@
 			s7 : begin // state 7: write back R-type
 				// multiplexer selects
 				// DC when doesn't show up in FSM
+				
+				$display("State 7");
 				IorD_next <= 0;
 				ALUSrcA_next <= 2'b00;
 				ALUSrcB_next <= 3'b001;

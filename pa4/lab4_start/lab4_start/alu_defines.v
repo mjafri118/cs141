@@ -11,5 +11,6 @@
 `define ALU_OP_ADD 4'b0111
 `define ALU_OP_SUB 4'b1000
 `define ALU_OP_SRA 4'b1011
+`define ALU_OP_MULT 4'b1100
 
 `endif

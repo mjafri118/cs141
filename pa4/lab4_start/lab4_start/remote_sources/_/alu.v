@@ -26,6 +26,7 @@ module alu(x, y, op_code, z, equal, zero, overflow);
 			`ALU_OP_ADD : z = x + y;
 			`ALU_OP_SUB : z = x - y;
 			`ALU_OP_SRA : z = x_s >>> y_s;
+			`ALU_OP_MULT : z = x * y;
 			default : z = 0;
 		endcase
 	end

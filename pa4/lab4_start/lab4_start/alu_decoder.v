@@ -33,6 +33,12 @@ module alu_decoder(ALUOp, Funct, ALUControl);
 		 // R Type
 		 else if (ALUOp == 2'b10) begin
 			  case (Funct)
+					// multiply
+			      6'b011000: begin
+					    ALUControlIntl = 4'b1100;
+						 $display("Multiply ALU decode");
+					end
+						
 			      // add
 			      6'b100000: begin
 					    ALUControlIntl = 4'b0111;

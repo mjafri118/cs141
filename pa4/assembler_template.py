@@ -203,7 +203,7 @@ def r_typeassem(inst, operands):
     rs, rt, rd, shamt = ["0"]*4 #instantiate
 
     # inst rd, rs, rt
-    if inst in ["add","sub", "or", "xor", "nor", "slt","and"]:
+    if inst in ["add","sub", "or", "xor", "nor", "slt","and","mult"]:
         rs = str(registers[operands[1]])
         rt = str(registers[operands[2]])
         rd = str(registers[operands[0]])
