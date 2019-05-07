@@ -9,28 +9,32 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
+	
+	
 	module mips_controller(clk, rst, Funct, OpCode, MemtoReg, RegDST, IorD, PCSrc, ALUSrcB, ALUSrcA, IRWrite, MemWrite, PCWrite, Branch, RegWrite, ALUControl, Zero, Equal);
 	
 	//parameter definitions
 	
 	// local paramaters
 	// These are namespaces used for the states. 
-	localparam [3:0]  sr = 4'b1111, 
-							s0 = 4'b0000,
-							s1 = 4'b0001,
-							s2 = 4'b0010,
-							s3 = 4'b0011,
-							s4 = 4'b0100,
-							s5 = 4'b0101,
-							s6 = 4'b0110,
-							s7 = 4'b0111,
-							s8 = 4'b1000,
-							s9 = 4'b1001,
-						  s10 = 4'b1010,
-						  s11 = 4'b1011,
-						  s12 = 4'b1100,
-						  s13 = 4'b1101,
-						  s14 = 4'b1110;
+	localparam [4:0]  sr = 5'b01111, 
+							s0 = 5'b00000,
+							s1 = 5'b00001,
+							s2 = 5'b00010,
+							s3 = 5'b00011,
+							s4 = 5'b00100,
+							s5 = 5'b00101,
+							s6 = 5'b00110,
+							s7 = 5'b00111,
+							s8 = 5'b01000,
+							s9 = 5'b01001,
+						  s10 = 5'b01010,
+						  s11 = 5'b01011,
+						  s12 = 5'b01100,
+						  s13 = 5'b01101,
+						  s14 = 5'b01110,
+						  s15 = 5'b10000,
+						  s16 = 5'b10001;
 	
 	// INPUT
 	input wire clk, rst, Zero, Equal;
@@ -51,7 +55,7 @@
 
 	
 	// FSM Variables
-	reg [3:0] state, next_state; 
+	reg [4:0] state, next_state; 
 	
 	// Mux for Funct controls
 	two_mux #(
@@ -138,12 +142,11 @@
 			end
 			
 			s1 : begin // decode	
+		
 				// Go to R-Type FSM
 				if (OpCode == 6'b000000) begin
 					// multiplexer selects
 					// DC when doesn't show up in FSM
-					
-					$display("R TYPE\r\n");
 					
 					ALUOp_next <= 2'b10;
 					FunctControl_next <= 0;
@@ -275,7 +278,7 @@
 				// Enter BEQ and BNE instr
 				else if ((OpCode == 6'b000100) || (OpCode == 6'b000101)) begin
 					 ALUSrcA_next  <= 2'b01;
-					 ALUSrcB_next  <= 2'b000;
+					 ALUSrcB_next  <= 3'b000;
 					 ALUOp_next <= 2'b01;
 					 PCSrc_next <= 2'b01;
 					 Branch_next <= 0;
@@ -351,7 +354,7 @@
 			
 			s5  : begin
 				IorD_next <= 0;
-				MemWrite_next <= 1;
+				MemWrite_next <= 0;
 				// Register Enables
 				// if they don't show up, must be set as 0
 				IRWrite_next <= 0;
@@ -363,7 +366,6 @@
 			end	
 			
 			s6 : begin // state 6: execution R-type
-				$display("executing r-type");
 				// multiplexer selects
 				// DC when doesn't show up in FSM
 				RegDST_next <= 2'b01;
@@ -385,8 +387,6 @@
 			s7 : begin // state 7: write back R-type
 				// multiplexer selects
 				// DC when doesn't show up in FSM
-				
-				$display("State 7");
 				IorD_next <= 0;
 				ALUSrcA_next <= 2'b00;
 				ALUSrcB_next <= 3'b001;
@@ -447,7 +447,7 @@
 					PCWrite_next <= 0;
 					MemWrite_next <= 0;
 					Branch_next <= 0;
-					RegWrite_next <= 1;
+					RegWrite_next <= 0;
 					
 					next_state <= s10;
 				end
@@ -543,19 +543,70 @@
 			end
 			
 			s14: begin // state 14: BEQ true 
-				Branch_next <= 1'b0;
+				Branch_next <= 1'b1;
 				PCSrc_next <= 2'b00;
 				
 				// Register Enables
 				// if they don't show up, must be set as 0
-				IRWrite_next <= 0;
+				IRWrite_next <= 1;
 				PCWrite_next <= 0;
 				MemWrite_next <= 0;
 				RegWrite_next <= 0;
 				
-				next_state <= s10;
+				IorD_next <= 0;
+				ALUSrcA_next <= 2'b00;
+				ALUSrcB_next <= 3'b111;
+				ALUOp_next <= 2'b01;
+				PCSrc_next <= 2'b00;
+				FunctControl_next <= 0;
+				
+				next_state <= s15;
 			
 			end
+			
+			s15: begin
+				// multiplexer selects
+				// DC when doesn't show up in FSM
+				IorD_next <= 0;
+				ALUSrcA_next <= 2'b00;
+				ALUSrcB_next <= 3'b111;
+				ALUOp_next <= 2'b00;
+				PCSrc_next <= 2'b00;
+				FunctControl_next <= 0;
+				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 0;
+				PCWrite_next <= 1;
+				MemWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 0;
+				
+				next_state <= s16;
+			end
+			
+			s16: begin
+				// multiplexer selects
+				// DC when doesn't show up in FSM
+				IorD_next <= 0;
+				ALUSrcA_next <= 2'b00;
+				ALUSrcB_next <= 3'b111;
+				ALUOp_next <= 2'b00;
+				PCSrc_next <= 2'b00;
+				FunctControl_next <= 0;
+				
+				// Register Enables
+				// if they don't show up, must be set as 0
+				IRWrite_next <= 1;
+				PCWrite_next <= 0;
+				MemWrite_next <= 0;
+				Branch_next <= 0;
+				RegWrite_next <= 0;
+				
+				next_state <= sr;
+			end
+			
+			
 			
 			default : begin	// equivalent to s0
 				// multiplexer selects
@@ -588,4 +639,8 @@
 
 
 endmodule
+
+
+
+
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire

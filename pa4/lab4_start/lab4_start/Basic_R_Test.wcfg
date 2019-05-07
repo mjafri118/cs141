@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="25" />
+   <WVObjectSize size="26" />
    <wvobject fp_name="/test_mips_multicycle/rstb" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rstb</obj_property>
       <obj_property name="ObjectShortName">rstb</obj_property>
@@ -76,6 +76,11 @@
    <wvobject fp_name="/test_mips_multicycle/MIPS/Register_File/r17" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">r17[31:0]</obj_property>
       <obj_property name="ObjectShortName">r17[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips_multicycle/MIPS/Register_File/r18" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r18[31:0]</obj_property>
+      <obj_property name="ObjectShortName">r18[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_mips_multicycle/MIPS/ALU/x" type="array" db_ref_id="1">

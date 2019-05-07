@@ -36,7 +36,7 @@ module alu_decoder(ALUOp, Funct, ALUControl);
 					// multiply
 			      6'b011000: begin
 					    ALUControlIntl = 4'b1100;
-						 $display("Multiply ALU decode");
+//						 $display("Multiply ALU decode");
 					end
 						
 			      // add

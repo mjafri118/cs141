@@ -130,7 +130,7 @@ module mips_core(
 					.MemtoReg(MemtoReg), .RegDST(RegDst), .IorD(IorD), .PCSrc(PCSrc), .ALUSrcB(ALUSrcB), .ALUSrcA(ALUSrcA),
 					.IRWrite(IRWrite), .MemWrite(mem_wr_ena), .Zero(Zero), .Equal(Equal), .PCWrite(PCWrite), .Branch(Branch), .RegWrite(RegWrite), .ALUControl(ALUControl));
 		assign PCEn =  Branch | PCWrite;
-	//port definitions - customize for different bit widths
+	//port definitions - customize for different bit width
 
 
 endmodule

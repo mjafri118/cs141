@@ -29,19 +29,18 @@ static unsigned int ng4[] = {8U, 0U};
 static unsigned int ng5[] = {2U, 0U};
 static unsigned int ng6[] = {24U, 0U};
 static unsigned int ng7[] = {12U, 0U};
-static const char *ng8 = "Multiply ALU decode";
-static unsigned int ng9[] = {32U, 0U};
-static unsigned int ng10[] = {34U, 0U};
-static unsigned int ng11[] = {36U, 0U};
-static unsigned int ng12[] = {37U, 0U};
-static unsigned int ng13[] = {38U, 0U};
-static unsigned int ng14[] = {39U, 0U};
-static unsigned int ng15[] = {3U, 0U};
-static unsigned int ng16[] = {42U, 0U};
-static unsigned int ng17[] = {4U, 0U};
-static unsigned int ng18[] = {5U, 0U};
-static unsigned int ng19[] = {6U, 0U};
-static unsigned int ng20[] = {11U, 0U};
+static unsigned int ng8[] = {32U, 0U};
+static unsigned int ng9[] = {34U, 0U};
+static unsigned int ng10[] = {36U, 0U};
+static unsigned int ng11[] = {37U, 0U};
+static unsigned int ng12[] = {38U, 0U};
+static unsigned int ng13[] = {39U, 0U};
+static unsigned int ng14[] = {3U, 0U};
+static unsigned int ng15[] = {42U, 0U};
+static unsigned int ng16[] = {4U, 0U};
+static unsigned int ng17[] = {5U, 0U};
+static unsigned int ng18[] = {6U, 0U};
+static unsigned int ng19[] = {11U, 0U};
 
 
 
@@ -307,37 +306,37 @@ LAB30:    t21 = ((char*)((ng6)));
     if (t30 == 1)
         goto LAB31;
 
-LAB32:    t2 = ((char*)((ng9)));
+LAB32:    t2 = ((char*)((ng8)));
     t30 = xsi_vlog_unsigned_case_compare(t22, 6, t2, 6);
     if (t30 == 1)
         goto LAB33;
 
-LAB34:    t2 = ((char*)((ng10)));
+LAB34:    t2 = ((char*)((ng9)));
     t30 = xsi_vlog_unsigned_case_compare(t22, 6, t2, 6);
     if (t30 == 1)
         goto LAB35;
 
-LAB36:    t2 = ((char*)((ng11)));
+LAB36:    t2 = ((char*)((ng10)));
     t30 = xsi_vlog_unsigned_case_compare(t22, 6, t2, 6);
     if (t30 == 1)
         goto LAB37;
 
-LAB38:    t2 = ((char*)((ng12)));
+LAB38:    t2 = ((char*)((ng11)));
     t30 = xsi_vlog_unsigned_case_compare(t22, 6, t2, 6);
     if (t30 == 1)
         goto LAB39;
 
-LAB40:    t2 = ((char*)((ng13)));
+LAB40:    t2 = ((char*)((ng12)));
     t30 = xsi_vlog_unsigned_case_compare(t22, 6, t2, 6);
     if (t30 == 1)
         goto LAB41;
 
-LAB42:    t2 = ((char*)((ng14)));
+LAB42:    t2 = ((char*)((ng13)));
     t30 = xsi_vlog_unsigned_case_compare(t22, 6, t2, 6);
     if (t30 == 1)
         goto LAB43;
 
-LAB44:    t2 = ((char*)((ng16)));
+LAB44:    t2 = ((char*)((ng15)));
     t30 = xsi_vlog_unsigned_case_compare(t22, 6, t2, 6);
     if (t30 == 1)
         goto LAB45;
@@ -352,7 +351,7 @@ LAB48:    t2 = ((char*)((ng5)));
     if (t30 == 1)
         goto LAB49;
 
-LAB50:    t2 = ((char*)((ng15)));
+LAB50:    t2 = ((char*)((ng14)));
     t30 = xsi_vlog_unsigned_case_compare(t22, 6, t2, 6);
     if (t30 == 1)
         goto LAB51;
@@ -371,8 +370,6 @@ LAB56:    xsi_set_current_line(38, ng0);
     t28 = ((char*)((ng7)));
     t29 = (t0 + 1012);
     xsi_vlogvar_assign_value(t29, t28, 0, 0, 4);
-    xsi_set_current_line(39, ng0);
-    xsi_vlogfile_write(1, 0, 0, ng8, 1, t0);
     goto LAB55;
 
 LAB33:    xsi_set_current_line(43, ng0);
@@ -418,7 +415,7 @@ LAB61:    xsi_set_current_line(64, ng0);
 LAB43:    xsi_set_current_line(68, ng0);
 
 LAB62:    xsi_set_current_line(69, ng0);
-    t3 = ((char*)((ng15)));
+    t3 = ((char*)((ng14)));
     t4 = (t0 + 1012);
     xsi_vlogvar_assign_value(t4, t3, 0, 0, 4);
     goto LAB55;
@@ -426,7 +423,7 @@ LAB62:    xsi_set_current_line(69, ng0);
 LAB45:    xsi_set_current_line(73, ng0);
 
 LAB63:    xsi_set_current_line(74, ng0);
-    t3 = ((char*)((ng17)));
+    t3 = ((char*)((ng16)));
     t4 = (t0 + 1012);
     xsi_vlogvar_assign_value(t4, t3, 0, 0, 4);
     goto LAB55;
@@ -434,7 +431,7 @@ LAB63:    xsi_set_current_line(74, ng0);
 LAB47:    xsi_set_current_line(78, ng0);
 
 LAB64:    xsi_set_current_line(79, ng0);
-    t3 = ((char*)((ng18)));
+    t3 = ((char*)((ng17)));
     t4 = (t0 + 1012);
     xsi_vlogvar_assign_value(t4, t3, 0, 0, 4);
     goto LAB55;
@@ -442,7 +439,7 @@ LAB64:    xsi_set_current_line(79, ng0);
 LAB49:    xsi_set_current_line(83, ng0);
 
 LAB65:    xsi_set_current_line(84, ng0);
-    t3 = ((char*)((ng19)));
+    t3 = ((char*)((ng18)));
     t4 = (t0 + 1012);
     xsi_vlogvar_assign_value(t4, t3, 0, 0, 4);
     goto LAB55;
@@ -450,7 +447,7 @@ LAB65:    xsi_set_current_line(84, ng0);
 LAB51:    xsi_set_current_line(88, ng0);
 
 LAB66:    xsi_set_current_line(89, ng0);
-    t3 = ((char*)((ng20)));
+    t3 = ((char*)((ng19)));
     t4 = (t0 + 1012);
     xsi_vlogvar_assign_value(t4, t3, 0, 0, 4);
     goto LAB55;
